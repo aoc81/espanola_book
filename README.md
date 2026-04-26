@@ -2,6 +2,11 @@
 
 Repository for the Española book project, its public manuscript editions, the DOCX build pipeline, the website reader, source-link appendices, and the supporting design/methodology material.
 
+## License
+
+This repository is licensed under `CC BY-NC 4.0` for non-commercial reuse:
+https://creativecommons.org/licenses/by-nc/4.0/
+
 ## Repository layout
 
 - `manuscripts/` — canonical book editions by version and language

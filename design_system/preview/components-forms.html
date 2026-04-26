@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { display:flex; flex-direction:column; gap:6px; }
+  .label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); }
+  .input { background: transparent; border: none; border-bottom: 1px solid var(--ink-1); padding: 6px 0; font-family: var(--font-serif); font-size: 16px; color: var(--ink-0); outline: none; }
+  .input::placeholder { color: var(--ink-4); font-style: italic; }
+  .input:focus { border-bottom-color: var(--classified); }
+  .check { display:flex; align-items:center; gap:10px; font-family: var(--font-serif); font-size: 14px; color: var(--ink-1); }
+  .box { width: 16px; height: 16px; border: 1.5px solid var(--ink-1); border-radius: 0; display:inline-flex; align-items:center; justify-content:center; }
+  .box.checked::after { content:"✕"; font-family: var(--font-display); color: var(--classified); font-size: 14px; line-height: 1; font-weight: 700; }
+</style></head>
+<body>
+<div class="card">
+  <div class="grain"></div>
+  <div class="grid">
+    <div class="field"><span class="label">SUBJECT NAME</span><input class="input" value="Skif"></div>
+    <div class="field"><span class="label">CASE ID</span><input class="input" placeholder="UKR-ESP-…"></div>
+    <div class="field" style="grid-column: span 2;"><span class="label">EVIDENCE NOTES</span><input class="input" placeholder="Patch identifies 7th assault detachment…"></div>
+    <div style="grid-column: span 2; display:flex; gap:24px; padding-top:6px;">
+      <label class="check"><span class="box checked"></span>HUMINT verified</label>
+      <label class="check"><span class="box checked"></span>OSINT cross-referenced</label>
+      <label class="check"><span class="box"></span>Subject contacted</label>
+    </div>
+  </div>
+</div>
+</body></html>

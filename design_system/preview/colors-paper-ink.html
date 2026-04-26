@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .palette { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  .swatch { aspect-ratio: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 8px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .swatch .name { font-weight: 700; }
+  .swatch .hex { opacity: 0.8; }
+  .light { color: var(--ink-1); }
+  .dark { color: var(--paper-0); }
+</style></head>
+<body>
+<div class="card">
+  <div class="grain"></div>
+  <div class="palette">
+    <div class="swatch light" style="background:#f5f1ea;border:1px solid #cabfa8;"><div class="name">paper-0</div><div class="hex">#f5f1ea</div></div>
+    <div class="swatch light" style="background:#ebe5d9;"><div class="name">paper-1</div><div class="hex">#ebe5d9</div></div>
+    <div class="swatch light" style="background:#ddd5c5;"><div class="name">paper-2</div><div class="hex">#ddd5c5</div></div>
+    <div class="swatch light" style="background:#cabfa8;"><div class="name">paper-edge</div><div class="hex">#cabfa8</div></div>
+    <div class="swatch dark" style="background:#9a9384;"><div class="name">ink-4</div><div class="hex">#9a9384</div></div>
+    <div class="swatch dark" style="background:#6a6356;"><div class="name">ink-3</div><div class="hex">#6a6356</div></div>
+    <div class="swatch dark" style="background:#3a352d;"><div class="name">ink-2</div><div class="hex">#3a352d</div></div>
+    <div class="swatch dark" style="background:#1c1a16;"><div class="name">ink-1</div><div class="hex">#1c1a16</div></div>
+    <div class="swatch dark" style="background:#0d0c0a;"><div class="name">ink-0</div><div class="hex">#0d0c0a</div></div>
+    <div class="swatch dark" style="background:#0a0907;"><div class="name">dossier-0</div><div class="hex">#0a0907</div></div>
+    <div class="swatch dark" style="background:#14110d;"><div class="name">dossier-1</div><div class="hex">#14110d</div></div>
+    <div class="swatch dark" style="background:#1f1b15;"><div class="name">dossier-2</div><div class="hex">#1f1b15</div></div>
+  </div>
+</div>
+</body></html>

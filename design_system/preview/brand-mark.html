@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .frame { background: #0a0907; padding: 0; border: 1px solid #3a3327; display: flex; align-items: stretch; min-height: 220px; }
+  .seal-pane { flex: 0 0 220px; padding: 14px; display: flex; align-items: center; justify-content: center; border-right: 1px solid #3a3327; }
+  .seal-pane img { width: 100%; display: block; }
+  .word-pane { flex: 1; display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .word-pane img { width: 100%; display: block; }
+  .caption { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px 0; }
+  .lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); }
+  .stamp { font-family: var(--font-display); font-weight: 700; font-size: 9px; letter-spacing: 0.2em; padding: 3px 7px 2px; color: var(--classified); border: 2px solid var(--classified); transform: rotate(-3deg); display: inline-block; }
+</style></head>
+<body>
+<div class="card">
+  <div class="grain"></div>
+  <div class="frame">
+    <div class="seal-pane"><img src="../assets/marks/espanola-pirate-seal.svg" alt="Española pirate seal"></div>
+    <div class="word-pane"><img src="../assets/marks/espanola-wordmark.svg" alt="Española wordmark"></div>
+  </div>
+  <div class="caption">
+    <span class="lbl">Pirate seal · Cursive wordmark · Tokarev TT-33</span>
+    <span class="stamp">SUBJECT MARK</span>
+  </div>
+</div>
+</body></html>

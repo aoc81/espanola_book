@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200">
+  <defs>
+    <filter id="distress">
+      <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="2" seed="2"></feTurbulence>
+      <feDisplacementMap in="SourceGraphic" scale="1.1"></feDisplacementMap>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="600" height="200" fill="#0a0907"></rect>
+
+  
+  <g filter="url(#distress)" fill="#ece4d2">
+    <text x="40" y="120" font-family="&#39;Brush Script MT&#39;,&#39;Lucida Handwriting&#39;,&#39;Snell Roundhand&#39;,&#39;Apple Chancery&#39;,cursive" font-style="italic" font-weight="400" font-size="108" letter-spacing="2">Española</text>
+  </g>
+
+  
+  <g fill="#ece4d2" filter="url(#distress)" transform="translate(380 70)">
+    
+    <rect x="10" y="0" width="170" height="20" rx="1"></rect>
+    
+    <rect x="20" y="-3" width="6" height="3"></rect>
+    
+    <rect x="170" y="-3" width="4" height="3"></rect>
+    
+    <g fill="#0a0907">
+      <rect x="14" y="3" width="1.5" height="14"></rect>
+      <rect x="18" y="3" width="1.5" height="14"></rect>
+      <rect x="22" y="3" width="1.5" height="14"></rect>
+    </g>
+    
+    <path d="M4 0 L-8 -10 L-2 -14 L12 -2 Z"></path>
+    
+    <path d="M10 20 L180 20 L174 32 L24 32 Z"></path>
+    
+    <path d="M62 32 L62 44 L92 44 L92 32 Z" fill="#0a0907"></path>
+    
+    <path d="M58 32 L58 48 L96 48 L96 32 L92 32 L92 44 L62 44 L62 32 Z"></path>
+    
+    <line x1="72" y1="32" x2="72" y2="42" stroke="#ece4d2" stroke-width="2"></line>
+    
+    <path d="M40 32 L100 32 L94 90 L46 90 Z"></path>
+    
+    <g stroke="#0a0907" stroke-width="0.8" opacity="0.7">
+      <line x1="48" y1="44" x2="92" y2="44"></line>
+      <line x1="48" y1="52" x2="92" y2="52"></line>
+      <line x1="48" y1="60" x2="92" y2="60"></line>
+      <line x1="48" y1="68" x2="92" y2="68"></line>
+      <line x1="48" y1="76" x2="92" y2="76"></line>
+    </g>
+    
+    <rect x="44" y="88" width="52" height="5"></rect>
+  </g>
+
+  
+  <line x1="44" y1="142" x2="350" y2="142" stroke="#b81d13" stroke-width="2"></line>
+</svg>

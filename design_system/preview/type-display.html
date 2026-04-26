@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .specimen { padding: 14px; background: var(--paper-1); border: 1px solid var(--paper-edge); }
+  .specimen .label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .cover { font-family: var(--font-display); font-weight: 700; font-size: 56px; line-height: 0.9; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink-0); }
+  .h1 { font-family: var(--font-serif); font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: -0.01em; color: var(--ink-0); }
+</style></head>
+<body>
+<div class="card">
+  <div class="grain"></div>
+  <div class="grid">
+    <div class="specimen">
+      <div class="label"><span>Display · Oswald 700</span><span>cover · stamps</span></div>
+      <div class="cover">ESPAÑOLA</div>
+    </div>
+    <div class="specimen">
+      <div class="label"><span>Headline · Old Standard 700</span><span>h1 · h2</span></div>
+      <div class="h1">A unit forged on the terraces.</div>
+    </div>
+  </div>
+</div>
+</body></html>

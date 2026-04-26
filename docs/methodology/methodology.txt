@@ -1,0 +1,47 @@
+Methodology and Research Process
+
+This book began with a professional reflex and a personal interruption.
+
+It did not start as a neatly bounded book project on Española. It emerged from a broader investigation into Russian paramilitary ecosystems: volunteer units, pseudo-private military companies, donor networks, militia branding, intelligence-adjacent structures, and the informal actors that have helped shape Russia's side of the war in Ukraine. Within that wider landscape, Española stood out immediately. For a Spanish researcher, the name was impossible to pass over. It produced an irritation that quickly became a line of inquiry: why would a Russian formation adopt that word, that symbolic charge, that identity marker? What kind of unit wanted to be seen through that name? And what did that choice reveal about the mix of mythology, recruitment, propaganda, and self-invention at the heart of the group?
+
+That personal reaction mattered, and it remains part of the book's logic. It gave the project its first tension: the collision between a culturally loaded name and a brutal wartime organization. But curiosity alone was not enough. What followed was a structured, source-led, multilingual investigation built to answer a more serious question: what was Española actually for?
+
+The process that produced this book was iterative rather than linear.
+
+The material was first gathered as reporting substrate. Sources were collected, scraped, archived, translated, compared, and organized across multiple passes. Early drafting then turned that mass of material into provisional chapter structures. Those structures were revised as the evidence became clearer. In practice, the book developed across layers that are still visible in the project files: an initial reporting-heavy phase, a later phase that established tone and narrative rhythm, and a third phase that tightened the final architecture around the chapter index. This matters methodologically because the book was not written by taking finished conclusions and decorating them with sources afterward. It was built by moving repeatedly between evidence, chapter function, narrative shape, and revision.
+
+That chapter-first discipline shaped the writing process.
+
+Each chapter was treated not simply as a container of facts, but as a unit with a specific analytical task. The chapter index provided the governing architecture: the prologue introduces the contradiction of the brand at the front; the early chapters establish the stadium, hooliganism, Donbas, and Orlov as preconditions; the middle chapters explain organization, financing, propaganda, ideology, and battlefield role; the late chapters follow exposure, overreach, state reabsorption, disbandment, and the uses of uncertainty; and the epilogue returns to the larger question of what kind of state utility Española embodied. This meant that sources were selected not only for factual relevance, but also for what they allowed a given chapter to demonstrate. A source that was useful in a general research sense was not automatically useful in a given chapter. Relevance depended on chapter function.
+
+The source base was layered by design.
+
+The first layer was journalistic and investigative reporting, especially in Russian, Ukrainian, and English. This included independent media, exile and opposition outlets, mainstream coverage, specialist analytical writing, and long-form investigations that dealt with Española's personnel, battlefield claims, patrons, symbolism, command structure, and eventual dismantling. These sources were not flattened into a single category. Their evidentiary weight depended on attribution, independence, access, originality, and whether they added a genuinely new claim or simply repeated an already circulating narrative.
+
+The second layer consisted of primary-source platform material, above all Telegram and, where relevant, VK and adjacent social traces. These materials were collected and preserved as evidence of self-presentation, internal language, recruitment posture, symbolic vocabulary, myth-making, fundraising culture, and public claims of action. They were indispensable to understanding how Española wanted to be seen. They were not treated as automatically reliable proof of disputed events. In this project, Telegram functioned primarily as an internal voice layer: useful for rhetoric, texture, identity, and timing, but insufficient on its own for strong factual claims unless corroborated elsewhere.
+
+The third layer came from structured monitoring across open platforms and media ecosystems. This allowed the project to track not only the unit itself, but the wider information environment around it: amplification by state and pro-state channels, moments of narrative convergence, the spread of key names and claims, and changes in how the formation was publicly framed over time. That layer was especially useful for understanding propaganda, visibility, and political utility rather than just battlefield chronology.
+
+The fourth layer included registries, sanctions databases, archival captures, tertiary summaries, and structured reference materials that helped stabilize entity names, aliases, affiliations, timelines, and institutional references. These sources rarely settled contested issues on their own, but they were important for verification, disambiguation, and timeline control.
+
+The book also draws on analytical and intelligence-style material, including openly hostile or adversarial source environments. Those sources were useful for leads, structure, names, and hypotheses, but they were handled cautiously when they moved from documented reporting into polemic, strategic messaging, or weakly sourced accusation. The same skepticism was applied in the opposite direction to self-promotional or pro-brigade materials. Source value was never assigned by sympathy. It was assigned by what the source could legitimately establish and by how far its claims survived comparison with other evidence.
+
+The writing process followed a consistent evidentiary rule: distinguish claim types before turning them into prose.
+
+Documented facts were stated directly when supported across credible material. Attribution-dependent claims remained attributed. Contested or weakly supported claims were marked as uncertain. Self-descriptions by Española or affiliated actors were treated as evidence of self-understanding and public messaging unless independently corroborated. This distinction was not cosmetic. It was necessary in a source environment saturated by propaganda, myth-making, and the strategic ambiguity typical of state-adjacent armed structures.
+
+The book was also built through a deliberate interaction between human research and AI-assisted drafting.
+
+AI was not used as an authority on facts. It was used to accelerate organization, comparison, translation, structural testing, and editorial refinement inside a human-led research workflow. In practical terms, AI tools helped generate study guides from collected materials, compare recurring themes across source sets, test alternative chapter organizations, tighten chapter transitions, and improve prose without replacing evidentiary judgment. Translation support was particularly important for moving across Russian-, Ukrainian-, and English-language material at speed. But AI outputs were treated as provisional unless anchored back to source material. The researcher, not the model, decided what counted as evidence, where ambiguity remained, and how strongly any claim could be made.
+
+This project was therefore neither purely traditional reportage nor automated synthesis.
+
+It was a hybrid investigative process in which open-source collection, source curation, multilingual comparison, and iterative human editing were amplified by AI tools used as assistants rather than arbiters. That workflow made it possible to handle a large, noisy, multilingual archive while keeping the prose readable and the analytical structure coherent. It also helps explain why the book moves as it does: from scenes to systems, from personalities to institutions, from symbols to mechanisms of control.
+
+Several limitations remain essential to state openly.
+
+First, the source environment is contaminated by propaganda, performative messaging, rumor, and selective disclosure from all sides. Second, battlefield narratives are often unstable, whether because of exaggeration, compression, or outright mythologization. Third, relationships involving Redut, state actors, donors, patrons, and internal command channels are only partially visible through open sources. Fourth, AI-assisted translation and synthesis increase speed and breadth, but they do not eliminate ambiguity. When the evidence remained uneven, the method was to preserve uncertainty rather than smooth it away.
+
+That choice defines the book as a whole.
+
+The objective was not to manufacture certainty where the record does not allow it. It was to produce the most rigorous narrative reconstruction possible from open sources while remaining honest about what can be known, what can only be inferred, and what remains unresolved. If the book succeeds, it will do so because a fragmented and manipulated field of evidence was assembled carefully enough to make structure visible without pretending that every shadow can be filled in.

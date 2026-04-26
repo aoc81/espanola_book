@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Española — Dossier № UKR-ESP-17</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+  html, body { margin: 0; background: var(--dossier-0); color: var(--dossier-fg-0); }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="Components.jsx"></script>
+<script type="text/babel">
+const { DossierShell, DossierHeader, Sidebar, SubjectGrid, EvidenceList, MapPanel, DetailPanel } = window;
+const { useState } = React;
+
+function App() {
+  const [chapter, setChapter] = useState(3);
+  const [selected, setSelected] = useState("04");
+  return (
+    <DossierShell>
+      <DossierHeader />
+      <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", minHeight: "calc(100vh - 60px)" }}>
+        <Sidebar chapter={chapter} setChapter={setChapter} />
+        <main style={{ padding: "28px 32px 60px", overflow: "auto" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 22 }}>
+            <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 38, letterSpacing: "0.04em", textTransform: "uppercase", margin: 0, color: "var(--dossier-fg-0)" }}>
+              Subjects of interest
+            </h1>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dossier-fg-2)" }}>
+              6 SUBJECTS · 4 VERIFIED · 2 UNCONFIRMED
+            </div>
+          </div>
+          <SubjectGrid selected={selected} setSelected={setSelected} />
+          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 22, marginTop: 28 }}>
+            <MapPanel />
+            <DetailPanel subjectNum={selected} />
+          </div>
+          <div style={{ marginTop: 22 }}>
+            <EvidenceList />
+          </div>
+        </main>
+      </div>
+    </DossierShell>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

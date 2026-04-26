@@ -1,0 +1,119 @@
+Appendix — Reference Links Guide
+
+This appendix is designed as a reader-facing source map rather than as a formal academic bibliography. It gathers the principal archived materials used in the project and points, where available, to the original publication URL. In the final book package, these URLs can be rendered as clickable hyperlinks.
+
+Two cautions matter.
+
+First, inclusion here does not mean that every source was treated as equally reliable. The book's method depends on comparison, attribution, and explicit handling of bias. Second, some materials were preserved as local archives, mirrors, or platform captures. Where no clean canonical URL was embedded in the saved file, the source is listed as a local archive or with the best recoverable public link.
+
+Core reporting and investigations
+
+BBC News Russian, "Армия на полставки".  
+https://www.bbc.com/russian/news-67454788
+
+Cherta Media, "Кто такие ЧВК «Эспаньола»? Фанаты на войне".  
+https://cherta.media/story/fans-of-war/
+
+Current Time / Radio Svoboda, "ASTRA: Командира «Эспаньолы» Орлова убили, вероятно, при задержании".  
+https://www.svoboda.org/a/astra-komandir-espanjoly-orlov-byl-ubit-pri-popytke-zaderzhaniya/33630161.html
+
+EL PAIS English, "Russian ultranationalism, inflamed by the killing of the hooligan commander 'Spaniard'".  
+https://english.elpais.com/international/2025-12-23/russian-ultranationalism-inflamed-by-the-killing-of-the-hooligan-commander-spaniard.html
+
+The Guardian, "Warning to others: murky death of militia leader as Kremlin reasserts control".  
+https://www.theguardian.com/world/2025/dec/24/militia-leader-murky-death-stanislav-orlov-russia-kremlin-control
+
+The Insider, "Российская бригада «Эспаньола»... объявила о расформировании".  
+https://theins.ru/news/285526
+
+Kyiv Post, "'Espanola,' Russian Ultras Militia in Ukraine, Disbands".  
+https://www.kyivpost.com/post/61407
+
+Meduza, "The neo-Nazi de-Nazifiers".  
+https://meduza.io/en/feature/2023/03/14/the-neo-nazi-de-nazifiers
+
+Meduza, "Española's patron revealed".  
+https://meduza.io/en/feature/2024/03/04/espanola-s-patron-revealed
+
+Meduza, "В войне в Украине участвует бригада «Эспаньола»..."  
+https://meduza.io/feature/2024/09/07/v-voyne-v-ukraine-uchastvuet-batalon-espanola-sformirovannyy-preimuschestvenno-iz-rossiyskih-futbolnyh-fanatov-fotografii
+
+Metro, "Who are the Russian football hooligans fighting for Putin in Ukraine?"  
+https://metro.co.uk/2024/11/07/russian-football-hooligans-fighting-putin-ukraine-21952544/
+
+The Moscow Times, "Leader of Far-Right Russian Group Fighting in Ukraine Dies in Unknown Circumstances".  
+https://www.themoscowtimes.com/2025/12/19/leader-of-far-right-russian-group-fighting-in-ukraine-dies-in-unknown-circumstances-a91492
+
+Novaya Gazeta Europe, "Появились «футболисты» в окопах под огнем".  
+https://novayagazeta.eu/articles/2023/08/13/poiavilis-futbolisty-v-okopakh-pod-ognem
+
+Novaya Gazeta Europe, "Командир-200".  
+https://novayagazeta.eu/articles/2025/12/20/komandir-200
+
+RTVI, "Командир «Эспаньолы» Станислав Орлов жив".  
+https://rtvi.com/stories/komandir-espanoly-stanislav-orlov-zhiv/
+
+Analytical, registry, and contextual sources
+
+amalantra.ru, "Бригада «Эспаньола»: участие в СВО, состав, численность и рекрутинг".  
+https://amalantra.ru/brigada-espanola/
+
+Dialnet, "La Amenaza Hooligan".  
+Local PDF archive: `sources/Dialnet-LaAmenazaHooligan-9879235.pdf`
+
+Evocation, "Stanislav Orlov of Espanyol kills Ukrainian civilians".  
+https://evocation.info/en/stanislav-orlov/
+
+GNET, "Española: Russia's Far-Right Hooligan Militia and Its Online Activities".  
+https://gnet-research.org/2024/08/09/espanola-russias-far-right-hooligan-militia-and-its-online-activities/
+
+ISW, "Russian Offensive Campaign Assessment, December 9, 2024".  
+https://understandingwar.org/research/russia-ukraine/russian-offensive-campaign-assessment-december-9-2024/
+
+Jamestown Foundation, "Española: Russia's Premier Soccer Paramilitary Group".  
+https://jamestown.org/espanola-russias-premier-soccer-paramilitary-group/
+
+Jamestown Foundation, "Mikhail 'Pitbull' Turkanov: The Rise of Russian Soccer Hooligan Unit 'Española' in Ukraine".  
+https://jamestown.org/mikhail-pitbull-turkanov-the-rise-of-russian-soccer-hooligan-unit-espanola-in-ukraine/
+
+Jamestown Foundation, "Kremlin Continues to Eliminate PMCs and Semi-Autonomous Volunteer Units".  
+https://jamestown.org/kremlin-continues-to-eliminate-pmcs-and-semi-autonomous-volunteer-units/
+
+Jamestown Foundation, "Alekseev Assassination Attempt Reveals Russian Security Service Cracks".  
+https://jamestown.org/alekseev-assassination-attempt-reveals-russian-security-service-cracks/
+
+MEMRI archive capture, "Neo-Nazi Espanola Brigade Raise Funds for Drones..."  
+https://archive.is/2025.05.20-004748/https://www.memri.org/dttm/neo-nazi-espanola-brigade-raise-funds-drones-and-other-equipment-through-charitable-foundation
+
+OpenSanctions, "PMC ESPANIOLA".  
+https://www.opensanctions.org/entities/NK-2wFskUeZg9ziFcgR2fdQvu/
+
+Ukrainska Pravda, "Russian Redut Private Military Company recruits women into assault units for war".  
+https://www.pravda.com.ua/eng/news/2023/11/28/7430714/
+
+Wikipedia, "Espanola (brigade)".  
+https://en.wikipedia.org/wiki/Espanola_(brigade)
+
+Wikipedia, "Эспаньола (бригада)".  
+https://ru.wikipedia.org/wiki/%D0%AD%D1%81%D0%BF%D0%B0%D0%BD%D1%8C%D0%BE%D0%BB%D0%B0_(%D0%B1%D1%80%D0%B8%D0%B3%D0%B0%D0%B4%D0%B0)
+
+Platform and channel sources
+
+Official Española Telegram archive page saved in the project.  
+https://t.me/s/spainrus
+
+Official Española Telegram channel.  
+https://t.me/spainrus
+
+Telegram text archives preserved locally in `sources/tg_channels/`:
+`marine_esp.txt`
+`nashi_parnii.txt`
+`olympicPitbull.txt`
+`spainrus.txt`
+`valkyriyaESP.txt`
+
+These Telegram text files were used primarily as evidence of internal language, self-presentation, symbolism, fundraising rhetoric, and public claims. They should not be treated as stand-alone verification for disputed factual claims.
+
+Local-only or unresolved archive items
+
+Some saved files remain useful as archived evidence even where the canonical public URL was not cleanly recoverable from the local copy. Those can still be cited from the project archive if needed, but they should be normalized before final publication if you want a fully standardized link appendix.

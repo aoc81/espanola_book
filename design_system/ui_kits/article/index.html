@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Española — From the terraces to the trenches</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+  html, body { margin: 0; background: var(--paper-0); color: var(--ink-1); }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    background-image: url("../../assets/paper-noise.svg");
+    background-size: 320px 320px; opacity: 0.04; mix-blend-mode: multiply;
+  }
+  a { color: var(--link); }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="Components.jsx"></script>
+<script type="text/babel">
+const { Masthead, CoverHero, Dek, DropCapParagraph, BodyParagraph, PullQuote, Figure, EvidenceCard, ChapterMark, Footer } = window;
+
+function Article() {
+  return (
+    <>
+      <Masthead />
+      <CoverHero />
+      <Dek />
+
+      <DropCapParagraph>
+        In the autumn of 2022, a band of Russian football ultras began circulating videos from the Donbas — black banners, skull patches, the same chants once sung from the terraces of Spartak Moscow. Within eighteen months, those videos had hardened into a brand: <em>Española</em>, a paramilitary formation with its own press service, its own iconography, and an opaque chain of command.
+      </DropCapParagraph>
+      <BodyParagraph>
+        The unit's founder, who goes by the call-sign "Spaniard," had spent two decades organizing fan groups before crossing into Donetsk Oblast. The men who followed him brought with them the visual grammar of European hooligan firms — patches, flags, knife-fight posture — and grafted it onto the standard kit of a Russian volunteer assault detachment.
+      </BodyParagraph>
+      <BodyParagraph>
+        What emerged is a hybrid almost without precedent in this war: a formation that recruits through Telegram channels read by football fans, fights under a skull-and-banner crest, and answers — formally — to no one in the regular army.
+      </BodyParagraph>
+
+      <PullQuote attribution={'"SKIF", QUOTED IN INTERCEPTED RADIO TRANSMISSION · 14.02.2024'}>
+        We were a firm before we were a unit. The patches changed. The men did not.
+      </PullQuote>
+
+      <Figure
+        src="../../assets/cover-hero.png"
+        evidence="EVIDENCE 04"
+        caption="A volunteer with the Española formation, identified by call-sign 'Skif', at a forward position east of Kreminna. Photograph released by the unit's own press service; date and location verified using satellite imagery and shadow analysis."
+      />
+
+      <BodyParagraph>
+        The composition reads less like a military photograph than like a hooligan firm's group portrait — flares to the left, kalashnikovs to the right, a single fighter with his back to the camera and the unit patch displayed across his shoulders. That this is a deliberate choice, and not an accident of staging, is one of the central claims of this investigation.
+      </BodyParagraph>
+
+      <EvidenceCard
+        num="04"
+        title="What we verified"
+        lines={[
+          "Patch matches the Española insignia released on Telegram channel @esp_unit on 11.02.2024.",
+          "Stadium floodlights in the left-frame match Avanhard Stadium, Kreminna (51m mast spacing).",
+          "Shadow length consistent with 14:20 local time, ±20 min, on the date claimed by the unit."
+        ]}
+      />
+
+      <ChapterMark num="03" title="The brand, before the bullets." />
+
+      <BodyParagraph>
+        To understand how Española arrived at this image — bone-coloured paper, ink-black type, a single bar of red — one has to begin not in 2022, but two decades earlier, in the terraces.
+      </BodyParagraph>
+
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Article />);
+</script>
+</body>
+</html>

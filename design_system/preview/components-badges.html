@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .pill { display:inline-flex; align-items:center; gap:6px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 10px; border-radius: 1px; border: 1px solid currentColor; }
+  .pill .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .stamp { font-family: var(--font-display); font-weight:700; font-size: 11px; letter-spacing: 0.2em; padding: 4px 8px 3px; color: var(--classified); border: 2px solid var(--classified); transform: rotate(-3deg); display:inline-block; }
+  .ribbon { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper-0); background: var(--ink-0); padding: 4px 10px; }
+  .redact { background: #0d0c0a; color: #0d0c0a; padding: 0 0.4em; user-select: none; }
+</style></head>
+<body>
+<div class="card">
+  <div class="grain"></div>
+  <div class="row" style="margin-bottom:14px;">
+    <span class="pill" style="color: var(--classified);"><span class="dot"></span>ACTIVE</span>
+    <span class="pill" style="color: var(--field-green);"><span class="dot"></span>VERIFIED</span>
+    <span class="pill" style="color: var(--ink-3);"><span class="dot"></span>UNCONFIRMED</span>
+    <span class="pill" style="color: var(--map-blue);"><span class="dot"></span>OSINT</span>
+  </div>
+  <div class="row">
+    <span class="stamp">CLASSIFIED</span>
+    <span class="stamp" style="transform:rotate(2deg);">DOSSIER № 17</span>
+    <span class="ribbon">CASE FILE · UKR-ESP-17</span>
+    <span style="font-family:var(--font-serif);font-size:14px;color:var(--ink-1)">Witness names: <span class="redact">REDACTED████</span> and <span class="redact">REDACTED██</span>.</span>
+  </div>
+</div>
+</body></html>

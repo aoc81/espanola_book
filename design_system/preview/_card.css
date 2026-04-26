@@ -1,0 +1,42 @@
+/* Shared card frame for preview cards in the Design System tab. */
+@import url('../colors_and_type.css');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+}
+.card {
+  width: 700px;
+  box-sizing: border-box;
+  padding: 24px 28px;
+  background: var(--paper-0);
+  position: relative;
+  overflow: hidden;
+}
+.card.dark {
+  background: var(--dossier-0);
+  color: var(--dossier-fg-0);
+}
+.card .grain {
+  position: absolute; inset: 0;
+  background-image: url("../assets/paper-noise.svg");
+  background-size: 320px 320px;
+  opacity: 0.05;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.card.dark .grain { mix-blend-mode: screen; opacity: 0.08; }
+.row { display: flex; gap: 12px; align-items: stretch; }
+.col { display: flex; flex-direction: column; gap: 8px; }
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.card.dark .label-mono { color: var(--dossier-fg-2); }

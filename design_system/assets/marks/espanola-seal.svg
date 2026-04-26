@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <filter id="rough">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="3"></feTurbulence>
+      <feDisplacementMap in="SourceGraphic" scale="1.2"></feDisplacementMap>
+    </filter>
+  </defs>
+  <g filter="url(#rough)" fill="none" stroke="#ece4d2" stroke-width="2.2">
+    
+    <circle cx="100" cy="100" r="86"></circle>
+    <circle cx="100" cy="100" r="78"></circle>
+    
+  </g>
+  <g fill="#ece4d2">
+    
+    <path d="M100 56c-22 0-38 16-38 38 0 12 5 22 13 28v10c0 3 2 5 5 5h6v-7h6v7h16v-7h6v7h6c3 0 5-2 5-5v-10c8-6 13-16 13-28 0-22-16-38-38-38zm-14 36a7 7 0 1 1 0 14 7 7 0 0 1 0-14zm28 0a7 7 0 1 1 0 14 7 7 0 0 1 0-14zm-19 22h10l-2 8h-6l-2-8z"></path>
+    
+    <path d="M44 138l112 18-2 6-112-18zM44 158l112-18 2 6-112 18z" opacity="0.9"></path>
+    
+    <path id="arc" d="M30 100a70 70 0 0 1 140 0" fill="none"></path>
+    <text font-family="Oswald, Impact, sans-serif" font-weight="700" font-size="14" letter-spacing="6" fill="#ece4d2">
+      <textPath href="#arc" startOffset="50%" text-anchor="middle">ESPAÑOLA · UNIDAD</textPath>
+    </text>
+  </g>
+</svg>

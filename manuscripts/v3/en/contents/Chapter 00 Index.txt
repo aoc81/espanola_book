@@ -1,0 +1,30 @@
+From Hooligans to War Machines
+
+Prologue — The Brand at the Front
+1. Before the War: The Stadium as a Political Incubator
+2. Stanislav Orlov and the Making of "The Spaniard"
+3. From Terrace to Trench
+4. Donbas as Laboratory
+5. Rebranding Violence: The Birth of Espanola
+6. The Humanitarian Wing
+7. Contracts, Brokers, and the Redut Interface
+8. Who Paid for the Brigade?
+9. The Propaganda Battalion
+10. Pitbull and the Faces of the Formation
+11. The Far Right in Uniform
+12. The Unit as Military Experiment
+13. Mariupol, Bakhmut, Avdiivka
+14. A Private Army, but Not Quite
+15. After Wagner: Why the Kremlin Needed Units Like This
+16. Conflict, Exposure, and Overreach
+17. The State Reclaims the Monopoly
+18. Disbandment, Death, and the Uses of Uncertainty
+Epilogue — What Espanola Was Really For
+Appendix — Reference Links Guide
+
+Editorial baseline
+
+This version follows the architecture in `chapters.md`.
+It preserves `v2` as the tonal base and treats `v1` as reporting substrate.
+Telegram material is used as evidence of self-fashioning and internal language, not as a standalone factual backbone.
+Reported allegations remain attributed where independent corroboration is incomplete.

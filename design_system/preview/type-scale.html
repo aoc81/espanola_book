@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .scale { display: grid; grid-template-columns: 80px 1fr 90px; gap: 12px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--paper-edge); }
+  .scale:last-child { border-bottom: none; }
+  .token { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+  .px { font-family: var(--font-data); font-size: 11px; color: var(--ink-3); text-align: right; }
+  .specimen { font-family: var(--font-serif); color: var(--ink-0); line-height: 1.05; }
+</style></head>
+<body>
+<div class="card">
+  <div class="grain"></div>
+  <div class="scale"><span class="token">--fs-h1</span><span class="specimen" style="font-size:40px;font-weight:700;letter-spacing:-0.01em">A unit forged.</span><span class="px">40 / 1.15</span></div>
+  <div class="scale"><span class="token">--fs-h2</span><span class="specimen" style="font-size:28px;font-weight:700">Inside the firm.</span><span class="px">28 / 1.2</span></div>
+  <div class="scale"><span class="token">--fs-h3</span><span class="specimen" style="font-family:var(--font-display);font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:0.22em">CHAPTER 02</span><span class="px">20 / 1.3</span></div>
+  <div class="scale"><span class="token">--fs-body</span><span class="specimen" style="font-size:18px">From the terraces to the trenches.</span><span class="px">18 / 1.55</span></div>
+  <div class="scale"><span class="token">--fs-meta</span><span class="specimen" style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase">CASE FILE · UKR-ESP-17</span><span class="px">12 / 1.6</span></div>
+</div>
+</body></html>

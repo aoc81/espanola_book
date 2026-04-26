@@ -1,0 +1,34 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .demo { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); text-align: center; line-height: 1.4; }
+  .paper-card { width: 180px; height: 80px; background: #ddd5c5; box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 12px 28px -16px rgba(20,17,13,0.25); border-radius: 2px; }
+  .dossier-card { width: 180px; height: 80px; background: #14110d; border: 1px solid #3a3327; box-shadow: 0 2px 0 rgba(0,0,0,0.4), 0 24px 48px -20px rgba(0,0,0,0.7); border-radius: 0; }
+  .rules { display:flex; flex-direction:column; gap:14px; padding-top:6px; width:180px; }
+  .rules > div { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); padding-bottom:4px; }
+  .hair { border-bottom: 1px solid #cabfa8; }
+  .solid { border-bottom: 1px solid #1c1a16; }
+  .double { border-bottom: 3px double #1c1a16; padding-bottom: 6px; }
+</style></head>
+<body>
+<div class="card">
+  <div class="grain"></div>
+  <div class="grid">
+    <div class="demo">
+      <div class="paper-card"></div>
+      <div class="label">shadow-paper · radius 2px</div>
+    </div>
+    <div class="demo">
+      <div class="dossier-card"></div>
+      <div class="label">shadow-dossier · radius 0</div>
+    </div>
+    <div class="rules">
+      <div class="hair">--rule-soft / 1px / paper-edge</div>
+      <div class="solid">--rule-hair / 1px / ink-1</div>
+      <div class="double">--rule-double / 3px double</div>
+    </div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css">
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pcard { background: var(--paper-2); padding: 18px 20px; box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 12px 28px -16px rgba(20,17,13,0.25); border-radius: 2px; position:relative; }
+  .pcard::before { content:""; display:block; height:1px; background: var(--ink-1); margin-bottom: 12px; }
+  .eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--classified); margin-bottom: 6px; }
+  .ph { font-family: var(--font-serif); font-weight: 700; font-size: 19px; line-height: 1.2; color: var(--ink-0); margin: 0 0 6px; }
+  .pd { font-family: var(--font-serif); font-size: 13px; line-height: 1.5; color: var(--ink-2); margin: 0; }
+  .dcard { background: #14110d; color: #ece4d2; border: 1px solid #3a3327; padding: 0; box-shadow: 0 2px 0 rgba(0,0,0,0.4), 0 24px 48px -20px rgba(0,0,0,0.7); }
+  .dheader { display:flex; justify-content:space-between; align-items:center; padding: 8px 14px; background: #1f1b15; border-bottom: 1px solid #3a3327; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .dheader .red { color: #b81d13; }
+  .dbody { padding: 16px 18px; }
+  .dh { font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 6px; }
+  .dd { font-family: var(--font-serif); font-size: 13px; line-height: 1.5; color: #b8ad95; margin: 0; }
+</style></head>
+<body>
+<div class="card">
+  <div class="grain"></div>
+  <div class="grid">
+    <div class="pcard">
+      <div class="eyebrow">CHAPTER 02</div>
+      <h3 class="ph">From the terraces to the trenches.</h3>
+      <p class="pd">How a Spartak Moscow ultras chapter rebranded itself as a battlefield brigade.</p>
+    </div>
+    <div class="dcard">
+      <div class="dheader"><span>FILE № UKR-ESP-17</span><span class="red">● ACTIVE</span></div>
+      <div class="dbody">
+        <h3 class="dh">SUBJECT 04 — "SKIF"</h3>
+        <p class="dd">Identified via patch insignia and call-sign in three intercepted radio transmissions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

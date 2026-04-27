@@ -1,0 +1,218 @@
+/* ==========================================================================
+   ESPAÑOLA — Colors & Type
+   Editorial investigation aesthetic: NYT long-form × redacted dossier ×
+   Eastern-European war reportage. Bone paper, ink black, classified-stamp red.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap');
+
+:root {
+  /* ---------- COLOR — Paper / Ink (light, NYT editorial) ---------- */
+  --paper-0: #f5f1ea;          /* bone — page background */
+  --paper-1: #ebe5d9;          /* aged paper — sidebars, pull-quote bg */
+  --paper-2: #ddd5c5;          /* deeper kraft — card surfaces */
+  --paper-edge: #cabfa8;       /* paper edge / fold rule */
+
+  --ink-0: #0d0c0a;            /* near-black, headlines */
+  --ink-1: #1c1a16;            /* body */
+  --ink-2: #3a352d;            /* secondary body */
+  --ink-3: #6a6356;            /* metadata, captions */
+  --ink-4: #9a9384;            /* faint, timestamps */
+
+  /* ---------- COLOR — Dossier / Dark mode (intelligence file) ---------- */
+  --dossier-0: #0a0907;        /* deep black, cover bg */
+  --dossier-1: #14110d;        /* card surface */
+  --dossier-2: #1f1b15;        /* raised surface */
+  --dossier-3: #2c2720;        /* hover */
+  --dossier-rule: #3a3327;     /* hairline rule on dark */
+  --dossier-fg-0: #ece4d2;     /* primary text on dark — bone */
+  --dossier-fg-1: #b8ad95;     /* secondary text on dark */
+  --dossier-fg-2: #7d7460;     /* tertiary on dark */
+
+  /* ---------- COLOR — Accents (sparingly used) ---------- */
+  --classified: #b81d13;       /* CLASSIFIED stamp red — never bright pure red */
+  --classified-deep: #7a1209;  /* aged red */
+  --flare: #d94c2a;            /* flare orange — football pyrotechnic */
+  --field-green: #4a5a35;      /* uniform / map field */
+  --map-blue: #2a3a4a;         /* faded blueprint blue */
+  --highlighter: #c8a64a;      /* archival yellow / redaction marker */
+  --redaction: #0d0c0a;        /* solid black bar (same as ink-0) */
+
+  /* ---------- COLOR — Semantic ---------- */
+  --bg: var(--paper-0);
+  --bg-alt: var(--paper-1);
+  --surface: var(--paper-2);
+  --fg: var(--ink-1);
+  --fg-muted: var(--ink-3);
+  --fg-faint: var(--ink-4);
+  --rule: var(--paper-edge);
+  --accent: var(--classified);
+  --link: var(--classified-deep);
+
+  /* ---------- TYPE — Families ---------- */
+  --font-serif: "Old Standard TT", "Times New Roman", Georgia, serif;
+  --font-display: "Oswald", "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+  --font-mono: "Special Elite", "JetBrains Mono", "Courier Prime", "Courier New", monospace;
+  --font-data: "JetBrains Mono", "IBM Plex Mono", "Courier New", monospace;
+
+  /* ---------- TYPE — Scale ---------- */
+  --fs-cover: clamp(72px, 11vw, 168px);   /* hero cover headline */
+  --fs-h1:    clamp(40px, 5vw, 64px);     /* article headline */
+  --fs-h2:    clamp(28px, 3vw, 38px);     /* section */
+  --fs-h3:    22px;
+  --fs-h4:    17px;
+  --fs-body:  18px;
+  --fs-small: 15px;
+  --fs-meta:  12px;
+  --fs-stamp: 11px;
+
+  --lh-tight: 0.92;
+  --lh-snug:  1.15;
+  --lh-body:  1.55;
+  --lh-loose: 1.7;
+
+  --tracking-stamp: 0.18em;
+  --tracking-display: 0.02em;
+  --tracking-eyebrow: 0.22em;
+
+  /* ---------- SPACING / RADIUS / SHADOW ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --radius-0: 0px;       /* default — sharp, document-like */
+  --radius-1: 2px;       /* very subtle */
+  --radius-stamp: 1px;
+
+  --rule-hair: 1px solid var(--ink-1);
+  --rule-soft: 1px solid var(--rule);
+  --rule-double: 3px double var(--ink-1);
+
+  --shadow-paper: 0 1px 0 rgba(0,0,0,0.04), 0 12px 28px -16px rgba(20,17,13,0.25);
+  --shadow-dossier: 0 2px 0 rgba(0,0,0,0.4), 0 24px 48px -20px rgba(0,0,0,0.7);
+  --shadow-stamp: 0 0 0 1px var(--classified) inset;
+}
+
+/* ---------- SEMANTIC ELEMENT STYLES ---------- */
+
+.esp-cover {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-cover);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  color: var(--dossier-fg-0);
+}
+
+.esp-h1, h1.esp {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+  color: var(--ink-0);
+  margin: 0 0 var(--space-4);
+}
+
+.esp-h2, h2.esp {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  line-height: 1.2;
+  color: var(--ink-0);
+}
+
+.esp-h3, h3.esp {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  font-size: var(--fs-h3);
+  color: var(--ink-0);
+}
+
+.esp-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-stamp);
+  letter-spacing: var(--tracking-stamp);
+  text-transform: uppercase;
+  color: var(--classified);
+}
+
+.esp-body, p.esp {
+  font-family: var(--font-serif);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--ink-1);
+}
+
+.esp-dropcap::first-letter {
+  font-family: var(--font-display);
+  font-weight: 700;
+  float: left;
+  font-size: 5.2em;
+  line-height: 0.85;
+  padding: 6px 10px 0 0;
+  color: var(--ink-0);
+}
+
+.esp-meta, .esp-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.esp-data {
+  font-family: var(--font-data);
+  font-size: var(--fs-meta);
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+}
+
+.esp-stamp {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-stamp);
+  letter-spacing: var(--tracking-stamp);
+  text-transform: uppercase;
+  color: var(--classified);
+  border: 2px solid var(--classified);
+  padding: 4px 8px 3px;
+  transform: rotate(-3deg);
+}
+
+.esp-redact {
+  background: var(--redaction);
+  color: var(--redaction);
+  user-select: none;
+  padding: 0 0.2em;
+}
+
+.esp-pullquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 28px;
+  line-height: 1.35;
+  color: var(--ink-0);
+  border-top: var(--rule-double);
+  border-bottom: var(--rule-double);
+  padding: var(--space-5) 0;
+}
+
+.esp-caption {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.4;
+}

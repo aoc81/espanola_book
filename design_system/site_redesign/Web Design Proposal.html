@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Española — Web Design Proposal</title>
+  <link rel="stylesheet" href="./site.css" />
+  <style>
+    body { margin: 0; background: #d6cfbe; }
+    /* Override design canvas section bg to match paper */
+    .dc-section-bg { background: rgba(214, 207, 190, 0.5) !important; }
+    /* Each artboard is a real, framed page */
+    .artboard {
+      background: var(--paper-0);
+      box-shadow: 0 24px 48px -20px rgba(20,17,13,0.35);
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Design canvas + iOS frame helpers -->
+  <script type="text/babel" src="./design-canvas.jsx"></script>
+  <script type="text/babel" src="./ios-frame.jsx"></script>
+
+  <!-- All comp files -->
+  <script type="text/babel" src="./home-desktop.jsx"></script>
+  <script type="text/babel" src="./section-desktop.jsx"></script>
+  <script type="text/babel" src="./reader-desktop.jsx"></script>
+  <script type="text/babel" src="./gallery-desktop.jsx"></script>
+  <script type="text/babel" src="./mobile-comps.jsx"></script>
+
+  <!-- Cover slide + canvas assembly -->
+  <script type="text/babel">
+    /* ---------- Cover artboard (the proposal cover) ---------- */
+    function ProposalCover() {
+      return (
+        <div className="artboard" style={{
+          width: 1440, height: 900, position: "relative", overflow: "hidden",
+          background: "var(--paper-0)", fontFamily: "var(--font-serif)",
+        }}>
+          {/* corner ticks */}
+          <div className="tick" style={{ top: 24, left: 24 }} />
+          <div className="tick" style={{ top: 24, right: 24 }} />
+          <div className="tick" style={{ bottom: 24, left: 24 }} />
+          <div className="tick" style={{ bottom: 24, right: 24 }} />
+
+          {/* big classification stripe */}
+          <div style={{
+            position: "absolute", top: 80, left: 0, right: 0, height: 60,
+            background: "var(--classified)", display: "flex", alignItems: "center", padding: "0 80px",
+            justifyContent: "space-between", color: "var(--paper-0)",
+            fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.32em", textTransform: "uppercase",
+          }}>
+            <span>● Internal — Design Review</span>
+            <span>Prepared for Editorial</span>
+            <span>Vol. I · No. 03 · 2026</span>
+          </div>
+
+          {/* main grid */}
+          <div style={{ position: "absolute", inset: "180px 80px 80px", display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 80, alignItems: "start" }}>
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 24, fontSize: 12 }}>
+                ✦ &nbsp; Web Design Proposal &nbsp; ✦
+              </div>
+              <div style={{
+                fontFamily: "var(--font-display)", fontWeight: 700,
+                fontSize: 168, lineHeight: 0.82, letterSpacing: "-0.03em",
+                color: "var(--ink-0)", marginBottom: 32,
+              }}>
+                ESPAÑOLA<span style={{ color: "var(--classified)" }}>.</span>
+              </div>
+              <h2 style={{
+                fontFamily: "var(--font-serif)", fontStyle: "italic",
+                fontWeight: 400, fontSize: 32, lineHeight: 1.3, color: "var(--ink-2)",
+                margin: "0 0 36px", maxWidth: 560,
+              }}>
+                A new web edition for <em>From Hooligans to War Machines</em> — refined dossier, sharper craft, four redesigned views.
+              </h2>
+
+              <div style={{ display: "grid", gridTemplateColumns: "auto auto auto auto", gap: 24, padding: "20px 0", borderTop: "1px solid var(--ink-1)", borderBottom: "1px solid var(--ink-1)", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-2)" }}>
+                <div>
+                  <div style={{ color: "var(--ink-3)", fontSize: 9, marginBottom: 4 }}>Scope</div>
+                  <div style={{ color: "var(--ink-0)" }}>4 views</div>
+                </div>
+                <div>
+                  <div style={{ color: "var(--ink-3)", fontSize: 9, marginBottom: 4 }}>Direction</div>
+                  <div style={{ color: "var(--ink-0)" }}>Refine</div>
+                </div>
+                <div>
+                  <div style={{ color: "var(--ink-3)", fontSize: 9, marginBottom: 4 }}>Viewports</div>
+                  <div style={{ color: "var(--ink-0)" }}>Desktop + Mobile</div>
+                </div>
+                <div>
+                  <div style={{ color: "var(--ink-3)", fontSize: 9, marginBottom: 4 }}>Filed</div>
+                  <div style={{ color: "var(--classified)" }}>This morning</div>
+                </div>
+              </div>
+
+              <p style={{ fontFamily: "var(--font-serif)", fontSize: 16, lineHeight: 1.7, color: "var(--ink-2)", margin: "32px 0 0", maxWidth: 560 }}>
+                <span style={{ color: "var(--classified)", fontWeight: 700 }}>What's changing.</span> &nbsp; The cover is now bound to the page by a real ribbon. The promo grid becomes an editor's letter. Sections are framed as folders on a desk. The ToC reads like a printed book index. The reader carries marginalia in a true right rail, with a chapter-opener that earns its drop cap. Sources are treated as evidence.
+              </p>
+              <p style={{ fontFamily: "var(--font-serif)", fontSize: 16, lineHeight: 1.7, color: "var(--ink-2)", margin: "16px 0 0", maxWidth: 560 }}>
+                <span style={{ color: "var(--classified)", fontWeight: 700 }}>What's preserved.</span> &nbsp; Paper-and-ink palette, the classified red accent, the serif/display/mono triad, the editorial vocabulary of stamps, ticks, double rules, †-bullets, and the case-file meta corners.
+              </p>
+            </div>
+
+            {/* right: contents card */}
+            <div>
+              <div className="stamp stamp--big stamp--rotated" style={{ position: "absolute", top: -40, right: -20, transform: "rotate(8deg)", padding: "8px 16px" }}>
+                Internal · v0.1
+              </div>
+
+              <div style={{ border: "1px solid var(--ink-1)", background: "var(--paper-1)", padding: "24px 28px" }}>
+                <div className="eyebrow" style={{ marginBottom: 14, fontSize: 11 }}>Contents of this proposal</div>
+                {[
+                  ["I", "Homepage", "Cover · letter · folders · ToC", "Desktop + Mobile"],
+                  ["II", "Section Landing", "The chapter shelf", "Desktop + Mobile"],
+                  ["III", "Reader / Article", "Chapter opener with marginalia", "Desktop + Mobile"],
+                  ["IV", "Sources & Gallery", "The evidence room", "Desktop + Mobile"],
+                ].map((r, i, arr) => (
+                  <div key={r[0]} style={{
+                    display: "grid", gridTemplateColumns: "32px 1fr auto",
+                    gap: 14, padding: "16px 0",
+                    borderBottom: i === arr.length - 1 ? "none" : "1px solid var(--paper-edge)",
+                    alignItems: "baseline",
+                  }}>
+                    <span style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700, color: "var(--classified)" }}>{r[0]}</span>
+                    <span>
+                      <div style={{ fontFamily: "var(--font-serif)", fontSize: 18, fontWeight: 700, color: "var(--ink-0)" }}>{r[1]}</div>
+                      <div style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 13, color: "var(--ink-2)", marginTop: 2 }}>{r[2]}</div>
+                    </span>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ink-3)" }}>{r[3]}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* mini ledger */}
+              <div style={{ marginTop: 18, fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--ink-3)", letterSpacing: "0.14em", lineHeight: 1.7 }}>
+                <div>· Pan and zoom the canvas to inspect</div>
+                <div>· Click any artboard to focus fullscreen</div>
+                <div>· Drag artboards to reorder if useful</div>
+              </div>
+            </div>
+          </div>
+
+          {/* footer band */}
+          <div style={{
+            position: "absolute", bottom: 24, left: 80, right: 80,
+            display: "flex", justifyContent: "space-between",
+            fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em",
+            textTransform: "uppercase", color: "var(--ink-3)",
+            paddingTop: 18, borderTop: "1px solid var(--paper-edge)",
+          }}>
+            <span>The Investigations Desk · Design</span>
+            <span>Case File: ESP-DESIGN-001</span>
+            <span style={{ color: "var(--classified)" }}>● Awaiting your comments</span>
+          </div>
+        </div>
+      );
+    }
+
+    /* ---------- Wrap a mobile screen in IOSDevice ---------- */
+    function PhoneFrame({ children, title }) {
+      return (
+        <IOSDevice width={402} height={874} title={title}>
+          {children}
+        </IOSDevice>
+      );
+    }
+
+    /* ---------- The Canvas ---------- */
+    function App() {
+      return (
+        <DesignCanvas defaultZoom={0.42} minZoom={0.05} maxZoom={1.5}>
+          <DCSection id="cover" title="Proposal · Cover">
+            <DCArtboard id="proposal-cover" label="Cover · Read this first" width={1440} height={900}>
+              <ProposalCover />
+            </DCArtboard>
+          </DCSection>
+
+          <DCSection id="i-homepage" title="I · Homepage">
+            <DCArtboard id="home-desktop" label="01 · Homepage — Desktop (1440)" width={1440} height={4688}>
+              <HomeDesktop />
+            </DCArtboard>
+            <DCArtboard id="home-mobile" label="01 · Homepage — Mobile" width={482} height={954}>
+              <PhoneFrame title="Overview"><HomeMobile /></PhoneFrame>
+            </DCArtboard>
+          </DCSection>
+
+          <DCSection id="ii-section" title="II · Section Landing — Chapters">
+            <DCArtboard id="section-desktop" label="02 · Section landing — Desktop (1440)" width={1440} height={3000}>
+              <SectionDesktop />
+            </DCArtboard>
+            <DCArtboard id="section-mobile" label="02 · Section landing — Mobile" width={482} height={954}>
+              <PhoneFrame title="Section II"><SectionMobile /></PhoneFrame>
+            </DCArtboard>
+          </DCSection>
+
+          <DCSection id="iii-reader" title="III · Reader — Article view">
+            <DCArtboard id="reader-desktop" label="03 · Reader — Desktop (1440)" width={1440} height={3400}>
+              <ReaderDesktop />
+            </DCArtboard>
+            <DCArtboard id="reader-mobile" label="03 · Reader — Mobile" width={482} height={954}>
+              <PhoneFrame title="Chapter 02"><ReaderMobile /></PhoneFrame>
+            </DCArtboard>
+          </DCSection>
+
+          <DCSection id="iv-sources" title="IV · Sources & Image Gallery">
+            <DCArtboard id="gallery-desktop" label="04 · Sources & gallery — Desktop (1440)" width={1440} height={3200}>
+              <GalleryDesktop />
+            </DCArtboard>
+            <DCArtboard id="gallery-mobile" label="04 · Sources & gallery — Mobile" width={482} height={954}>
+              <PhoneFrame title="Sources"><GalleryMobile /></PhoneFrame>
+            </DCArtboard>
+          </DCSection>
+        </DesignCanvas>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>

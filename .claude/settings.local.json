@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(PowerShell -Command 'Select-String -Path '\\\\''c:\\\\Users\\\\Utilisateur\\\\OneDrive\\\\Documents\\\\Hispaniola\\\\build\\\\site\\\\generated-manuscript.js'\\\\'' -Pattern '\\\\''appendix-reference-links'\\\\'' -List | Select-Object -First 1 | ForEach-Object { $_.LineNumber }')",
+      "Bash(node -e ' *)",
+      "Bash(node --input-type=module -e ' *)"
+    ]
+  }
+}

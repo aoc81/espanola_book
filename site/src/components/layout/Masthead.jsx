@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import siteData from "@generated-manuscript";
 export function SkipLink() {
   return <a className="skip-link" href="#main-content">Skip to content</a>;
@@ -18,24 +18,8 @@ export function ScrollToTop() {
 }
 
 export function Masthead() {
-  const today = new Date();
-  const dateStr = today.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
   return (
     <header className="masthead">
-      <div className="masthead__top">
-        <div className="masthead__meta-l">
-          <span>Vol. I · No. 03</span>
-          <span>Long-Form Edition</span>
-          <span>{dateStr}</span>
-        </div>
-        <Link to="/" className="masthead__plate">
-          ESPAÑOLA<span className="dot">.</span>
-        </Link>
-        <div className="masthead__meta-r">
-          <span>The Investigations Desk</span>
-          <span>Open-Source Release</span>
-        </div>
-      </div>
       <div className="masthead__strip">
         <div className="masthead__strip-inner">
           <span className="masthead__case">

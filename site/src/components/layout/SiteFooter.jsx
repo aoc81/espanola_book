@@ -15,7 +15,7 @@ export function SiteFooter() {
             {siteData.titlePage.title} — an open-source investigative web edition built from the canonical manuscript, its source notes, and editorial protocols.
           </p>
           <div style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}>
-            <Link to="/#toc" className="button" style={{ height: 36, fontSize: 10, padding: "0 12px" }}>Table of Contents ↓</Link>
+            <Link to="/#top" className="button" style={{ height: 36, fontSize: 10, padding: "0 12px" }}>Back to Top ↑</Link>
           </div>
         </div>
 
@@ -24,8 +24,8 @@ export function SiteFooter() {
           <ul>
             {prologue ? <li><Link to={`/read/${prologue.slug}`}>Start reading</Link></li> : null}
             {authorNote ? <li><Link to={`/read/${authorNote.slug}`}>Author note</Link></li> : null}
-            <li><Link to="/#toc">Full contents</Link></li>
             <li><Link to="/#book-sections">Sections</Link></li>
+            <li><Link to="/chapters">Chapters</Link></li>
           </ul>
         </div>
 
@@ -41,19 +41,26 @@ export function SiteFooter() {
         </div>
 
         <div className="site-footer__col">
+          <h4>Author</h4>
+          <ul>
+            <li><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+            <li><a href="https://x.com/" target="_blank" rel="noreferrer">X (Twitter)</a></li>
+          </ul>
+        </div>
+
+        <div className="site-footer__col">
           <h4>Edition</h4>
           <ul>
-            <li>{siteData.edition?.version?.toUpperCase() ?? "V1"}</li>
-            <li>{siteData.stats.documentCount} reading units</li>
-            <li>{siteData.stats.imageCount} image references</li>
-            <li>44 sources · 75 links</li>
+            <li>V4.1 Manuscript</li>
+            <li>V1 Published Edition</li>
+            <li>CC BY-NC 4.0</li>
             <li>Updated 27.04.2026</li>
           </ul>
         </div>
       </div>
       <div className="site-footer__rule">
-        <span>© The Investigations Desk · MMXXVI</span>
-        <span>CC BY-NC 4.0 · Española</span>
+        <span>Human Researched. AI Assisted</span>
+        <span>Ángel Ortiz · Española: From hooligans to war machines</span>
       </div>
     </footer>
   );

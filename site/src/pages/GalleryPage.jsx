@@ -107,7 +107,7 @@ export function GalleryPage() {
   return (
     <main id="main-content">
       {/* breadcrumb */}
-      <div style={{ borderBottom: "1px solid var(--paper-edge)", padding: "12px 32px", background: "var(--paper-0)" }}>
+      <div style={{ padding: "12px 32px", background: "var(--paper-0)" }}>
         <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", gap: 16, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-3)" }}>
           <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>Overview</Link>
           <span>›</span>

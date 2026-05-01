@@ -38,7 +38,7 @@ export function ContactPage() {
   return (
     <main id="main-content">
       {/* breadcrumb */}
-      <div style={{ borderBottom: "1px solid var(--paper-edge)", padding: "12px 32px", background: "var(--paper-0)" }}>
+      <div style={{ padding: "12px 32px", background: "var(--paper-0)" }}>
         <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", gap: 16, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-3)" }}>
           <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>Overview</Link>
           <span>›</span>
@@ -121,9 +121,9 @@ export function ContactPage() {
             <form
               action="https://formspree.io/f/placeholder"
               method="POST"
-              style={{ border: "1px solid var(--ink-1)", background: "var(--paper-0)" }}
+              style={{ border: "1px solid var(--ink-1)", background: "var(--paper-0)", display: "grid", gridTemplateRows: "auto auto auto auto auto auto" }}
             >
-              <div style={{ padding: "24px 28px", background: "var(--ink-0)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--paper-0)" }}>
+              <div style={{ padding: "11px 20px", background: "var(--ink-0)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--paper-0)" }}>
                 Intake Form · Investigations Desk
               </div>
               {[
@@ -152,10 +152,10 @@ export function ContactPage() {
                 <textarea
                   id="message"
                   name="message"
-                  rows={6}
+                  rows={3}
                   placeholder="Your message…"
                   required
-                  style={{ display: "block", width: "100%", border: "none", background: "transparent", outline: "none", resize: "vertical", fontFamily: "var(--font-serif)", fontSize: 15, color: "var(--ink-0)", paddingBottom: 16, lineHeight: 1.6 }}
+                  style={{ display: "block", width: "100%", height: 92, border: "none", background: "transparent", outline: "none", resize: "none", fontFamily: "var(--font-serif)", fontSize: 15, color: "var(--ink-0)", paddingBottom: 16, lineHeight: 1.6 }}
                 />
               </div>
               <div style={{ padding: "20px 28px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>

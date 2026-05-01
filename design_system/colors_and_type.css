@@ -4,7 +4,7 @@
    Eastern-European war reportage. Bone paper, ink black, classified-stamp red.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap');
 
 :root {
   /* ---------- COLOR — Paper / Ink (light, NYT editorial) ---------- */
@@ -52,7 +52,7 @@
   /* ---------- TYPE — Families ---------- */
   --font-serif: "Old Standard TT", "Times New Roman", Georgia, serif;
   --font-display: "Oswald", "Bebas Neue", "Arial Narrow", Impact, sans-serif;
-  --font-mono: "Special Elite", "JetBrains Mono", "Courier Prime", "Courier New", monospace;
+  --font-mono: "JetBrains Mono", "Courier Prime", "Courier New", monospace;
   --font-data: "JetBrains Mono", "IBM Plex Mono", "Courier New", monospace;
 
   /* ---------- TYPE — Scale ---------- */

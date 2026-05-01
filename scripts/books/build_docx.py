@@ -20,9 +20,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 TITLE_FILE = "Front Matter 00 Title and Edition.md"
 BODY_FILES = [
     "Front Matter 01 Author Note.md",
-    "Front Matter 02 Methodology and Limitations.md",
     "Front Matter 03 Note on AI Assistance.md",
-    "Front Matter 04 Note on Naming and Terminology.md",
     "Prologue.md",
     "Chapter 01.md",
     "Chapter 02.md",
@@ -43,6 +41,8 @@ BODY_FILES = [
     "Chapter 17.md",
     "Chapter 18.md",
     "Epilogue.md",
+    "Front Matter 02 Methodology and Limitations.md",
+    "Front Matter 04 Note on Naming and Terminology.md",
     "Appendix Source Notes.md",
     "Appendix Reference Links Guide.md",
 ]
@@ -55,6 +55,7 @@ DEFAULT_OUTPUTS = {
 DEFAULT_FALLBACK = "book-output.updated.docx"
 DEFAULT_COVER = REPO_ROOT / "assets" / "images" / "covers" / "Espanola Book Cover-New.png"
 INLINE_TOKEN_RE = re.compile(r"\[\^([^\]]+)\]|\[([^\]]+)\]\((https?://[^)]+)\)|(https?://\S+)")
+EMPHASIS_RE = re.compile(r"(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)")
 
 
 @dataclass
@@ -72,7 +73,7 @@ class EditionPaths:
     manifest_path: Path
     image_root: Path
     output_dir: Path
-    cover_path: Path
+    cover_path: Path | None
     output_name: str
 
 
@@ -132,6 +133,15 @@ def parse_markdown(text: str) -> MarkdownDocument:
         nonlocal current
         if not current:
             return
+        if len(current) >= 2 and all(line.strip().startswith("|") and line.strip().endswith("|") for line in current):
+            rows = []
+            for raw_line in current:
+                cells = [cell.strip() for cell in raw_line.strip()[1:-1].split("|")]
+                rows.append(cells)
+            if len(rows) >= 2 and all(re.fullmatch(r":?-{3,}:?", cell.replace(" ", "")) for cell in rows[1]):
+                blocks.append({"type": "table", "headers": rows[0], "rows": rows[2:]})
+                current = []
+                return
         if all(item.lstrip().startswith("- ") for item in current):
             blocks.append({"type": "list", "items": [item.lstrip()[2:].strip() for item in current]})
         else:
@@ -204,6 +214,8 @@ def ensure_styles(document: Document) -> None:
         "Image Caption": {"base": "Normal", "size": 10, "align": WD_ALIGN_PARAGRAPH.CENTER, "italic": True},
         "Image Source": {"base": "Normal", "size": 9, "align": WD_ALIGN_PARAGRAPH.CENTER, "italic": False},
         "Chapter References": {"base": "Normal", "size": 8, "align": WD_ALIGN_PARAGRAPH.LEFT, "italic": False},
+        "Appendix Body": {"base": "Normal", "size": 10, "align": WD_ALIGN_PARAGRAPH.LEFT, "italic": False},
+        "Appendix Bullet": {"base": "Normal", "size": 10, "align": WD_ALIGN_PARAGRAPH.LEFT, "italic": False},
     }
 
     for style_name, spec in custom_styles.items():
@@ -219,6 +231,12 @@ def ensure_styles(document: Document) -> None:
         style.paragraph_format.space_after = Pt(8 if style_name == "Book Center" else 4 if style_name == "Book Bullet" else 10 if style_name == "Contents Title" else 3)
 
     styles["Book Bullet"].paragraph_format.left_indent = Inches(0.25)
+    styles["Appendix Body"].paragraph_format.first_line_indent = Inches(0)
+    styles["Appendix Body"].paragraph_format.space_after = Pt(6)
+    styles["Appendix Body"].paragraph_format.line_spacing = 1.1
+    styles["Appendix Bullet"].paragraph_format.left_indent = Inches(0.25)
+    styles["Appendix Bullet"].paragraph_format.first_line_indent = Inches(0)
+    styles["Appendix Bullet"].paragraph_format.space_after = Pt(4)
     styles["Image Source"].paragraph_format.space_after = Pt(10)
     styles["Chapter References"].paragraph_format.line_spacing = 1.0
 
@@ -318,7 +336,7 @@ def add_toc(paragraph) -> None:
     paragraph.add_run()._r.append(end)
 
 
-def add_hyperlink(paragraph, text: str, url: str) -> None:
+def add_hyperlink(paragraph, text: str, url: str, *, size: Pt | None = None) -> None:
     rel_id = paragraph.part.relate_to(url, RT.HYPERLINK, is_external=True)
     hyperlink = OxmlElement("w:hyperlink")
     hyperlink.set(qn("r:id"), rel_id)
@@ -328,6 +346,13 @@ def add_hyperlink(paragraph, text: str, url: str) -> None:
     rstyle = OxmlElement("w:rStyle")
     rstyle.set(qn("w:val"), "Hyperlink")
     rpr.append(rstyle)
+    if size is not None:
+        size_node = OxmlElement("w:sz")
+        size_node.set(qn("w:val"), str(int(size.pt * 2)))
+        rpr.append(size_node)
+        size_cs_node = OxmlElement("w:szCs")
+        size_cs_node.set(qn("w:val"), str(int(size.pt * 2)))
+        rpr.append(size_cs_node)
 
     text_node = OxmlElement("w:t")
     text_node.text = text
@@ -343,17 +368,43 @@ def add_footnote_reference(paragraph, number: int) -> None:
     run.font.size = Pt(8)
 
 
-def add_text_run(paragraph, text: str, *, bold: bool = False, italic: bool = False) -> None:
+def add_text_run(paragraph, text: str, *, bold: bool = False, italic: bool = False, size: Pt | None = None) -> None:
     run = paragraph.add_run(text)
     run.bold = bold
     run.italic = italic
+    if size is not None:
+        run.font.size = size
 
 
-def add_inline_markdown(paragraph, text: str, footnotes: dict[str, str], footnote_manager: FootnoteManager) -> None:
+def add_emphasis_runs(paragraph, text: str, *, size: Pt | None = None) -> None:
+    position = 0
+    for match in EMPHASIS_RE.finditer(text):
+        if match.start() > position:
+            add_text_run(paragraph, text[position:match.start()], size=size)
+        token = match.group(0)
+        if token.startswith("**") and token.endswith("**"):
+            add_text_run(paragraph, token[2:-2], bold=True, size=size)
+        elif token.startswith("*") and token.endswith("*"):
+            add_text_run(paragraph, token[1:-1], italic=True, size=size)
+        elif token.startswith("`") and token.endswith("`"):
+            add_text_run(paragraph, token[1:-1], size=size)
+        position = match.end()
+    if position < len(text):
+        add_text_run(paragraph, text[position:], size=size)
+
+
+def add_inline_markdown(
+    paragraph,
+    text: str,
+    footnotes: dict[str, str],
+    footnote_manager: FootnoteManager,
+    *,
+    text_size: Pt | None = None,
+) -> None:
     position = 0
     for match in INLINE_TOKEN_RE.finditer(text):
         if match.start() > position:
-            paragraph.add_run(text[position : match.start()])
+            add_emphasis_runs(paragraph, text[position : match.start()], size=text_size)
 
         footnote_label, link_text, link_url, bare_url = match.groups()
         if footnote_label:
@@ -363,18 +414,18 @@ def add_inline_markdown(paragraph, text: str, footnotes: dict[str, str], footnot
             number = footnote_manager.register(footnote_label, note_text)
             add_footnote_reference(paragraph, number)
         elif link_text and link_url:
-            add_hyperlink(paragraph, link_text, link_url)
+            add_hyperlink(paragraph, link_text, link_url, size=text_size)
         elif bare_url:
             clean_url = bare_url.rstrip(".,;")
-            add_hyperlink(paragraph, clean_url, clean_url)
+            add_hyperlink(paragraph, clean_url, clean_url, size=text_size)
             trailing = bare_url[len(clean_url) :]
             if trailing:
-                paragraph.add_run(trailing)
+                add_emphasis_runs(paragraph, trailing, size=text_size)
 
         position = match.end()
 
     if position < len(text):
-        paragraph.add_run(text[position:])
+        add_emphasis_runs(paragraph, text[position:], size=text_size)
 
 
 def add_title_page(document: Document, lines: list[str]) -> None:
@@ -409,11 +460,35 @@ def add_contents_page(document: Document) -> None:
     add_toc(toc_para)
 
 
-def add_markdown_lines_as_paragraph(paragraph, lines: list[str], footnotes: dict[str, str], footnote_manager: FootnoteManager) -> None:
+def add_markdown_lines_as_paragraph(
+    paragraph,
+    lines: list[str],
+    footnotes: dict[str, str],
+    footnote_manager: FootnoteManager,
+    *,
+    text_size: Pt | None = None,
+) -> None:
     for index, line in enumerate(lines):
         if index:
             paragraph.add_run().add_break(WD_BREAK.LINE)
-        add_inline_markdown(paragraph, line, footnotes, footnote_manager)
+        add_inline_markdown(paragraph, line, footnotes, footnote_manager, text_size=text_size)
+
+
+def add_markdown_table(document: Document, headers: list[str], rows: list[list[str]], *, text_size: Pt | None = None) -> None:
+    table = document.add_table(rows=len(rows) + 1, cols=len(headers))
+    table.style = "Table Grid"
+
+    for col, header in enumerate(headers):
+        paragraph = table.rows[0].cells[col].paragraphs[0]
+        run = paragraph.add_run(header)
+        run.bold = True
+        if text_size is not None:
+            run.font.size = text_size
+
+    for row_index, row in enumerate(rows, start=1):
+        for col, value in enumerate(row):
+            paragraph = table.rows[row_index].cells[col].paragraphs[0]
+            add_emphasis_runs(paragraph, value, size=text_size)
 
 
 def load_image_manifest(manifest_path: Path) -> dict[str, list[dict]]:
@@ -490,6 +565,10 @@ def add_file(
 ) -> None:
     footnote_manager = FootnoteManager()
     md_doc = parse_markdown(read_text(path))
+    is_appendix = path.name.startswith("Appendix ")
+    body_style = "Appendix Body" if is_appendix else "Normal"
+    bullet_style = "Appendix Bullet" if is_appendix else "Book Bullet"
+    body_text_size = Pt(10) if is_appendix else None
     if break_before:
         document.add_page_break()
     document.add_heading(md_doc.title, level=1)
@@ -498,13 +577,16 @@ def add_file(
         if block["type"] == "subheading":
             document.add_heading(block["text"], level=2)
             continue
+        if block["type"] == "table":
+            add_markdown_table(document, block["headers"], block["rows"], text_size=body_text_size)
+            continue
         if block["type"] == "list":
             for item in block["items"]:
-                para = document.add_paragraph(style="Book Bullet")
-                add_inline_markdown(para, item, md_doc.footnotes, footnote_manager)
+                para = document.add_paragraph(style=bullet_style)
+                add_inline_markdown(para, item, md_doc.footnotes, footnote_manager, text_size=body_text_size)
             continue
-        para = document.add_paragraph(style="Normal")
-        add_markdown_lines_as_paragraph(para, block["lines"], md_doc.footnotes, footnote_manager)
+        para = document.add_paragraph(style=body_style)
+        add_markdown_lines_as_paragraph(para, block["lines"], md_doc.footnotes, footnote_manager, text_size=body_text_size)
 
     add_chapter_references(document, footnote_manager)
 
@@ -512,18 +594,20 @@ def add_file(
         add_chapter_images(document, image_root, path.name, image_manifest)
 
 
-def build_book(paths: EditionPaths) -> Path:
+def build_book(paths: EditionPaths, *, include_chapter_images: bool = True) -> Path:
     document = Document()
     ensure_styles(document)
     enable_update_fields_on_open(document)
-    image_manifest = load_image_manifest(paths.manifest_path)
+    image_manifest = load_image_manifest(paths.manifest_path) if include_chapter_images else {}
 
-    if paths.cover_path.exists():
+    has_cover = paths.cover_path is not None and paths.cover_path.exists()
+
+    if has_cover:
         add_cover_page(document, paths.cover_path)
+        title_section = document.add_section(WD_SECTION.NEW_PAGE)
     else:
-        configure_section_layout(document.sections[0])
+        title_section = document.sections[0]
 
-    title_section = document.add_section(WD_SECTION.NEW_PAGE)
     title_section.different_first_page_header_footer = True
     configure_section_layout(title_section)
     add_title_page(document, title_lines(read_text(paths.contents_dir / TITLE_FILE)))
@@ -534,24 +618,18 @@ def build_book(paths: EditionPaths) -> Path:
     setup_footer_with_page_number(front_matter_section)
     add_contents_page(document)
 
-    front_matter_files = [name for name in BODY_FILES if name.startswith("Front Matter")]
-    main_matter_files = [name for name in BODY_FILES if not name.startswith("Front Matter")]
-
-    for filename in front_matter_files:
-        add_file(document, paths.contents_dir / filename, image_root=paths.image_root, image_manifest=image_manifest)
-
     main_matter_section = document.add_section(WD_SECTION.NEW_PAGE)
     configure_section_layout(main_matter_section)
     set_page_number_format(main_matter_section, fmt="decimal", start=1)
     setup_footer_with_page_number(main_matter_section)
 
-    for index, filename in enumerate(main_matter_files):
+    for index, filename in enumerate(BODY_FILES):
         add_file(
             document,
             paths.contents_dir / filename,
             break_before=index != 0,
-            image_root=paths.image_root,
-            image_manifest=image_manifest,
+            image_root=paths.image_root if include_chapter_images else None,
+            image_manifest=image_manifest if include_chapter_images else None,
         )
 
     paths.output_dir.mkdir(parents=True, exist_ok=True)
@@ -565,7 +643,7 @@ def build_book(paths: EditionPaths) -> Path:
         return fallback_path
 
 
-def build_paths(version: str, language: str, output_name: str | None, cover_path: str | None) -> EditionPaths:
+def build_paths(version: str, language: str, output_name: str | None, cover_path: str | None, no_cover: bool = False) -> EditionPaths:
     contents_dir = REPO_ROOT / "manuscripts" / version / language / "contents"
     manifest_path = REPO_ROOT / "assets" / "manifests" / version / language / "chapter_images.json"
     image_root = REPO_ROOT / "assets" / "images" / "manuscripts" / version / language
@@ -581,7 +659,7 @@ def build_paths(version: str, language: str, output_name: str | None, cover_path
         manifest_path=manifest_path,
         image_root=image_root,
         output_dir=output_dir,
-        cover_path=Path(cover_path) if cover_path else DEFAULT_COVER,
+        cover_path=None if no_cover else Path(cover_path) if cover_path else DEFAULT_COVER,
         output_name=output_name or DEFAULT_OUTPUTS.get((version, language), f"book-{version}-{language}.docx"),
     )
 
@@ -592,6 +670,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--language", default="en", help="Edition language, for example en, es, or fr.")
     parser.add_argument("--output-name", help="Optional DOCX filename override.")
     parser.add_argument("--cover", help="Optional absolute or repo-relative cover image path override.")
+    parser.add_argument("--no-cover", action="store_true", help="Omit the cover page from the DOCX.")
+    parser.add_argument("--no-chapter-images", action="store_true", help="Omit interior chapter images while keeping the cover.")
     return parser.parse_args()
 
 
@@ -600,8 +680,8 @@ def main() -> None:
     cover_arg = args.cover
     if cover_arg and not Path(cover_arg).is_absolute():
         cover_arg = str((REPO_ROOT / cover_arg).resolve())
-    paths = build_paths(args.version, args.language, args.output_name, cover_arg)
-    output_path = build_book(paths)
+    paths = build_paths(args.version, args.language, args.output_name, cover_arg, args.no_cover)
+    output_path = build_book(paths, include_chapter_images=not args.no_chapter_images)
     print(output_path)
 
 

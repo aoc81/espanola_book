@@ -10,7 +10,7 @@ export function DownloadPage() {
   return (
     <main id="main-content">
       {/* breadcrumb */}
-      <div style={{ borderBottom: "1px solid var(--paper-edge)", padding: "12px 32px", background: "var(--paper-0)" }}>
+      <div style={{ padding: "12px 32px", background: "var(--paper-0)" }}>
         <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", gap: 16, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-3)" }}>
           <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>Overview</Link>
           <span>›</span>
@@ -22,13 +22,14 @@ export function DownloadPage() {
       <section style={{ position: "relative", padding: "72px 32px 56px", borderBottom: "1px solid var(--paper-edge)" }}>
         <span className="tick" style={{ top: 18, left: 18 }} aria-hidden="true" />
         <span className="tick" style={{ top: 18, right: 18 }} aria-hidden="true" />
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr auto", gap: 64, alignItems: "end" }}>
+        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "baseline", marginBottom: 36, gap: 24 }}>
+            <div className="eyebrow">Edition · {edition}</div>
+            <div style={{ height: 1, background: "var(--ink-1)" }} />
+            <div className="mono" style={{ color: "var(--ink-3)" }}>Get the book</div>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 64, alignItems: "end" }}>
           <div>
-            <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "baseline", marginBottom: 36, gap: 24 }}>
-              <div className="eyebrow">Edition · {edition}</div>
-              <div style={{ height: 1, background: "var(--ink-1)" }} />
-              <div className="mono" style={{ color: "var(--ink-3)" }}>Get the book</div>
-            </div>
             <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(48px, 8vw, 180px)", lineHeight: 0.85, color: "var(--ink-0)", letterSpacing: "-0.02em", marginBottom: 28, whiteSpace: "nowrap" }}>
               DOWNLOAD.
             </div>
@@ -52,6 +53,7 @@ export function DownloadPage() {
                 </div>
               ))}
             </div>
+          </div>
           </div>
         </div>
       </section>
@@ -83,7 +85,7 @@ export function DownloadPage() {
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 26, lineHeight: 1, color: "var(--classified)", letterSpacing: "0.02em" }}>PDF</span>
               <div style={{ paddingRight: 32 }}>
                 <div style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: 17, color: "var(--ink-0)", marginBottom: 5 }}>Portable Document Format</div>
-                <div className="mono" style={{ color: "var(--ink-3)" }}>Full manuscript · Print-ready layout · {edition}</div>
+                <div className="mono" style={{ color: "var(--ink-3)" }}>Full manuscript · Paginated export · {edition}</div>
               </div>
               <div style={{ textAlign: "center" }}>
                 <span className="stamp" style={{ transform: "none", fontSize: 10 }}>Free</span>

@@ -23,7 +23,7 @@ function HomeHero({ lastRead }) {
 
   return (
     <section style={{ position: "relative", padding: "48px 32px 88px", borderBottom: "1px solid var(--paper-edge)" }}>
-      <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: 56, alignItems: "start" }}>
+      <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 56, alignItems: "start" }}>
         {/* LEFT: editorial copy */}
         <div style={{ paddingTop: 22 }}>
           <div className="eyebrow" style={{ marginBottom: 18 }}>
@@ -142,23 +142,19 @@ function EditorsLetter() {
   return (
     <section className="editors-letter">
       <div className="editors-letter__inner">
-        <div className="editors-letter__numeral" aria-hidden="true">№ 01</div>
+        <div className="editors-letter__numeral" aria-hidden="true">✦</div>
         <div className="editors-letter__body">
           <span className="esp-eyebrow">From the Editor</span>
-          <h2>A documented account of how a Russian football-ultra milieu became a branded wartime formation.</h2>
+          <h2>Human-led OSINT research, AI-assisted</h2>
           <p>
-            The book follows Española from supporter culture and the first Donbas war into recruitment, propaganda,
-            battlefield reputation, patronage, state control, and the uncertainty around the formation's end. Every
-            claim has been traced to a primary source, intercepted transmission, or open-source verification.
+            This book is based on human-led OSINT research, multilingual source review, and AI-assisted organisation,
+            translation support, drafting, and editorial revision. Final judgments, source selection, interpretation,
+            and responsibility for the text remain human.
           </p>
           <p>
             This is the open-source web edition. The canonical manuscript, source notes, and image credits are
             preserved in full. We do not glorify; we document.
           </p>
-          <div className="editors-letter__byline">
-            <em>— A. Ortiz</em>
-            <span>Editor, The Investigations Desk</span>
-          </div>
         </div>
         <div className="ledger" role="table" aria-label="Edition details">
           <div className="ledger__header">
@@ -186,7 +182,7 @@ function SectionShelf() {
     { key: "front-matter", roman: "I", label: "Front Matter", title: "How to read the book", description: "Author note, methodology, AI-assistance disclosure, and terminology notes.", stamp: "READ FIRST", link: "/section/front-matter" },
     { key: "chapters", roman: "II", label: "Chapters", title: "The narrative investigation", description: "From the stadium and Donbas to recruitment, branding, combat reputation, and state reabsorption.", stamp: "OPEN", link: "/chapters" },
     { key: "appendices", roman: "III", label: "Appendices", title: "Sources & reference links", description: "Reader-facing source notes, reference links, and source-handling context.", stamp: "REFERENCE", link: "/sources" },
-    { key: "codex", roman: "IV", label: "Codex", title: "Editorial protocols", description: "The standing protocols governing voice, evidence, source integration, and writing behavior.", stamp: "INTERNAL", link: "/codex", count: 3 },
+    { key: "codex", roman: "IV", label: "Codex", title: "Editorial protocols", description: "The standing protocols governing voice, evidence, source integration, writing behavior, and editor-in-chief review.", stamp: "INTERNAL", link: "/codex", count: 4 },
   ];
 
   return (

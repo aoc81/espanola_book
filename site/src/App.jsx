@@ -13,6 +13,7 @@ const CodexIndexPage = lazy(() => import("./pages/CodexPages").then((module) => 
 const BookWritingProtocolPage = lazy(() => import("./pages/CodexPages").then((module) => ({ default: module.BookWritingProtocolPage })));
 const WritingBehaviorPage = lazy(() => import("./pages/CodexPages").then((module) => ({ default: module.WritingBehaviorPage })));
 const SourceAgentPage = lazy(() => import("./pages/CodexPages").then((module) => ({ default: module.SourceAgentPage })));
+const EditorInChiefPage = lazy(() => import("./pages/CodexPages").then((module) => ({ default: module.EditorInChiefPage })));
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/codex/book-writing-protocol" element={<BookWritingProtocolPage />} />
           <Route path="/codex/writing-behavior" element={<WritingBehaviorPage />} />
           <Route path="/codex/source-agent" element={<SourceAgentPage />} />
+          <Route path="/codex/editor-in-chief" element={<EditorInChiefPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>

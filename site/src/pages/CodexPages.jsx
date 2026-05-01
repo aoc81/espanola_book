@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import codexProtocol from "../../../docs/codex/book_writing_protocol.md?raw";
 import codexBehavior from "../../../docs/codex/llm_writing_behavior.md?raw";
 import codexAgent from "../../../docs/codex/agent.md?raw";
+import editorInChief from "../../../docs/editorial/editor_in_chief.md?raw";
 import { chapterTitle } from "../lib/siteUtils";
 
 const CODEX_DOCS = [
@@ -13,6 +14,7 @@ const CODEX_DOCS = [
     link: "/codex/source-agent",
     filename: "agent.md",
     label: "Source Usage Protocol",
+    sourcePath: "docs/codex/agent.md",
   },
   {
     n: "02",
@@ -21,6 +23,7 @@ const CODEX_DOCS = [
     link: "/codex/book-writing-protocol",
     filename: "book_writing_protocol.md",
     label: "Book Writing Protocol",
+    sourcePath: "docs/codex/book_writing_protocol.md",
   },
   {
     n: "03",
@@ -29,6 +32,16 @@ const CODEX_DOCS = [
     link: "/codex/writing-behavior",
     filename: "llm_writing_behavior.md",
     label: "LLM Writing Behavior",
+    sourcePath: "docs/codex/llm_writing_behavior.md",
+  },
+  {
+    n: "04",
+    title: "Editor-in-Chief Review Standard",
+    body: "A publication-pressure review brief for judging the manuscript as serious investigative nonfiction. It defines the verdict standard, structural scrutiny, evidentiary risk, legal exposure, continuity checks, and the final editorial action plan.",
+    link: "/codex/editor-in-chief",
+    filename: "editor_in_chief.md",
+    label: "Editor-in-Chief Brief",
+    sourcePath: "docs/editorial/editor_in_chief.md",
   },
 ];
 
@@ -54,9 +67,9 @@ export function CodexIndexPage() {
         <span className="tick" style={{ top: 18, right: 18 }} aria-hidden="true" />
         <div style={{ maxWidth: 1320, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "baseline", marginBottom: 36, gap: 24 }}>
-            <div className="eyebrow">Editorial Codex · 03 Protocols</div>
+            <div className="eyebrow">Editorial Codex · 04 Protocols</div>
             <div style={{ height: 1, background: "var(--ink-1)" }} />
-            <div className="mono" style={{ color: "var(--ink-3)" }}>docs/codex/</div>
+            <div className="mono" style={{ color: "var(--ink-3)" }}>docs/codex/ + docs/editorial/</div>
           </div>
           <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(72px, 11vw, 160px)", lineHeight: 0.85, color: "var(--ink-0)", letterSpacing: "-0.02em", marginBottom: 28 }}>
             CODEX.
@@ -68,7 +81,7 @@ export function CodexIndexPage() {
       </section>
 
       <section style={{ padding: "56px 32px 88px" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
           {CODEX_DOCS.map((c) => (
             <div key={c.n} style={{ background: "var(--paper-1)", border: "1px solid var(--ink-1)", padding: "28px 28px 32px", position: "relative", display: "flex", flexDirection: "column" }}>
               <span className="tick" style={{ top: 10, left: 10 }} aria-hidden="true" />
@@ -105,9 +118,10 @@ function mdColorLine(line) {
 export function CodexPage({ title, filename, content }) {
   const lines = content.split("\n");
   const lineNumWidth = String(lines.length).length;
-  const idx = CODEX_DOCS.findIndex((d) => d.filename === filename);
-  const prev = CODEX_DOCS[idx - 1] ?? null;
-  const next = CODEX_DOCS[idx + 1] ?? null;
+  const doc = CODEX_DOCS.find((d) => d.filename === filename) ?? null;
+  const idx = doc ? CODEX_DOCS.findIndex((d) => d.filename === filename) : -1;
+  const prev = idx > 0 ? CODEX_DOCS[idx - 1] : null;
+  const next = idx >= 0 ? CODEX_DOCS[idx + 1] ?? null : null;
 
   return (
     <main id="main-content">
@@ -127,7 +141,7 @@ export function CodexPage({ title, filename, content }) {
           {/* file tab */}
           <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--dossier-1)", border: "1px solid var(--dossier-rule)", borderBottom: "none", padding: "8px 18px", fontFamily: "var(--font-data)", fontSize: 12, letterSpacing: "0.04em", color: "var(--dossier-fg-1)" }}>
             <span style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--classified)", display: "inline-block" }} />
-            docs/codex/{filename}
+            {doc?.sourcePath ?? `docs/codex/${filename}`}
           </div>
           {/* code area */}
           <div style={{ background: "var(--dossier-0)", border: "1px solid var(--dossier-rule)", overflowX: "auto" }}>
@@ -202,5 +216,9 @@ export function WritingBehaviorPage() {
 
 export function SourceAgentPage() {
   return <CodexPage title="Source & Narrative Integration Protocol" filename="agent.md" content={codexAgent} />;
+}
+
+export function EditorInChiefPage() {
+  return <CodexPage title="Editor-in-Chief Review Standard" filename="editor_in_chief.md" content={editorInChief} />;
 }
 

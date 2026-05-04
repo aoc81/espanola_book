@@ -21,24 +21,28 @@ function App() {
       <SkipLink />
       <ScrollToTop />
       <Masthead />
-      <Suspense fallback={<main id="main-content" />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/chapters" element={<Navigate to="/section/chapters" replace />} />
-          <Route path="/section/:sectionKey" element={<SectionPage />} />
-          <Route path="/sources" element={<GalleryPage />} />
-          <Route path="/read/:slug" element={<ReaderPage />} />
-          <Route path="/download" element={<DownloadPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/codex" element={<CodexIndexPage />} />
-          <Route path="/codex/book-writing-protocol" element={<BookWritingProtocolPage />} />
-          <Route path="/codex/writing-behavior" element={<WritingBehaviorPage />} />
-          <Route path="/codex/source-agent" element={<SourceAgentPage />} />
-          <Route path="/codex/editor-in-chief" element={<EditorInChiefPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Suspense>
-      <SiteFooter />
+      <div className="app-main-shell">
+        <Suspense fallback={<main id="main-content" className="route-fallback" />}>
+          <>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/chapters" element={<Navigate to="/section/chapters" replace />} />
+              <Route path="/section/:sectionKey" element={<SectionPage />} />
+              <Route path="/sources" element={<GalleryPage />} />
+              <Route path="/read/:slug" element={<ReaderPage />} />
+              <Route path="/download" element={<DownloadPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/codex" element={<CodexIndexPage />} />
+              <Route path="/codex/book-writing-protocol" element={<BookWritingProtocolPage />} />
+              <Route path="/codex/writing-behavior" element={<WritingBehaviorPage />} />
+              <Route path="/codex/source-agent" element={<SourceAgentPage />} />
+              <Route path="/codex/editor-in-chief" element={<EditorInChiefPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+            <SiteFooter />
+          </>
+        </Suspense>
+      </div>
     </div>
   );
 }

@@ -41,7 +41,7 @@ export function DownloadPage() {
               DOWNLOAD.
             </div>
             <h2 style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontWeight: 400, fontSize: 22, lineHeight: 1.4, color: "var(--ink-2)", margin: 0, maxWidth: 680 }}>
-              The full manuscript is free in PDF and Markdown. A Kindle edition is on Amazon. If the work is useful to you, consider supporting it.
+              The full manuscript is free in PDF and Markdown, with companion video and audio files available below. A Kindle edition is on Amazon. If the work is useful to you, consider supporting it.
             </h2>
           </div>
           {/* hero stats */}
@@ -52,6 +52,8 @@ export function DownloadPage() {
                 ["Image references", String(siteData.stats.imageCount)],
                 ["Sources", "44"],
                 ["Formats", "03"],
+                ["Video companions", "01"],
+                ["Audio companions", "01"],
                 ["License", "CC BY-NC 4.0"],
               ].map(([label, value], i, arr) => (
                 <div key={label} style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 24, padding: "11px 4px", borderBottom: i === arr.length - 1 ? "none" : "1px solid var(--paper-edge)", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase" }}>

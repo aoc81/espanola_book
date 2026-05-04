@@ -28,6 +28,23 @@ body {
   color: var(--ink-1);
 }
 
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main-shell {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.route-fallback {
+  flex: 1 0 auto;
+  min-height: 55vh;
+}
+
 a {
   color: inherit;
 }

@@ -2,6 +2,11 @@ import { Link } from "react-router-dom";
 import coverImg from "../../../assets/images/covers/Espanola Book Cover-New.png";
 import siteData from "@generated-manuscript";
 import { TocInline } from "./HomePage";
+
+const NOTEBOOKLM_VIDEO_URL = encodeURI("/downloads/Española_Case_Study.mp4");
+const NOTEBOOKLM_AUDIO_URL = "/downloads/How_Russia_weaponized_its_football_hooligans.m4a";
+const NOTEBOOKLM_POSTER_URL = "/downloads/espanola-notebooklm.png";
+
 export function DownloadPage() {
   const edition = siteData.edition?.version?.toUpperCase() ?? "V4.1";
 
@@ -161,6 +166,59 @@ export function DownloadPage() {
               Table of Contents
             </h2>
             <TocInline />
+          </div>
+        </div>
+      </section>
+
+      <section style={{ padding: "0 32px 72px" }}>
+        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 28 }}>
+            <span style={{ fontFamily: "var(--font-display)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Companion Media ✦</span>
+            <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
+            <span className="mono" style={{ color: "var(--ink-3)" }}>NotebookLM files</span>
+          </div>
+          <div style={{ border: "1px solid var(--ink-1)", background: "var(--paper-1)", padding: "40px 40px 44px" }}>
+            <div style={{ marginBottom: 30, maxWidth: 760 }}>
+              <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: "clamp(26px,3vw,38px)", lineHeight: 1.08, letterSpacing: "-0.02em", color: "var(--ink-0)", margin: "0 0 16px" }}>
+                Video and podcast companions for readers
+              </h2>
+              <p style={{ fontFamily: "var(--font-serif)", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)", margin: "0 0 14px" }}>
+                These NotebookLM-generated companion files offer alternate ways to review the case structure, themes, and narrative arc alongside the written investigation.
+              </p>
+              <p className="mono" style={{ color: "var(--ink-3)", margin: 0 }}>
+                Reader-facing companion media · Not the canonical text
+              </p>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 24, alignItems: "start" }}>
+              <div style={{ border: "1px solid var(--paper-edge)", background: "var(--paper-0)", padding: 18 }}>
+                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16, marginBottom: 12 }}>
+                  <div style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: 18, color: "var(--ink-0)" }}>Case-study video</div>
+                  <div className="mono" style={{ color: "var(--ink-3)" }}>MP4</div>
+                </div>
+                <p style={{ fontFamily: "var(--font-serif)", fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)", margin: "0 0 16px" }}>
+                  A visual NotebookLM summary designed for readers who want a quicker walk through the book&apos;s main arguments, chronology, and organizational map.
+                </p>
+                <video controls preload="metadata" poster={NOTEBOOKLM_POSTER_URL} style={{ width: "100%", display: "block", background: "var(--dossier-0)" }}>
+                  <source src={NOTEBOOKLM_VIDEO_URL} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div>
+                <div style={{ border: "1px solid var(--paper-edge)", background: "var(--paper-0)", padding: 18 }}>
+                  <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16, marginBottom: 12 }}>
+                    <div style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: 18, color: "var(--ink-0)" }}>NotebookLM podcast</div>
+                    <div className="mono" style={{ color: "var(--ink-3)" }}>M4A</div>
+                  </div>
+                  <p style={{ fontFamily: "var(--font-serif)", fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)", margin: "0 0 16px" }}>
+                    An audio companion for readers who prefer a conversational recap of the investigation while commuting, taking notes, or reviewing the case away from the screen.
+                  </p>
+                  <audio controls preload="metadata" style={{ width: "100%" }}>
+                    <source src={NOTEBOOKLM_AUDIO_URL} type="audio/mp4" />
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

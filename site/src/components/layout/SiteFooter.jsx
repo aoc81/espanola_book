@@ -43,8 +43,8 @@ export function SiteFooter() {
         <div className="site-footer__col">
           <h4>Author</h4>
           <ul>
-            <li><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></li>
-            <li><a href="https://x.com/" target="_blank" rel="noreferrer">X (Twitter)</a></li>
+            <li><a href="https://www.linkedin.com/in/1231239i340/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+            <li><a href="https://x.com/angoritz" target="_blank" rel="noreferrer">X (Twitter)</a></li>
           </ul>
         </div>
 

@@ -29,5 +29,7 @@ assets/images/manuscripts/v4.1/en/pictures/nonfree-candidates/
 
 site/node_modules/
 site/dist/
+contact-api/.env.local
+contact-api/node_modules/
 
 sources/archives/

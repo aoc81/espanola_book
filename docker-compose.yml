@@ -4,5 +4,19 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
+    depends_on:
+      - contact-api
     expose:
       - "3000"
+  contact-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.contact
+    restart: unless-stopped
+    environment:
+      PORT: "4000"
+      RESEND_API_KEY: ${RESEND_API_KEY}
+      RESEND_FROM_EMAIL: ${RESEND_FROM_EMAIL}
+      CONTACT_TO_EMAIL: espanola@nexeailkii.resend.app
+    expose:
+      - "4000"

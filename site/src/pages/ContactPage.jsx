@@ -1,39 +1,55 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+
+const contactEmail = "espanola (dot) stegosaur692 (at) passmail (dot) com";
+
 export function ContactPage() {
+  const [submitState, setSubmitState] = useState({ status: "idle", message: "" });
   const channels = [
     {
       n: "01",
-      label: "General inquiries",
-      value: "desk@espanola-investigation.com",
-      note: "Editorial questions, corrections, permissions",
-      href: "mailto:desk@espanola-investigation.com",
+      label: "Contact",
+      value: contactEmail,
+      note: "For editorial questions, source material, corrections, permissions, press, licensing, or any other contact purpose.",
       tag: "Email",
     },
-    {
-      n: "02",
-      label: "Tips & sources",
-      value: "tips@espanola-investigation.com",
-      note: "For source material, documents, or leads. Use encrypted mail or Signal for sensitive material.",
-      href: "mailto:tips@espanola-investigation.com",
-      tag: "Tip line",
-    },
-    {
-      n: "03",
-      label: "Signal (secure)",
-      value: "+XX XXX XXX XXXX",
-      note: "Preferred channel for sensitive communications. Disappearing messages enabled by default.",
-      href: "#",
-      tag: "Signal",
-    },
-    {
-      n: "04",
-      label: "Press & licensing",
-      value: "press@espanola-investigation.com",
-      note: "Syndication, republication, and press inquiries",
-      href: "mailto:press@espanola-investigation.com",
-      tag: "Press",
-    },
   ];
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    setSubmitState({ status: "submitting", message: "Sending..." });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(result.error || "Unable to send the message.");
+      }
+
+      form.reset();
+      setSubmitState({ status: "success", message: "Message sent." });
+    } catch (error) {
+      const isNetworkError = error instanceof TypeError;
+      setSubmitState({
+        status: "error",
+        message: isNetworkError
+          ? "Contact service is not reachable locally."
+          : error instanceof Error
+            ? error.message
+            : "Unable to send the message.",
+      });
+    }
+  }
 
   return (
     <main id="main-content">
@@ -62,19 +78,16 @@ export function ContactPage() {
                 CONTACT.
               </div>
               <h2 style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontWeight: 400, fontSize: 22, lineHeight: 1.4, color: "var(--ink-2)", margin: 0 }}>
-                For editorial questions, source material, or corrections. For sensitive communications, use Signal or encrypted email.
+                For any contact purpose, use the email address below.
               </h2>
             </div>
-            {/* source protection notice */}
             <div style={{ paddingBottom: 8 }}>
               <div style={{ background: "var(--paper-1)", border: "1px solid var(--ink-1)", borderLeft: "4px solid var(--classified)", padding: "28px 28px 28px 24px" }}>
-                <div className="eyebrow" style={{ marginBottom: 14 }}>Source protection policy</div>
+                <div className="eyebrow" style={{ marginBottom: 14 }}>Contact email</div>
                 <p style={{ fontFamily: "var(--font-serif)", fontSize: 15, lineHeight: 1.7, color: "var(--ink-1)", margin: "0 0 16px" }}>
-                  The desk does not disclose sources, retain identifying metadata beyond operational necessity, or cooperate with requests to identify confidential sources.
+                  Editorial questions, source material, corrections, permissions, press, licensing, and other inquiries should all be sent to the same address.
                 </p>
-                <p style={{ fontFamily: "var(--font-serif)", fontSize: 15, lineHeight: 1.7, color: "var(--ink-2)", margin: 0 }}>
-                  For maximum operational security, use Signal with disappearing messages enabled, or PGP-encrypted email. Do not send sensitive material over unencrypted channels.
-                </p>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 20, color: "var(--ink-0)", overflowWrap: "anywhere" }}>{contactEmail}</div>
               </div>
             </div>
           </div>
@@ -82,10 +95,9 @@ export function ContactPage() {
       </section>
 
       {/* channels table + form */}
-      <section style={{ padding: "56px 32px 88px" }}>
+      <section style={{ padding: "56px 32px 48px" }}>
         <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start" }}>
 
-          {/* left: channel ledger */}
           <div>
             <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 24 }}>
               <span style={{ fontFamily: "var(--font-display)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Contact Channels ✦</span>
@@ -99,7 +111,7 @@ export function ContactPage() {
                 <span>Type</span>
               </div>
               {channels.map((ch, i) => (
-                <a key={ch.n} href={ch.href} style={{ display: "grid", gridTemplateColumns: "40px 1fr auto", padding: "20px 20px", borderBottom: i === channels.length - 1 ? "none" : "1px solid var(--paper-edge)", background: i % 2 === 0 ? "var(--paper-0)" : "var(--paper-1)", textDecoration: "none", color: "inherit", alignItems: "start", gap: 12 }}>
+                <div key={ch.n} style={{ display: "grid", gridTemplateColumns: "40px 1fr auto", padding: "20px 20px", borderBottom: i === channels.length - 1 ? "none" : "1px solid var(--paper-edge)", background: i % 2 === 0 ? "var(--paper-0)" : "var(--paper-1)", color: "inherit", alignItems: "start", gap: 12 }}>
                   <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16, color: "var(--classified)", paddingTop: 2 }}>{ch.n}</span>
                   <div>
                     <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ink-3)", marginBottom: 5 }}>{ch.label}</div>
@@ -107,25 +119,24 @@ export function ContactPage() {
                     <div style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 13, lineHeight: 1.5, color: "var(--ink-3)" }}>{ch.note}</div>
                   </div>
                   <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-1)", border: "1px solid var(--paper-edge)", padding: "3px 7px 2px", whiteSpace: "nowrap" }}>{ch.tag}</span>
-                </a>
+                </div>
               ))}
             </div>
           </div>
 
-          {/* right: intake form */}
           <div>
             <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 24 }}>
               <span style={{ fontFamily: "var(--font-display)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Send a Message ✦</span>
               <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
             </div>
             <form
-              action="https://formspree.io/f/placeholder"
-              method="POST"
+              onSubmit={handleSubmit}
               style={{ border: "1px solid var(--ink-1)", background: "var(--paper-0)", display: "grid", gridTemplateRows: "auto auto auto auto auto auto" }}
             >
               <div style={{ padding: "11px 20px", background: "var(--ink-0)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--paper-0)" }}>
                 Intake Form · Investigations Desk
               </div>
+              <input type="text" name="company" tabIndex={-1} autoComplete="off" style={{ display: "none" }} />
               {[
                 { id: "name", label: "Full name", type: "text", placeholder: "Your name", required: true },
                 { id: "email", label: "Email address", type: "email", placeholder: "your@email.com", required: true },
@@ -159,19 +170,50 @@ export function ContactPage() {
                 />
               </div>
               <div style={{ padding: "20px 28px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-                  * Required · Do not send sensitive material via this form
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: submitState.status === "error" ? "var(--classified)" : "var(--ink-4)" }}>
+                  {submitState.message || "* Required · Replies go to your email address"}
                 </span>
                 <button
                   type="submit"
+                  disabled={submitState.status === "submitting"}
                   style={{ display: "inline-flex", alignItems: "center", gap: 8, height: 44, padding: "0 20px", border: "1px solid var(--ink-1)", background: "var(--ink-0)", color: "var(--paper-0)", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", cursor: "pointer" }}
                 >
-                  ▸ Send
+                  {submitState.status === "submitting" ? "Sending" : "▸ Send"}
                 </button>
               </div>
             </form>
           </div>
 
+        </div>
+      </section>
+
+      {/* support strip */}
+      <section style={{ padding: "0 32px 88px" }}>
+        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 64, alignItems: "center", padding: "40px 48px", border: "1px solid var(--ink-1)", borderLeft: "4px solid var(--classified)", background: "var(--paper-1)", position: "relative" }}>
+            <span className="tick" style={{ bottom: 14, left: 14 }} aria-hidden="true" />
+            <span className="tick" style={{ bottom: 14, right: 14 }} aria-hidden="true" />
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 14 }}>Support the work</div>
+              <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: "clamp(22px,2.5vw,32px)", lineHeight: 1.1, letterSpacing: "-0.01em", color: "var(--ink-0)", margin: "0 0 14px" }}>
+                Buy me a coffee
+              </h2>
+              <p style={{ fontFamily: "var(--font-serif)", fontSize: 16, lineHeight: 1.65, color: "var(--ink-2)", margin: 0, maxWidth: 640 }}>
+                This investigation is free and independent. No institutional backing, no advertising. If the work is useful, accurate, or simply worth your time, a contribution keeps the desk running and the next investigation open.
+              </p>
+            </div>
+            <div style={{ flexShrink: 0 }}>
+              <a
+                href="https://buymeacoffee.com/angelortiz"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, padding: "24px 36px", background: "var(--classified)", color: "var(--paper-0)", textDecoration: "none" }}
+              >
+                <span style={{ fontSize: 28 }}>☕</span>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase" }}>Buy me a coffee</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>

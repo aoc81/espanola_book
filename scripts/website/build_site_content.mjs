@@ -8,6 +8,7 @@ const BUILD_SITE_DIR = path.join(ROOT_DIR, "build", "site");
 const GENERATED_MODULE = path.join(BUILD_SITE_DIR, "generated-manuscript.js");
 const GENERATED_PUBLIC_DIR = path.join(BUILD_SITE_DIR, "public");
 const GENERATED_PICTURES_DIR = path.join(GENERATED_PUBLIC_DIR, "pictures");
+const SITE_PUBLIC_DIR = path.join(SITE_DIR, "public");
 
 const version = process.env.BOOK_VERSION ?? "v4.1";
 const language = process.env.BOOK_LANGUAGE ?? "en";
@@ -250,6 +251,10 @@ function copyGeneratedPublicAssets() {
   copyFile(path.join(DESIGN_SYSTEM_DIR, "colors_and_type.css"), path.join(GENERATED_PUBLIC_DIR, "design-system", "colors_and_type.css"));
   copyFile(path.join(DESIGN_SYSTEM_DIR, "assets", "cover-hero.png"), path.join(GENERATED_PUBLIC_DIR, "design-system", "cover-hero.png"));
   copyFile(path.join(DESIGN_SYSTEM_DIR, "assets", "paper-noise.svg"), path.join(GENERATED_PUBLIC_DIR, "design-system", "paper-noise.svg"));
+  const downloadsDir = path.join(SITE_PUBLIC_DIR, "downloads");
+  if (fs.existsSync(downloadsDir)) {
+    fs.cpSync(downloadsDir, path.join(GENERATED_PUBLIC_DIR, "downloads"), { recursive: true });
+  }
   for (const entry of manifest) {
     copyFile(path.join(IMAGE_ROOT, entry.relative_path), path.join(GENERATED_PUBLIC_DIR, entry.relative_path));
   }

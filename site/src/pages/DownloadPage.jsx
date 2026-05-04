@@ -6,6 +6,8 @@ export function DownloadPage() {
   const edition = siteData.edition?.version?.toUpperCase() ?? "V4.1";
 
   const ROW_COLS = "56px 96px 1fr 100px 180px";
+  const PRICE_BADGE_STYLE = { transform: "none", fontSize: 10, minWidth: 58, textAlign: "center" };
+  const ACTION_BUTTON_STYLE = { display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, width: 132, height: 40, padding: "0 16px", border: "1px solid var(--ink-1)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase" };
 
   return (
     <main id="main-content">
@@ -59,7 +61,7 @@ export function DownloadPage() {
       </section>
 
       {/* format table */}
-      <section style={{ padding: "56px 32px 0" }}>
+      <section style={{ padding: "56px 32px 48px" }}>
         <div style={{ maxWidth: 1320, margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 24 }}>
             <span style={{ fontFamily: "var(--font-display)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Available Formats ✦</span>
@@ -88,10 +90,10 @@ export function DownloadPage() {
                 <div className="mono" style={{ color: "var(--ink-3)" }}>Full manuscript · Paginated export · {edition}</div>
               </div>
               <div style={{ textAlign: "center" }}>
-                <span className="stamp" style={{ transform: "none", fontSize: 10 }}>Free</span>
+                <span className="stamp" style={PRICE_BADGE_STYLE}>Free</span>
               </div>
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 8, height: 40, padding: "0 16px", border: "1px solid var(--classified)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--classified)" }}>↓ Download</span>
+                <span style={{ ...ACTION_BUTTON_STYLE, borderColor: "var(--classified)", color: "var(--classified)" }}>↓ Download</span>
               </div>
             </a>
 
@@ -104,15 +106,15 @@ export function DownloadPage() {
                 <div className="mono" style={{ color: "var(--ink-3)" }}>{siteData.stats.documentCount} .md documents · Plain text · {edition}</div>
               </div>
               <div style={{ textAlign: "center" }}>
-                <span className="stamp" style={{ transform: "none", fontSize: 10 }}>Free</span>
+                <span className="stamp" style={PRICE_BADGE_STYLE}>Free</span>
               </div>
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 8, height: 40, padding: "0 16px", border: "1px solid var(--ink-1)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--ink-1)" }}>↓ Download</span>
+                <span style={{ ...ACTION_BUTTON_STYLE, color: "var(--ink-1)" }}>↓ Download</span>
               </div>
             </a>
 
             {/* Kindle row — dark */}
-            <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" style={{ display: "grid", gridTemplateColumns: ROW_COLS, gap: 0, padding: "28px 24px", background: "var(--dossier-0)", textDecoration: "none", color: "inherit", alignItems: "center" }}>
+            <a href="https://www.amazon.com/Espa%C3%B1ola-hooligans-machines-%C3%81ngel-Ortiz-ebook/dp/B0GYWV1BN4/" target="_blank" rel="noopener noreferrer" style={{ display: "grid", gridTemplateColumns: ROW_COLS, gap: 0, padding: "28px 24px", background: "var(--dossier-0)", textDecoration: "none", color: "inherit", alignItems: "center" }}>
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 18, color: "var(--dossier-fg-2)" }}>03</span>
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 22, lineHeight: 1, color: "var(--dossier-fg-0)", letterSpacing: "0.02em" }}>KINDLE</span>
               <div style={{ paddingRight: 32 }}>
@@ -120,10 +122,10 @@ export function DownloadPage() {
                 <div className="mono" style={{ color: "var(--dossier-fg-2)" }}>E-reader · Linked footnotes · Chapter navigation</div>
               </div>
               <div style={{ textAlign: "center" }}>
-                <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dossier-fg-0)", border: "2px solid var(--dossier-fg-1)", padding: "4px 8px 3px", display: "inline-block" }}>Paid</span>
+                <span className="stamp stamp--bone" style={PRICE_BADGE_STYLE}>Paid</span>
               </div>
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 8, height: 40, padding: "0 16px", border: "1px solid var(--dossier-fg-1)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--dossier-fg-0)" }}>↗ Amazon</span>
+                <span style={{ ...ACTION_BUTTON_STYLE, borderColor: "var(--dossier-fg-1)", color: "var(--dossier-fg-0)" }}>↗ Amazon</span>
               </div>
             </a>
 
@@ -172,7 +174,7 @@ export function DownloadPage() {
             <div>
               <div className="eyebrow" style={{ marginBottom: 14 }}>Support the work</div>
               <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: "clamp(22px,2.5vw,32px)", lineHeight: 1.1, letterSpacing: "-0.01em", color: "var(--ink-0)", margin: "0 0 14px" }}>
-                Buy the Investigations Desk a coffee
+                Buy me a coffee
               </h2>
               <p style={{ fontFamily: "var(--font-serif)", fontSize: 16, lineHeight: 1.65, color: "var(--ink-2)", margin: 0, maxWidth: 640 }}>
                 This investigation is free and independent. No institutional backing, no advertising. If the work is useful, accurate, or simply worth your time — a contribution keeps the desk running and the next investigation open.
@@ -180,7 +182,7 @@ export function DownloadPage() {
             </div>
             <div style={{ flexShrink: 0 }}>
               <a
-                href="https://buymeacoffee.com/espanola"
+                href="https://buymeacoffee.com/angelortiz"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, padding: "24px 36px", background: "var(--classified)", color: "var(--paper-0)", textDecoration: "none" }}

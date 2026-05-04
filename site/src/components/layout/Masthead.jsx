@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import siteData from "@generated-manuscript";
 export function SkipLink() {
   return <a className="skip-link" href="#main-content">Skip to content</a>;
 }
@@ -22,10 +21,6 @@ export function Masthead() {
     <header className="masthead">
       <div className="masthead__strip">
         <div className="masthead__strip-inner">
-          <span className="masthead__case">
-            <span className="pulse" aria-hidden="true" />
-            Case File · UKR-ESP-17 · Active
-          </span>
           <nav className="masthead__nav" aria-label="Primary">
             <NavLink to="/" end>Overview</NavLink>
             <NavLink to="/section/front-matter">Front Matter</NavLink>
@@ -35,7 +30,6 @@ export function Masthead() {
             <NavLink to="/download">Download</NavLink>
             <NavLink to="/contact">Contact</NavLink>
           </nav>
-          <span>{siteData.stats.documentCount} Reading Units</span>
         </div>
       </div>
     </header>

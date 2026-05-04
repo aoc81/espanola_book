@@ -19,5 +19,11 @@ export default defineConfig({
     fs: {
       allow: [ROOT_DIR],
     },
+    proxy: {
+      "/api": {
+        target: "http://localhost:4000",
+        changeOrigin: true,
+      },
+    },
   },
 });

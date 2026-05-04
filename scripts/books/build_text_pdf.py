@@ -249,7 +249,7 @@ class PdfBuilder:
             )
             page_ids.append(0)
 
-        pages_id = len(self.objects) + 1
+        pages_id = len(self.objects) + len(content_ids) + 1
         for idx, content_id in enumerate(content_ids):
             page_ids[idx] = self.add_object(
                 f"<< /Type /Page /Parent {pages_id} 0 R /MediaBox [0 0 {PAGE_WIDTH} {PAGE_HEIGHT}] "

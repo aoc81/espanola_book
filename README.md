@@ -30,6 +30,12 @@ Build the English v4.1 DOCX:
 python scripts/books/build_docx.py --version v4.1 --language en
 ```
 
+Build the English v4.1 PDF:
+
+```bash
+python scripts/books/build_pdf.py --version v4.1 --language en
+```
+
 Build the Spanish or French editions:
 
 ```bash

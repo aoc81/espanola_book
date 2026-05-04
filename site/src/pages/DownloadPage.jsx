@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import coverImg from "../../../assets/images/covers/Espanola Book Cover-New.png";
 import siteData from "@generated-manuscript";
@@ -6,8 +7,10 @@ import { TocInline } from "./HomePage";
 const NOTEBOOKLM_VIDEO_URL = encodeURI("/downloads/Española_Case_Study.mp4");
 const NOTEBOOKLM_AUDIO_URL = "/downloads/How_Russia_weaponized_its_football_hooligans.m4a";
 const NOTEBOOKLM_POSTER_URL = "/downloads/espanola-notebooklm.png";
+const NOTEBOOKLM_MINDMAP_URL = "/downloads/NotebookLM-Mind-Map.png";
 
 export function DownloadPage() {
+  const [isMindMapOpen, setIsMindMapOpen] = useState(false);
   const edition = siteData.edition?.version?.toUpperCase() ?? "V4.1";
 
   const ROW_COLS = "56px 96px 1fr 100px 180px";
@@ -54,6 +57,7 @@ export function DownloadPage() {
                 ["Formats", "03"],
                 ["Video companions", "01"],
                 ["Audio companions", "01"],
+                ["Mind maps", "01"],
                 ["License", "CC BY-NC 4.0"],
               ].map(([label, value], i, arr) => (
                 <div key={label} style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 24, padding: "11px 4px", borderBottom: i === arr.length - 1 ? "none" : "1px solid var(--paper-edge)", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase" }}>
@@ -205,21 +209,60 @@ export function DownloadPage() {
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div>
-                <div style={{ border: "1px solid var(--paper-edge)", background: "var(--paper-0)", padding: 18 }}>
-                  <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16, marginBottom: 12 }}>
-                    <div style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: 18, color: "var(--ink-0)" }}>NotebookLM podcast</div>
-                    <div className="mono" style={{ color: "var(--ink-3)" }}>M4A</div>
-                  </div>
-                  <p style={{ fontFamily: "var(--font-serif)", fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)", margin: "0 0 16px" }}>
-                    An audio companion for readers who prefer a conversational recap of the investigation while commuting, taking notes, or reviewing the case away from the screen.
-                  </p>
-                  <audio controls preload="metadata" style={{ width: "100%" }}>
-                    <source src={NOTEBOOKLM_AUDIO_URL} type="audio/mp4" />
-                    Your browser does not support the audio element.
-                  </audio>
+              <div style={{ border: "1px solid var(--paper-edge)", background: "var(--paper-0)", padding: 18 }}>
+                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16, marginBottom: 12 }}>
+                  <div style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: 18, color: "var(--ink-0)" }}>NotebookLM podcast</div>
+                  <div className="mono" style={{ color: "var(--ink-3)" }}>M4A</div>
                 </div>
+                <p style={{ fontFamily: "var(--font-serif)", fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)", margin: "0 0 16px" }}>
+                  An audio companion for readers who prefer a conversational recap of the investigation while commuting, taking notes, or reviewing the case away from the screen.
+                </p>
+                <audio controls preload="metadata" style={{ width: "100%" }}>
+                  <source src={NOTEBOOKLM_AUDIO_URL} type="audio/mp4" />
+                  Your browser does not support the audio element.
+                </audio>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style={{ padding: "0 32px 72px" }}>
+        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 28 }}>
+            <span style={{ fontFamily: "var(--font-display)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Mind Map ✦</span>
+            <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
+            <span className="mono" style={{ color: "var(--ink-3)" }}>NotebookLM visual output</span>
+          </div>
+          <div style={{ border: "1px solid var(--ink-1)", background: "var(--paper-1)", padding: "40px 40px 44px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.05fr) minmax(320px, 0.95fr)", gap: 36, alignItems: "start" }}>
+              <div>
+                <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: "clamp(26px,3vw,38px)", lineHeight: 1.08, letterSpacing: "-0.02em", color: "var(--ink-0)", margin: "0 0 16px" }}>
+                  Systems overview mind map
+                </h2>
+                <p style={{ fontFamily: "var(--font-serif)", fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)", margin: "0 0 14px", maxWidth: 620 }}>
+                  A visual map of the book&apos;s actors, themes, timelines, and structural links for readers who want a faster systems-level view of the investigation.
+                </p>
+                <p className="mono" style={{ color: "var(--ink-3)", margin: "0 0 24px" }}>
+                  Reader-facing visual companion · PNG
+                </p>
+                <a href={NOTEBOOKLM_MINDMAP_URL} download style={{ ...ACTION_BUTTON_STYLE, width: 180, borderColor: "var(--ink-1)", color: "var(--ink-0)", textDecoration: "none" }}>
+                  ↓ Download PNG
+                </a>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsMindMapOpen(true)}
+                style={{ display: "block", width: "100%", padding: 0, border: "1px solid var(--paper-edge)", background: "var(--paper-0)", cursor: "zoom-in" }}
+              >
+                <div style={{ aspectRatio: "1 / 1", overflow: "hidden", background: "var(--paper-0)" }}>
+                  <img
+                    src={NOTEBOOKLM_MINDMAP_URL}
+                    alt="NotebookLM mind map preview"
+                    style={{ width: "100%", height: "100%", display: "block", objectFit: "cover", objectPosition: "center top" }}
+                  />
+                </div>
+              </button>
             </div>
           </div>
         </div>
@@ -254,6 +297,44 @@ export function DownloadPage() {
           </div>
         </div>
       </section>
+
+      {isMindMapOpen ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="NotebookLM mind map preview"
+          onClick={() => setIsMindMapOpen(false)}
+          style={{ position: "fixed", inset: 0, zIndex: 90, background: "rgba(20,17,13,0.88)", padding: 32, display: "grid", placeItems: "center" }}
+        >
+          <div
+            onClick={(event) => event.stopPropagation()}
+            style={{ width: "min(1280px, calc(100vw - 64px))", maxHeight: "calc(100vh - 64px)", background: "var(--paper-0)", border: "1px solid var(--paper-edge)", padding: 20, boxShadow: "0 24px 72px rgba(0,0,0,0.35)" }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 20, marginBottom: 16 }}>
+              <div className="mono" style={{ color: "var(--ink-3)" }}>NotebookLM mind map · Full view</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <a
+                  href={NOTEBOOKLM_MINDMAP_URL}
+                  download
+                  style={{ ...ACTION_BUTTON_STYLE, width: 164, height: 36, padding: "0 12px", background: "var(--paper-0)", color: "var(--ink-0)", textDecoration: "none" }}
+                >
+                  ↓ Full Size PNG
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setIsMindMapOpen(false)}
+                  style={{ ...ACTION_BUTTON_STYLE, width: 92, height: 36, padding: "0 12px", background: "var(--paper-0)", cursor: "pointer" }}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+            <div style={{ overflow: "auto", maxHeight: "calc(100vh - 156px)" }}>
+              <img src={NOTEBOOKLM_MINDMAP_URL} alt="NotebookLM mind map full image" style={{ width: "100%", height: "auto", display: "block", background: "var(--paper-0)" }} />
+            </div>
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }

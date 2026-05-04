@@ -104,12 +104,7 @@ export function ReaderPage() {
               <span className="mono" style={{ color: "var(--ink-3)" }}>{current.kind ?? "Investigation"}</span>
             </div>
             <h1 className="reader-chapter-title">{chapterTitle(current.title)}</h1>
-            {current.excerpt ? (
-              <p className="reader-chapter-dek">{current.excerpt}</p>
-            ) : null}
             <div className="reader-article__meta">
-              <span>By the Investigations Desk</span>
-              <span>·</span>
               <span>{current.readingMinutes} min read</span>
               <span>·</span>
               <span>{current.images.length} images</span>

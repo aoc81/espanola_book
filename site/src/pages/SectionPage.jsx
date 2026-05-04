@@ -3,6 +3,23 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import siteData from "@generated-manuscript";
 import { chapterTitle } from "../lib/siteUtils";
 import { getChapterProgress } from "../lib/readerProgress";
+
+function documentSearchText(document) {
+  const blockText = (document.blocks ?? []).flatMap((block) => {
+    if (block.type === "paragraph") return block.lines ?? [];
+    if (block.type === "subheading") return [block.text ?? ""];
+    if (block.type === "list") return block.items ?? [];
+    if (block.type === "links") return (block.items ?? []).flatMap((item) => [item.label ?? "", item.url ?? ""]);
+    return [];
+  });
+
+  return [
+    document.title,
+    document.excerpt ?? "",
+    ...blockText,
+  ].join(" ").toLowerCase();
+}
+
 export function SectionPage() {
   const { sectionKey } = useParams();
   const group = siteData.groups.find((g) => g.key === sectionKey);
@@ -23,7 +40,7 @@ export function SectionPage() {
 
   const q = query.trim().toLowerCase();
   let visible = q
-    ? group.documents.filter((d) => d.title.toLowerCase().includes(q) || d.excerpt?.toLowerCase().includes(q))
+    ? group.documents.filter((d) => documentSearchText(d).includes(q))
     : group.documents;
   if (sortAlpha) visible = [...visible].sort((a, b) => a.title.localeCompare(b.title));
 
@@ -216,7 +233,7 @@ function SectionChapterCard({ doc, globalIndex }) {
           {chapterTitle(doc.title)}
         </h3>
         <p style={{ fontFamily: "var(--font-serif)", fontSize: 17, lineHeight: 1.6, color: "var(--ink-2)", margin: "0 0 20px", maxWidth: 640 }}>
-          {doc.excerpt}
+          {doc.excerpt ? `${doc.excerpt} [...]` : ""}
         </p>
         <div style={{ display: "flex", gap: 22, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ink-3)" }}>
           <span>{doc.readingMinutes} min read</span>

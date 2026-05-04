@@ -43,7 +43,7 @@ function HomeHero({ lastRead }) {
             <span style={{ color: "var(--ink-2)", fontWeight: 400 }}>to war machines</span>
           </h1>
           <p style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 22, lineHeight: 1.45, color: "var(--ink-2)", margin: "0 0 28px", maxWidth: 560 }}>
-            {siteData.titlePage.lines?.[0] ?? "Born in the curva of Spartak Moscow, the unit known as Española built one of the war's most recognizable visual identities — and one of its most opaque chains of command."}
+            An open-source investigative book on PMCs and the wartime conversion of subcultural violence.
           </p>
 
           {/* metadata strip */}
@@ -62,7 +62,7 @@ function HomeHero({ lastRead }) {
             color: "var(--ink-2)",
             marginBottom: 28,
           }}>
-            <span>By the Investigations Desk</span>
+            <span>By Angel Ortiz</span>
             <span style={{ background: "var(--ink-1)", height: 14 }} />
             <span>Open-Source Edition · 2026</span>
             <span style={{ background: "var(--ink-1)", height: 14 }} />
@@ -136,7 +136,8 @@ function EditorsLetter() {
     ["Image References", String(siteData.stats.imageCount)],
     ["Sources", "44"],
     ["Reference Links", "75"],
-    ["Last Updated", "27.04.2026"],
+    ["Generated Outputs", "5"],
+    ["Last Updated", "04.05.2026"],
   ];
 
   return (
@@ -145,15 +146,14 @@ function EditorsLetter() {
         <div className="editors-letter__numeral" aria-hidden="true">✦</div>
         <div className="editors-letter__body">
           <span className="esp-eyebrow">From the Editor</span>
-          <h2>Human-led OSINT research, AI-assisted</h2>
           <p>
             This book is based on human-led OSINT research, multilingual source review, and AI-assisted organisation,
             translation support, drafting, and editorial revision. Final judgments, source selection, interpretation,
             and responsibility for the text remain human.
           </p>
           <p>
-            This is the open-source web edition. The canonical manuscript, source notes, and image credits are
-            preserved in full. We do not glorify; we document.
+            This is the open-source web version of the book and the repository for its canonical manuscript, source
+            notes, image credits, references, and generated outputs.
           </p>
         </div>
         <div className="ledger" role="table" aria-label="Edition details">

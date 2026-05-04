@@ -141,7 +141,7 @@ export function DownloadPage() {
           {/* licence strip */}
           <div style={{ padding: "12px 24px", background: "var(--paper-2)", border: "1px solid var(--ink-1)", borderTop: "none", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-3)", display: "flex", justifyContent: "space-between" }}>
             <span>PDF & ZIP: CC BY-NC 4.0 — Free to share and adapt for non-commercial use with attribution</span>
-            <span>Kindle: © The Investigations Desk · MMXXVI</span>
+            <span>Kindle: © Ángel Ortiz · MMXXVI</span>
           </div>
         </div>
       </section>

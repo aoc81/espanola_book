@@ -68,7 +68,7 @@ export function ContactPage() {
         <span className="tick" style={{ top: 18, right: 18 }} aria-hidden="true" />
         <div style={{ maxWidth: 1320, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "baseline", marginBottom: 36, gap: 24 }}>
-            <div className="eyebrow">The Investigations Desk</div>
+            <div className="eyebrow">Angel Ortiz</div>
             <div style={{ height: 1, background: "var(--ink-1)" }} />
             <div className="mono" style={{ color: "var(--ink-3)" }}>Open channel</div>
           </div>
@@ -134,7 +134,7 @@ export function ContactPage() {
               style={{ border: "1px solid var(--ink-1)", background: "var(--paper-0)", display: "grid", gridTemplateRows: "auto auto auto auto auto auto" }}
             >
               <div style={{ padding: "11px 20px", background: "var(--ink-0)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--paper-0)" }}>
-                Intake Form · Investigations Desk
+                Intake Form · Angel Ortiz
               </div>
               <input type="text" name="company" tabIndex={-1} autoComplete="off" style={{ display: "none" }} />
               {[

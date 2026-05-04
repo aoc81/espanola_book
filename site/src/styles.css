@@ -556,7 +556,8 @@ img {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-3);
-  width: 55%;
+  width: 62%;
+  white-space: nowrap;
 }
 
 .ledger__table td:last-child {
@@ -976,7 +977,7 @@ img {
 /* ---------- Reader running head ---------- */
 .reader-running-head {
   position: sticky;
-  top: 90px;
+  top: 61px;
   z-index: 11;
   border-bottom: 1px solid var(--ink-1);
   background: var(--paper-0);
@@ -1240,7 +1241,7 @@ img {
 
 .reader-toolbar {
   position: sticky;
-  top: 90px;
+  top: 61px;
   z-index: 12;
   grid-column: 1 / -1;
   display: flex;
@@ -1275,7 +1276,7 @@ img {
 
 .reader-sidebar__sticky {
   position: sticky;
-  top: 150px;
+  top: 121px;
   display: grid;
   gap: 0;
   max-height: calc(100vh - 160px);
@@ -1746,6 +1747,7 @@ img {
   }
 
   .reader-running-head { display: none; }
+
 
   .reader-content {
     padding: 16px 16px 0;

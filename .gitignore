@@ -11,6 +11,22 @@ v4.1/
 v4.1-es/
 v4.1-fr/
 
+!manuscripts/v4.1/
+manuscripts/v4.1/*
+!manuscripts/v4.1/en/
+manuscripts/v4.1/en/*
+!manuscripts/v4.1/en/contents/
+!manuscripts/v4.1/en/contents/**
+!assets/manifests/v4.1/
+assets/manifests/v4.1/*
+!assets/manifests/v4.1/en/
+!assets/manifests/v4.1/en/**
+!assets/images/manuscripts/v4.1/
+assets/images/manuscripts/v4.1/*
+!assets/images/manuscripts/v4.1/en/
+!assets/images/manuscripts/v4.1/en/**
+assets/images/manuscripts/v4.1/en/pictures/nonfree-candidates/
+
 site/node_modules/
 site/dist/
 

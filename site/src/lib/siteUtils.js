@@ -10,3 +10,9 @@ export function groupBySection(documents) {
     return groups;
   }, {});
 }
+
+export function displayLicenseLabel(license) {
+  if (!license) return "—";
+  if (license.toLowerCase().startsWith("non-free")) return "Source-credited";
+  return license;
+}

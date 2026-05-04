@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { SkipLink, ScrollToTop, Masthead } from "./components/layout/Masthead";
+import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
 import { SiteFooter } from "./components/layout/SiteFooter";
 
 const HomePage = lazy(() => import("./pages/HomePage").then((module) => ({ default: module.HomePage })));
@@ -20,6 +20,7 @@ function App() {
     <div className="app-shell">
       <SkipLink />
       <ScrollToTop />
+      <RouteAnalytics />
       <Masthead />
       <div className="app-main-shell">
         <Suspense fallback={<main id="main-content" className="route-fallback" />}>

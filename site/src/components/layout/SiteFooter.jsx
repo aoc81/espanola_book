@@ -45,6 +45,7 @@ export function SiteFooter() {
           <ul>
             <li><a href="https://www.linkedin.com/in/1231239i340/" target="_blank" rel="noreferrer">LinkedIn</a></li>
             <li><a href="https://x.com/angoritz" target="_blank" rel="noreferrer">X (Twitter)</a></li>
+            <li><a href="https://github.com/aoc81" target="_blank" rel="noreferrer">GitHub</a></li>
           </ul>
         </div>
 

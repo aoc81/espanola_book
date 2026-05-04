@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import coverImg from "../../../assets/images/covers/Espanola Book Cover-New.png";
 import siteData from "@generated-manuscript";
@@ -16,6 +16,24 @@ export function DownloadPage() {
   const ROW_COLS = "56px 96px 1fr 100px 180px";
   const PRICE_BADGE_STYLE = { transform: "none", fontSize: 10, minWidth: 58, textAlign: "center" };
   const ACTION_BUTTON_STYLE = { display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, width: 132, height: 40, padding: "0 16px", border: "1px solid var(--ink-1)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase" };
+
+  useEffect(() => {
+    if (!isMindMapOpen) return undefined;
+
+    const { body } = document;
+    const previousOverflow = body.style.overflow;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setIsMindMapOpen(false);
+    };
+
+    body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMindMapOpen]);
 
   return (
     <main id="main-content">

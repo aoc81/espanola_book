@@ -15,6 +15,23 @@ export default defineConfig({
       "@generated-manuscript": path.resolve(GENERATED_DIR, "generated-manuscript.js"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("generated-manuscript.js")) {
+            return "manuscript-data";
+          }
+          if (id.includes("node_modules")) {
+            if (id.includes("react-router")) return "router";
+            if (id.includes("react")) return "framework";
+            if (id.includes("lucide-react")) return "icons";
+          }
+          return undefined;
+        },
+      },
+    },
+  },
   server: {
     fs: {
       allow: [ROOT_DIR],

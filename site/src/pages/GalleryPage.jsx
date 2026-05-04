@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import siteData from "@generated-manuscript";
+import { displayLicenseLabel } from "../lib/siteUtils";
 const REFERENCE_LINKS = [
   {
     section: "Core reporting & investigations",
@@ -220,13 +221,6 @@ export function GalleryPage() {
     </main>
   );
 }
-
-function displayLicenseLabel(license) {
-  if (!license) return "—";
-  if (license.toLowerCase().startsWith("non-free")) return "Source-credited";
-  return license;
-}
-
 function GalleryImageCard({ img, index }) {
   return (
     <article style={{ position: "relative" }}>

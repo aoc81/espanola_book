@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { Check, Copy, Pause, Play, Share2, Square } from "lucide-react";
 import siteData from "@generated-manuscript";
-import { chapterTitle, groupBySection } from "../lib/siteUtils";
+import { chapterTitle, displayLicenseLabel, groupBySection } from "../lib/siteUtils";
 import { getChapterProgress, saveChapterProgress } from "../lib/readerProgress";
 
 function useDocumentNavigation(slug) {
@@ -329,12 +329,6 @@ function documentToSpeechText(document) {
     return "";
   }).filter(Boolean);
   return [document.sectionTitle, document.title, ...blockText].join(". ");
-}
-
-function displayLicenseLabel(license) {
-  if (!license) return "—";
-  if (license.toLowerCase().startsWith("non-free")) return "Source-credited";
-  return license;
 }
 
 /* ---- Footnote utilities ---- */

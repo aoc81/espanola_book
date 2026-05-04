@@ -331,6 +331,12 @@ function documentToSpeechText(document) {
   return [document.sectionTitle, document.title, ...blockText].join(". ");
 }
 
+function displayLicenseLabel(license) {
+  if (!license) return "—";
+  if (license.toLowerCase().startsWith("non-free")) return "Source-credited";
+  return license;
+}
+
 /* ---- Footnote utilities ---- */
 
 function buildFootnoteMap(blocks) {
@@ -481,7 +487,7 @@ function ImageGallery({ title, images }) {
               <p className="image-card__caption">{image.caption}</p>
               <p className="image-card__credit"><strong>Source:</strong> {image.source_name}</p>
               <p className="image-card__credit"><strong>Author:</strong> {image.author}</p>
-              <p className="image-card__credit"><strong>License:</strong> {image.license}</p>
+              <p className="image-card__credit"><strong>License:</strong> {displayLicenseLabel(image.license)}</p>
               {!image.freely_licensed ? <p className="image-card__credit"><strong>Rights:</strong> source-attributed only; not freely licensed.</p> : null}
               {image.source_url ? <a href={image.source_url} target="_blank" rel="noreferrer" className="image-card__link">View original</a> : null}
             </figcaption>

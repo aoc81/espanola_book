@@ -158,34 +158,6 @@ export function GalleryPage() {
         </div>
       </section>
 
-      {/* image grid */}
-      {allImages.length > 0 && (
-        <section style={{ padding: "56px 32px 72px", borderBottom: "1px solid var(--paper-edge)" }}>
-          <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 32 }}>
-              <span style={{ fontFamily: "var(--font-display)", fontSize: 14, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Image References ✦</span>
-              <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
-              <span className="mono" style={{ color: "var(--ink-3)" }}>{allImages.length} items</span>
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, rowGap: 48 }}>
-              {visibleImages.map((img, i) => (
-                <GalleryImageCard key={`${img.publicPath}-${i}`} img={img} index={i} />
-              ))}
-            </div>
-            {!showAllImages && allImages.length > 16 && (
-              <div style={{ marginTop: 48, textAlign: "center" }}>
-                <button
-                  onClick={() => setShowAllImages(true)}
-                  style={{ border: "1px solid var(--ink-1)", background: "transparent", color: "var(--ink-1)", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", padding: "0 18px", height: 44, cursor: "pointer" }}
-                >
-                  ▾ {allImages.length - 16} more references
-                </button>
-              </div>
-            )}
-          </div>
-        </section>
-      )}
-
       {/* reference links */}
       <section style={{ padding: "72px 32px 88px", borderBottom: "1px solid var(--paper-edge)" }}>
         <div style={{ maxWidth: 1320, margin: "0 auto" }}>
@@ -217,8 +189,42 @@ export function GalleryPage() {
         </div>
       </section>
 
+      {/* image grid */}
+      {allImages.length > 0 && (
+        <section style={{ padding: "56px 32px 72px" }}>
+          <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 32 }}>
+              <span style={{ fontFamily: "var(--font-display)", fontSize: 14, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Image References ✦</span>
+              <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
+              <span className="mono" style={{ color: "var(--ink-3)" }}>{allImages.length} items</span>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, rowGap: 48 }}>
+              {visibleImages.map((img, i) => (
+                <GalleryImageCard key={`${img.publicPath}-${i}`} img={img} index={i} />
+              ))}
+            </div>
+            {!showAllImages && allImages.length > 16 && (
+              <div style={{ marginTop: 48, textAlign: "center" }}>
+                <button
+                  onClick={() => setShowAllImages(true)}
+                  style={{ border: "1px solid var(--ink-1)", background: "transparent", color: "var(--ink-1)", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", padding: "0 18px", height: 44, cursor: "pointer" }}
+                >
+                  ▾ {allImages.length - 16} more references
+                </button>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
     </main>
   );
+}
+
+function displayLicenseLabel(license) {
+  if (!license) return "—";
+  if (license.toLowerCase().startsWith("non-free")) return "Source-credited";
+  return license;
 }
 
 function GalleryImageCard({ img, index }) {
@@ -247,7 +253,7 @@ function GalleryImageCard({ img, index }) {
             </div>
             <div style={{ textAlign: "right" }}>
               <div style={{ fontSize: 8, letterSpacing: "0.2em", marginBottom: 2 }}>LICENSE</div>
-              <div style={{ color: "var(--ink-1)" }}>{img.license?.slice(0, 12) ?? "—"}</div>
+              <div style={{ color: "var(--ink-1)" }}>{displayLicenseLabel(img.license)}</div>
             </div>
           </div>
         </div>

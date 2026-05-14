@@ -13,7 +13,6 @@ export function DownloadPage() {
   const [isMindMapOpen, setIsMindMapOpen] = useState(false);
   const edition = siteData.edition?.version?.toUpperCase() ?? "V4.1";
 
-  const ROW_COLS = "56px 96px 1fr 100px 180px";
   const PRICE_BADGE_STYLE = { transform: "none", fontSize: 10, minWidth: 58, textAlign: "center" };
   const ACTION_BUTTON_STYLE = { display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, width: 132, height: 40, padding: "0 16px", border: "1px solid var(--ink-1)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase" };
 
@@ -38,8 +37,8 @@ export function DownloadPage() {
   return (
     <main id="main-content">
       {/* breadcrumb */}
-      <div style={{ padding: "12px 32px", background: "var(--paper-0)" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", gap: 16, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-3)" }}>
+      <div className="page-crumb" style={{ paddingTop: 12, paddingBottom: 12, background: "var(--paper-0)" }}>
+        <div className="page-crumb__inner">
           <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>Overview</Link>
           <span>›</span>
           <span style={{ color: "var(--ink-0)" }}>Download</span>
@@ -47,18 +46,18 @@ export function DownloadPage() {
       </div>
 
       {/* hero */}
-      <section style={{ position: "relative", padding: "72px 32px 56px", borderBottom: "1px solid var(--paper-edge)" }}>
+      <section className="page-section" style={{ position: "relative", paddingTop: 72, paddingBottom: 56, borderBottom: "1px solid var(--paper-edge)" }}>
         <span className="tick" style={{ top: 18, left: 18 }} aria-hidden="true" />
         <span className="tick" style={{ top: 18, right: 18 }} aria-hidden="true" />
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "baseline", marginBottom: 36, gap: 24 }}>
+        <div className="page-section__inner">
+          <div className="page-eyebrow-row">
             <div className="eyebrow">Edition · {edition}</div>
             <div style={{ height: 1, background: "var(--ink-1)" }} />
             <div className="mono" style={{ color: "var(--ink-3)" }}>Get the book</div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 64, alignItems: "end" }}>
+          <div className="page-intro__grid page-intro__grid--auto">
           <div>
-            <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(48px, 8vw, 180px)", lineHeight: 0.85, color: "var(--ink-0)", letterSpacing: "-0.02em", marginBottom: 28, whiteSpace: "nowrap" }}>
+            <div className="page-intro__title" style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(48px, 8vw, 180px)", lineHeight: 0.85, color: "var(--ink-0)", letterSpacing: "-0.02em", marginBottom: 28 }}>
               DOWNLOAD.
             </div>
             <h2 style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontWeight: 400, fontSize: 22, lineHeight: 1.4, color: "var(--ink-2)", margin: 0, maxWidth: 680 }}>
@@ -90,8 +89,8 @@ export function DownloadPage() {
       </section>
 
       {/* format table */}
-      <section style={{ padding: "56px 32px 48px" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+      <section className="page-section" style={{ paddingTop: 56, paddingBottom: 48 }}>
+        <div className="page-section__inner">
           <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 24 }}>
             <span style={{ fontFamily: "var(--font-display)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Available Formats ✦</span>
             <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
@@ -99,10 +98,10 @@ export function DownloadPage() {
           </div>
 
           {/* table */}
-          <div style={{ border: "1px solid var(--ink-1)" }}>
+          <div className="download-format-table">
 
             {/* header */}
-            <div style={{ display: "grid", gridTemplateColumns: ROW_COLS, gap: 0, padding: "12px 24px", background: "var(--ink-0)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--paper-0)", alignItems: "center" }}>
+            <div className="download-format-head" style={{ padding: "12px 24px", background: "var(--ink-0)", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--paper-0)" }}>
               <span>№</span>
               <span>Format</span>
               <span>Description</span>
@@ -111,7 +110,7 @@ export function DownloadPage() {
             </div>
 
             {/* PDF row */}
-            <a href="/downloads/espanola-v4.1.pdf" download style={{ display: "grid", gridTemplateColumns: ROW_COLS, gap: 0, padding: "28px 24px", borderBottom: "1px solid var(--paper-edge)", background: "var(--paper-0)", textDecoration: "none", color: "inherit", alignItems: "center" }}>
+            <a href="/downloads/espanola-v4.1.pdf" download className="download-format-row" style={{ padding: "28px 24px", borderBottom: "1px solid var(--paper-edge)", background: "var(--paper-0)", textDecoration: "none", color: "inherit" }}>
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 18, color: "var(--classified)" }}>01</span>
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 26, lineHeight: 1, color: "var(--classified)", letterSpacing: "0.02em" }}>PDF</span>
               <div style={{ paddingRight: 32 }}>
@@ -127,7 +126,7 @@ export function DownloadPage() {
             </a>
 
             {/* ZIP row */}
-            <a href="/downloads/espanola-v4.1-markdown.zip" download style={{ display: "grid", gridTemplateColumns: ROW_COLS, gap: 0, padding: "28px 24px", borderBottom: "1px solid var(--paper-edge)", background: "var(--paper-1)", textDecoration: "none", color: "inherit", alignItems: "center" }}>
+            <a href="/downloads/espanola-v4.1-markdown.zip" download className="download-format-row" style={{ padding: "28px 24px", borderBottom: "1px solid var(--paper-edge)", background: "var(--paper-1)", textDecoration: "none", color: "inherit" }}>
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 18, color: "var(--ink-2)" }}>02</span>
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 26, lineHeight: 1, color: "var(--ink-0)", letterSpacing: "0.02em" }}>ZIP</span>
               <div style={{ paddingRight: 32 }}>
@@ -143,7 +142,7 @@ export function DownloadPage() {
             </a>
 
             {/* Kindle row — dark */}
-            <a href="https://www.amazon.com/Espa%C3%B1ola-hooligans-machines-%C3%81ngel-Ortiz-ebook/dp/B0GYWV1BN4/" target="_blank" rel="noopener noreferrer" style={{ display: "grid", gridTemplateColumns: ROW_COLS, gap: 0, padding: "28px 24px", background: "var(--dossier-0)", textDecoration: "none", color: "inherit", alignItems: "center" }}>
+            <a href="https://www.amazon.com/Espa%C3%B1ola-hooligans-machines-%C3%81ngel-Ortiz-ebook/dp/B0GYWV1BN4/" target="_blank" rel="noopener noreferrer" className="download-format-row" style={{ padding: "28px 24px", background: "var(--dossier-0)", textDecoration: "none", color: "inherit" }}>
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 18, color: "var(--dossier-fg-2)" }}>03</span>
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 22, lineHeight: 1, color: "var(--dossier-fg-0)", letterSpacing: "0.02em" }}>KINDLE</span>
               <div style={{ paddingRight: 32 }}>
@@ -161,7 +160,7 @@ export function DownloadPage() {
           </div>
 
           {/* licence strip */}
-          <div style={{ padding: "12px 24px", background: "var(--paper-2)", border: "1px solid var(--ink-1)", borderTop: "none", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-3)", display: "flex", justifyContent: "space-between" }}>
+          <div className="download-license-row" style={{ padding: "12px 24px", background: "var(--paper-2)", border: "1px solid var(--ink-1)", borderTop: "none", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-3)" }}>
             <span>PDF & ZIP: CC BY-NC 4.0 — Free to share and adapt for non-commercial use with attribution</span>
             <span>Kindle: © Ángel Ortiz · MMXXVI</span>
           </div>
@@ -169,10 +168,10 @@ export function DownloadPage() {
       </section>
 
       {/* cover + table of contents */}
-      <section style={{ padding: "72px 32px 80px", borderTop: "1px solid var(--paper-edge)" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "260px 1fr", gap: 64, alignItems: "start" }}>
+      <section className="page-section" style={{ paddingTop: 72, paddingBottom: 80, borderTop: "1px solid var(--paper-edge)" }}>
+        <div className="page-section__inner download-toc__grid">
           {/* cover thumbnail */}
-          <div style={{ position: "sticky", top: 80 }}>
+          <div className="download-toc__cover">
             <div style={{ border: "1px solid var(--ink-1)", boxShadow: "4px 6px 0 rgba(20,17,13,0.18)", background: "var(--dossier-0)" }}>
               <img src={coverImg} alt="Española cover artwork" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
@@ -194,14 +193,14 @@ export function DownloadPage() {
         </div>
       </section>
 
-      <section style={{ padding: "0 32px 72px" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+      <section className="page-section" style={{ paddingTop: 0, paddingBottom: 72 }}>
+        <div className="page-section__inner">
           <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 28 }}>
             <span style={{ fontFamily: "var(--font-display)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Companion Media ✦</span>
             <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
             <span className="mono" style={{ color: "var(--ink-3)" }}>NotebookLM files</span>
           </div>
-          <div style={{ border: "1px solid var(--ink-1)", background: "var(--paper-1)", padding: "40px 40px 44px" }}>
+          <div className="responsive-panel" style={{ border: "1px solid var(--ink-1)", background: "var(--paper-1)" }}>
             <div style={{ marginBottom: 30, maxWidth: 760 }}>
               <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: "clamp(26px,3vw,38px)", lineHeight: 1.08, letterSpacing: "-0.02em", color: "var(--ink-0)", margin: "0 0 16px" }}>
                 Video and podcast companions for readers
@@ -213,7 +212,7 @@ export function DownloadPage() {
                 Reader-facing companion media · Not the canonical text
               </p>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 24, alignItems: "start" }}>
+            <div className="download-companion__grid">
               <div style={{ border: "1px solid var(--paper-edge)", background: "var(--paper-0)", padding: 18 }}>
                 <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16, marginBottom: 12 }}>
                   <div style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: 18, color: "var(--ink-0)" }}>Case-study video</div>
@@ -245,15 +244,15 @@ export function DownloadPage() {
         </div>
       </section>
 
-      <section style={{ padding: "0 32px 72px" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+      <section className="page-section" style={{ paddingTop: 0, paddingBottom: 72 }}>
+        <div className="page-section__inner">
           <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 28 }}>
             <span style={{ fontFamily: "var(--font-display)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Mind Map ✦</span>
             <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
             <span className="mono" style={{ color: "var(--ink-3)" }}>NotebookLM visual output</span>
           </div>
-          <div style={{ border: "1px solid var(--ink-1)", background: "var(--paper-1)", padding: "40px 40px 44px" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.05fr) minmax(320px, 0.95fr)", gap: 36, alignItems: "start" }}>
+          <div className="responsive-panel" style={{ border: "1px solid var(--ink-1)", background: "var(--paper-1)" }}>
+            <div className="download-mindmap__grid">
               <div>
                 <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: "clamp(26px,3vw,38px)", lineHeight: 1.08, letterSpacing: "-0.02em", color: "var(--ink-0)", margin: "0 0 16px" }}>
                   Systems overview mind map
@@ -287,9 +286,9 @@ export function DownloadPage() {
       </section>
 
       {/* support strip */}
-      <section style={{ padding: "0 32px 80px" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 64, alignItems: "center", padding: "40px 48px", border: "1px solid var(--ink-1)", borderLeft: "4px solid var(--classified)", background: "var(--paper-1)", position: "relative" }}>
+      <section className="page-section" style={{ paddingTop: 0, paddingBottom: 80 }}>
+        <div className="page-section__inner">
+          <div className="page-support__grid responsive-panel--support" style={{ border: "1px solid var(--ink-1)", borderLeft: "4px solid var(--classified)", background: "var(--paper-1)", position: "relative" }}>
             <span className="tick" style={{ bottom: 14, left: 14 }} aria-hidden="true" />
             <span className="tick" style={{ bottom: 14, right: 14 }} aria-hidden="true" />
             <div>
@@ -328,9 +327,9 @@ export function DownloadPage() {
             onClick={(event) => event.stopPropagation()}
             style={{ width: "min(1280px, calc(100vw - 64px))", maxHeight: "calc(100vh - 64px)", background: "var(--paper-0)", border: "1px solid var(--paper-edge)", padding: 20, boxShadow: "0 24px 72px rgba(0,0,0,0.35)" }}
           >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 20, marginBottom: 16 }}>
+            <div className="modal-toolbar" style={{ marginBottom: 16 }}>
               <div className="mono" style={{ color: "var(--ink-3)" }}>NotebookLM mind map · Full view</div>
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <div className="modal-toolbar__actions">
                 <a
                   href={NOTEBOOKLM_MINDMAP_URL}
                   download

@@ -22,8 +22,8 @@ function HomeHero({ lastRead }) {
   const totalMinutes = siteData.documents.reduce((s, d) => s + d.readingMinutes, 0);
 
   return (
-    <section style={{ position: "relative", padding: "48px 32px 88px", borderBottom: "1px solid var(--paper-edge)" }}>
-      <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 56, alignItems: "start" }}>
+    <section className="page-section" style={{ position: "relative", paddingTop: 48, paddingBottom: 88, borderBottom: "1px solid var(--paper-edge)" }}>
+      <div className="page-section__inner home-hero__grid">
         {/* LEFT: editorial copy */}
         <div style={{ paddingTop: 22 }}>
           <div className="eyebrow" style={{ marginBottom: 18 }}>
@@ -47,9 +47,7 @@ function HomeHero({ lastRead }) {
           </p>
 
           {/* metadata strip */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "auto 1px auto 1px auto",
+          <div className="home-hero__meta-strip" style={{
             alignItems: "center",
             gap: 18,
             padding: "16px 0",
@@ -109,8 +107,7 @@ function BoundCover() {
       </div>
 
       {/* download slip */}
-      <Link to="/download" style={{ textDecoration: "none",
-        position: "absolute", bottom: 48, right: -28, width: 220,
+      <Link to="/download" className="home-hero__slip" style={{ textDecoration: "none",
         background: "var(--paper-2)", padding: "14px 16px", transform: "rotate(-2deg)",
         boxShadow: "0 8px 18px -10px rgba(20,17,13,0.4)",
         borderTop: "1px solid var(--paper-edge)", borderBottom: "1px solid var(--paper-edge)",

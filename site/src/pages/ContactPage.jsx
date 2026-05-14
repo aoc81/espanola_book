@@ -54,8 +54,8 @@ export function ContactPage() {
   return (
     <main id="main-content">
       {/* breadcrumb */}
-      <div style={{ padding: "12px 32px", background: "var(--paper-0)" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", gap: 16, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-3)" }}>
+      <div className="page-crumb" style={{ paddingTop: 12, paddingBottom: 12, background: "var(--paper-0)" }}>
+        <div className="page-crumb__inner">
           <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>Overview</Link>
           <span>›</span>
           <span style={{ color: "var(--ink-0)" }}>Contact</span>
@@ -63,18 +63,18 @@ export function ContactPage() {
       </div>
 
       {/* hero */}
-      <section style={{ position: "relative", padding: "72px 32px 56px", borderBottom: "1px solid var(--paper-edge)" }}>
+      <section className="page-section" style={{ position: "relative", paddingTop: 72, paddingBottom: 56, borderBottom: "1px solid var(--paper-edge)" }}>
         <span className="tick" style={{ top: 18, left: 18 }} aria-hidden="true" />
         <span className="tick" style={{ top: 18, right: 18 }} aria-hidden="true" />
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "baseline", marginBottom: 36, gap: 24 }}>
+        <div className="page-section__inner">
+          <div className="page-eyebrow-row">
             <div className="eyebrow">Angel Ortiz</div>
             <div style={{ height: 1, background: "var(--ink-1)" }} />
             <div className="mono" style={{ color: "var(--ink-3)" }}>Open channel</div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "end" }}>
+          <div className="page-intro__grid page-intro__grid--equal">
             <div>
-              <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(48px, 8vw, 180px)", lineHeight: 0.85, color: "var(--ink-0)", letterSpacing: "-0.02em", marginBottom: 28, whiteSpace: "nowrap" }}>
+              <div className="page-intro__title" style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(48px, 8vw, 180px)", lineHeight: 0.85, color: "var(--ink-0)", letterSpacing: "-0.02em", marginBottom: 28 }}>
                 CONTACT.
               </div>
               <h2 style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontWeight: 400, fontSize: 22, lineHeight: 1.4, color: "var(--ink-2)", margin: 0 }}>
@@ -95,8 +95,8 @@ export function ContactPage() {
       </section>
 
       {/* channels table + form */}
-      <section style={{ padding: "56px 32px 48px" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start" }}>
+      <section className="page-section" style={{ paddingTop: 56, paddingBottom: 48 }}>
+        <div className="page-section__inner page-contact__grid">
 
           <div>
             <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 24 }}>
@@ -111,7 +111,7 @@ export function ContactPage() {
                 <span>Type</span>
               </div>
               {channels.map((ch, i) => (
-                <div key={ch.n} style={{ display: "grid", gridTemplateColumns: "40px 1fr auto", padding: "20px 20px", borderBottom: i === channels.length - 1 ? "none" : "1px solid var(--paper-edge)", background: i % 2 === 0 ? "var(--paper-0)" : "var(--paper-1)", color: "inherit", alignItems: "start", gap: 12 }}>
+                <div key={ch.n} className="contact-channel-row" style={{ padding: "20px 20px", borderBottom: i === channels.length - 1 ? "none" : "1px solid var(--paper-edge)", background: i % 2 === 0 ? "var(--paper-0)" : "var(--paper-1)", color: "inherit" }}>
                   <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16, color: "var(--classified)", paddingTop: 2 }}>{ch.n}</span>
                   <div>
                     <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ink-3)", marginBottom: 5 }}>{ch.label}</div>
@@ -169,7 +169,7 @@ export function ContactPage() {
                   style={{ display: "block", width: "100%", height: 92, border: "none", background: "transparent", outline: "none", resize: "none", fontFamily: "var(--font-serif)", fontSize: 15, color: "var(--ink-0)", paddingBottom: 16, lineHeight: 1.6 }}
                 />
               </div>
-              <div style={{ padding: "20px 28px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div className="contact-form__footer" style={{ padding: "20px 28px 24px" }}>
                 <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: submitState.status === "error" ? "var(--classified)" : "var(--ink-4)" }}>
                   {submitState.message || "* Required · Replies go to your email address"}
                 </span>
@@ -188,9 +188,9 @@ export function ContactPage() {
       </section>
 
       {/* support strip */}
-      <section style={{ padding: "0 32px 88px" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 64, alignItems: "center", padding: "40px 48px", border: "1px solid var(--ink-1)", borderLeft: "4px solid var(--classified)", background: "var(--paper-1)", position: "relative" }}>
+      <section className="page-section" style={{ paddingTop: 0, paddingBottom: 88 }}>
+        <div className="page-section__inner">
+          <div className="page-support__grid responsive-panel--support" style={{ border: "1px solid var(--ink-1)", borderLeft: "4px solid var(--classified)", background: "var(--paper-1)", position: "relative" }}>
             <span className="tick" style={{ bottom: 14, left: 14 }} aria-hidden="true" />
             <span className="tick" style={{ bottom: 14, right: 14 }} aria-hidden="true" />
             <div>

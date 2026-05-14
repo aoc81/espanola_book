@@ -47,30 +47,30 @@ export function SectionPage() {
   return (
     <main id="main-content">
       {/* breadcrumb */}
-      <div style={{ padding: "12px 32px", background: "var(--paper-0)" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", gap: 16, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-3)" }}>
+      <div className="page-crumb" style={{ paddingTop: 12, paddingBottom: 12, background: "var(--paper-0)" }}>
+        <div className="page-crumb__inner">
           <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>Overview</Link>
           <span>›</span>
           <span>Section {romanNum}</span>
           <span>›</span>
           <span style={{ color: "var(--ink-0)" }}>{sectionLabel}</span>
-          <span style={{ flex: 1 }} />
+          <span className="page-crumb__spacer" />
           <span style={{ color: "var(--classified)" }}>● {group.documents.length} reading units</span>
         </div>
       </div>
 
       {/* section opener */}
-      <section style={{ position: "relative", padding: "72px 32px 56px", borderBottom: "1px solid var(--paper-edge)", overflow: "hidden" }}>
+      <section className="page-section" style={{ position: "relative", paddingTop: 72, paddingBottom: 56, borderBottom: "1px solid var(--paper-edge)", overflow: "hidden" }}>
         <span className="tick" style={{ top: 18, left: 18 }} aria-hidden="true" />
         <span className="tick" style={{ top: 18, right: 18 }} aria-hidden="true" />
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "baseline", marginBottom: 36, gap: 24 }}>
+        <div className="page-section__inner">
+          <div className="page-eyebrow-row">
             <div className="eyebrow">Section · {String(groupIndex + 1).padStart(2, "0")}</div>
             <div style={{ height: 1, background: "var(--ink-1)" }} />
             <div className="mono" style={{ color: "var(--ink-3)" }}>{siteData.titlePage.title}</div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: 64, alignItems: "end" }}>
+          <div className="page-intro__grid">
             <div>
               <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(80px, 12vw, 200px)", lineHeight: 0.82, color: "var(--ink-0)", letterSpacing: "-0.02em", marginBottom: 18 }}>
                 {sectionLabel.toUpperCase()}.
@@ -101,8 +101,8 @@ export function SectionPage() {
 
       {/* toolbar — only for chapters section */}
       {isChapters && (
-        <div style={{ padding: "16px 32px", borderBottom: "1px solid var(--paper-edge)", background: "var(--paper-1)" }}>
-          <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "auto 1fr auto auto", gap: 24, alignItems: "center" }}>
+        <div className="page-section" style={{ paddingTop: 16, paddingBottom: 16, borderBottom: "1px solid var(--paper-edge)", background: "var(--paper-1)" }}>
+          <div className="section-toolbar__inner">
             {/* all-count chip */}
             <div style={{ display: "flex", gap: 4 }}>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 8, border: "1px solid var(--ink-1)", background: "var(--ink-0)", color: "var(--paper-0)", padding: "8px 14px", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase" }}>
@@ -148,8 +148,8 @@ export function SectionPage() {
       )}
 
       {/* chapter list */}
-      <section style={{ padding: "56px 32px 72px" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+      <section className="page-section" style={{ paddingTop: 56, paddingBottom: 72 }}>
+        <div className="page-section__inner">
           {visible.length === 0 && (
             <div style={{ padding: "64px 0", textAlign: "center", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-4)" }}>
               No chapters match "{query}"
@@ -163,8 +163,8 @@ export function SectionPage() {
 
       {/* prev/next section nav */}
       {(previousGroup || nextGroup) && (
-        <section style={{ padding: "64px 32px", borderTop: "1px solid var(--ink-1)", background: "var(--paper-1)" }}>
-          <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+        <section className="page-section" style={{ paddingTop: 64, paddingBottom: 64, borderTop: "1px solid var(--ink-1)", background: "var(--paper-1)" }}>
+          <div className="page-section__inner section-nav-grid" style={{ gap: 32 }}>
             {previousGroup ? (
               <Link to={`/section/${previousGroup.key}`} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "auto 1fr", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)" }}>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: 64, lineHeight: 0.85, color: "var(--ink-0)", fontWeight: 700 }}>‹</div>
@@ -206,13 +206,12 @@ function SectionChapterCard({ doc, globalIndex }) {
 
   return (
     <article style={{
-      display: "grid", gridTemplateColumns: "120px 1fr 320px", gap: 40,
       padding: isCurrent ? "32px 24px" : "32px 0",
       borderBottom: "1px solid var(--paper-edge)",
       borderTop: isCurrent ? "1px solid var(--ink-1)" : "none",
       background: isCurrent ? "var(--paper-1)" : "transparent",
       position: "relative",
-    }}>
+    }} className="section-card">
       {isCurrent && (
         <div className="stamp stamp--rotated" style={{ position: "absolute", top: 18, right: 18, transform: "rotate(4deg)" }}>
           You're reading
@@ -235,14 +234,14 @@ function SectionChapterCard({ doc, globalIndex }) {
         <p style={{ fontFamily: "var(--font-serif)", fontSize: 17, lineHeight: 1.6, color: "var(--ink-2)", margin: "0 0 20px", maxWidth: 640 }}>
           {doc.excerpt ? `${doc.excerpt} [...]` : ""}
         </p>
-        <div style={{ display: "flex", gap: 22, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ink-3)" }}>
+        <div className="section-card__meta">
           <span>{doc.readingMinutes} min read</span>
           <span>{doc.images.length} images</span>
         </div>
       </div>
 
       {/* right rail: progress + CTA + file ref */}
-      <div style={{ display: "grid", gap: 14, alignContent: "start", paddingTop: 4 }}>
+      <div className="section-card__rail">
         {(isInProgress || isCompleted) && (
           <div>
             <div style={{ display: "flex", justifyContent: "space-between", fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-3)", marginBottom: 6 }}>

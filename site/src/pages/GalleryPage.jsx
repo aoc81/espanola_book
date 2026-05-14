@@ -108,32 +108,32 @@ export function GalleryPage() {
   return (
     <main id="main-content">
       {/* breadcrumb */}
-      <div style={{ padding: "12px 32px", background: "var(--paper-0)" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", gap: 16, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-3)" }}>
+      <div className="page-crumb" style={{ paddingTop: 12, paddingBottom: 12, background: "var(--paper-0)" }}>
+        <div className="page-crumb__inner">
           <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>Overview</Link>
           <span>›</span>
           <span>Section III</span>
           <span>›</span>
           <span style={{ color: "var(--ink-0)" }}>Sources & Image References</span>
-          <span style={{ flex: 1 }} />
+          <span className="page-crumb__spacer" />
           <span style={{ color: "var(--classified)" }}>● {siteData.stats.imageCount} image refs · 44 sources · 75 links</span>
         </div>
       </div>
 
       {/* hero */}
-      <section style={{ position: "relative", padding: "72px 32px 48px", borderBottom: "1px solid var(--paper-edge)" }}>
+      <section className="page-section" style={{ position: "relative", paddingTop: 72, paddingBottom: 48, borderBottom: "1px solid var(--paper-edge)" }}>
         <span className="tick" style={{ top: 18, left: 18 }} aria-hidden="true" />
         <span className="tick" style={{ top: 18, right: 18 }} aria-hidden="true" />
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "baseline", marginBottom: 36, gap: 24 }}>
+        <div className="page-section__inner">
+          <div className="page-eyebrow-row">
             <div className="eyebrow">Section · 03 · Appendices</div>
             <div style={{ height: 1, background: "var(--ink-1)" }} />
             <div className="mono" style={{ color: "var(--ink-3)" }}>The Evidence Room</div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 64, alignItems: "end" }}>
+          <div className="page-intro__grid page-intro__grid--auto">
             <div>
-              <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(48px, 8vw, 180px)", lineHeight: 0.82, color: "var(--ink-0)", letterSpacing: "-0.02em", marginBottom: 18, whiteSpace: "nowrap" }}>
+              <div className="page-intro__title" style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(48px, 8vw, 180px)", lineHeight: 0.82, color: "var(--ink-0)", letterSpacing: "-0.02em", marginBottom: 18 }}>
                 SOURCES.
               </div>
               <h2 style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontWeight: 400, fontSize: 22, lineHeight: 1.4, color: "var(--ink-2)", margin: 0, maxWidth: 800 }}>
@@ -160,8 +160,8 @@ export function GalleryPage() {
       </section>
 
       {/* reference links */}
-      <section style={{ padding: "72px 32px 88px", borderBottom: "1px solid var(--paper-edge)" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+      <section className="page-section" style={{ paddingTop: 72, paddingBottom: 88, borderBottom: "1px solid var(--paper-edge)" }}>
+        <div className="page-section__inner">
           <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 48 }}>
             <span style={{ fontFamily: "var(--font-display)", fontSize: 14, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Reference Links ✦</span>
             <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
@@ -176,7 +176,7 @@ export function GalleryPage() {
                 </div>
                 <div style={{ border: "1px solid var(--paper-edge)", background: "var(--paper-1)" }}>
                   {group.items.map((item, i) => (
-                    <div key={item.url} style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, padding: "14px 18px", borderBottom: i === group.items.length - 1 ? "none" : "1px solid var(--paper-edge)", alignItems: "baseline" }}>
+                    <div key={item.url} className="gallery-source-row" style={{ padding: "14px 18px", borderBottom: i === group.items.length - 1 ? "none" : "1px solid var(--paper-edge)" }}>
                       <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-3)" }}>{item.outlet}</span>
                       <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--font-serif)", fontSize: 15, color: "var(--ink-0)", textDecoration: "none", borderBottom: "1px solid var(--paper-edge)" }}>
                         {item.title}
@@ -192,14 +192,14 @@ export function GalleryPage() {
 
       {/* image grid */}
       {allImages.length > 0 && (
-        <section style={{ padding: "56px 32px 72px" }}>
-          <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+        <section className="page-section" style={{ paddingTop: 56, paddingBottom: 72 }}>
+          <div className="page-section__inner">
             <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 32 }}>
               <span style={{ fontFamily: "var(--font-display)", fontSize: 14, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Image References ✦</span>
               <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
               <span className="mono" style={{ color: "var(--ink-3)" }}>{allImages.length} items</span>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, rowGap: 48 }}>
+            <div className="gallery-image-grid">
               {visibleImages.map((img, i) => (
                 <GalleryImageCard key={`${img.publicPath}-${i}`} img={img} index={i} />
               ))}

@@ -96,7 +96,7 @@ export function ReaderPage() {
 
           {/* chapter opener */}
           <div className="reader-article__opener">
-            <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "center", gap: 18, marginBottom: 28 }}>
+            <div className="reader-opener__eyebrow">
               <span style={{ fontFamily: "var(--font-display)", fontSize: 13, letterSpacing: "0.32em", fontWeight: 700, color: "var(--classified)", textTransform: "uppercase" }}>
                 ✦ &nbsp; {current.sectionTitle} &nbsp; ✦
               </span>
@@ -277,7 +277,7 @@ function ReaderEnd({ current, previous, next }) {
           ✦ &nbsp; ✦ &nbsp; ✦
         </div>
       </div>
-      <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, padding: "0 32px" }}>
+      <div className="reader-end__grid" style={{ maxWidth: 1320, margin: "0 auto", padding: "0 32px" }}>
         {previous ? (
           <Link to={`/read/${previous.slug}`} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "auto 1fr", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)" }}>
             <div style={{ fontFamily: "var(--font-display)", fontSize: 64, lineHeight: 0.85, color: "var(--ink-0)", fontWeight: 700 }}>‹</div>

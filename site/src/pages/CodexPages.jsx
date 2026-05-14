@@ -47,8 +47,8 @@ const CODEX_DOCS = [
 
 function CodexBreadcrumb({ current }) {
   return (
-    <div style={{ borderBottom: "1px solid var(--paper-edge)", padding: "12px 32px", background: "var(--paper-0)" }}>
-      <div style={{ maxWidth: 1320, margin: "0 auto", display: "flex", alignItems: "center", gap: 16, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-3)" }}>
+    <div className="page-crumb" style={{ borderBottom: "1px solid var(--paper-edge)", paddingTop: 12, paddingBottom: 12, background: "var(--paper-0)" }}>
+      <div className="page-crumb__inner">
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>Overview</Link>
         <span>›</span>
         <Link to="/codex" style={{ color: "inherit", textDecoration: "none" }}>Codex</Link>
@@ -62,11 +62,11 @@ export function CodexIndexPage() {
   return (
     <main id="main-content">
       <CodexBreadcrumb />
-      <section style={{ position: "relative", padding: "72px 32px 56px", borderBottom: "1px solid var(--paper-edge)" }}>
+      <section className="page-section" style={{ position: "relative", paddingTop: 72, paddingBottom: 56, borderBottom: "1px solid var(--paper-edge)" }}>
         <span className="tick" style={{ top: 18, left: 18 }} aria-hidden="true" />
         <span className="tick" style={{ top: 18, right: 18 }} aria-hidden="true" />
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "baseline", marginBottom: 36, gap: 24 }}>
+        <div className="page-section__inner">
+          <div className="page-eyebrow-row">
             <div className="eyebrow">Editorial Codex · 04 Protocols</div>
             <div style={{ height: 1, background: "var(--ink-1)" }} />
             <div className="mono" style={{ color: "var(--ink-3)" }}>docs/codex/ + docs/editorial/</div>
@@ -80,8 +80,8 @@ export function CodexIndexPage() {
         </div>
       </section>
 
-      <section style={{ padding: "56px 32px 88px" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+      <section className="page-section" style={{ paddingTop: 56, paddingBottom: 88 }}>
+        <div className="page-section__inner" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
           {CODEX_DOCS.map((c) => (
             <div key={c.n} style={{ background: "var(--paper-1)", border: "1px solid var(--ink-1)", padding: "28px 28px 32px", position: "relative", display: "flex", flexDirection: "column" }}>
               <span className="tick" style={{ top: 10, left: 10 }} aria-hidden="true" />
@@ -128,16 +128,16 @@ export function CodexPage({ title, filename, content }) {
       <CodexBreadcrumb current={filename} />
 
       {/* page header */}
-      <div style={{ padding: "32px 32px 28px", borderBottom: "1px solid var(--paper-edge)", background: "var(--paper-0)" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+      <div className="page-section" style={{ paddingTop: 32, paddingBottom: 28, borderBottom: "1px solid var(--paper-edge)", background: "var(--paper-0)" }}>
+        <div className="page-section__inner">
           <div className="eyebrow" style={{ marginBottom: 10 }}>Editorial Codex</div>
           <h1 style={{ fontFamily: "var(--font-serif)", fontWeight: 700, fontSize: "clamp(24px,3vw,40px)", lineHeight: 1.1, letterSpacing: "-0.01em", color: "var(--ink-0)", margin: 0 }}>{title}</h1>
         </div>
       </div>
 
       {/* code box */}
-      <div style={{ padding: "40px 32px 80px", background: "var(--paper-1)" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+      <div className="page-section" style={{ paddingTop: 40, paddingBottom: 80, background: "var(--paper-1)" }}>
+        <div className="page-section__inner">
           {/* file tab */}
           <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--dossier-1)", border: "1px solid var(--dossier-rule)", borderBottom: "none", padding: "8px 18px", fontFamily: "var(--font-data)", fontSize: 12, letterSpacing: "0.04em", color: "var(--dossier-fg-1)" }}>
             <span style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--classified)", display: "inline-block" }} />
@@ -177,8 +177,8 @@ export function CodexPage({ title, filename, content }) {
       </div>
 
       {/* prev / next */}
-      <section style={{ padding: "48px 32px 64px", borderTop: "1px solid var(--ink-1)", background: "var(--paper-1)" }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+      <section className="page-section" style={{ paddingTop: 48, paddingBottom: 64, borderTop: "1px solid var(--ink-1)", background: "var(--paper-1)" }}>
+        <div className="page-section__inner reader-end__grid">
           {prev ? (
             <Link to={prev.link} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "auto 1fr", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)" }}>
               <div style={{ fontFamily: "var(--font-display)", fontSize: 64, lineHeight: 0.85, color: "var(--ink-0)", fontWeight: 700, letterSpacing: "-0.02em" }}>‹</div>

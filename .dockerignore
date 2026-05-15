@@ -24,6 +24,14 @@ manuscripts/v4.1/*
 manuscripts/v4.1/en/*
 !manuscripts/v4.1/en/contents
 !manuscripts/v4.1/en/contents/**
+!manuscripts/v4.1/es
+manuscripts/v4.1/es/*
+!manuscripts/v4.1/es/contents
+!manuscripts/v4.1/es/contents/**
+!manuscripts/v4.1/fr
+manuscripts/v4.1/fr/*
+!manuscripts/v4.1/fr/contents
+!manuscripts/v4.1/fr/contents/**
 !assets/manifests/v4.1
 assets/manifests/v4.1/*
 !assets/manifests/v4.1/en

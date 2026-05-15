@@ -2,6 +2,8 @@ FROM node:22-alpine AS build
 
 WORKDIR /app
 
+RUN apk add --no-cache zip
+
 COPY site/package*.json ./site/
 RUN cd site && npm ci
 

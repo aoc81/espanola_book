@@ -271,6 +271,32 @@ function removeIfExists(filePath) {
   }
 }
 
+function createZipFromStageDir(stageDir, zipPath) {
+  if (process.platform === "win32") {
+    execFileSync(
+      "powershell",
+      [
+        "-NoProfile",
+        "-Command",
+        "Compress-Archive",
+        "-LiteralPath",
+        stageDir,
+        "-DestinationPath",
+        zipPath,
+        "-Force",
+      ],
+      { stdio: "pipe" },
+    );
+    return;
+  }
+
+  execFileSync(
+    "zip",
+    ["-r", zipPath, path.basename(stageDir)],
+    { cwd: path.dirname(stageDir), stdio: "pipe" },
+  );
+}
+
 function contentDirFor(language) {
   return path.join(ROOT_DIR, "manuscripts", version, language, "contents");
 }
@@ -343,20 +369,7 @@ function createMarkdownArchives() {
     const zipPath = path.join(GENERATED_DOWNLOADS_DIR, zipName);
     removeIfExists(zipPath);
 
-    execFileSync(
-      "powershell",
-      [
-        "-NoProfile",
-        "-Command",
-        "Compress-Archive",
-        "-LiteralPath",
-        stageDir,
-        "-DestinationPath",
-        zipPath,
-        "-Force",
-      ],
-      { stdio: "pipe" },
-    );
+    createZipFromStageDir(stageDir, zipPath);
   }
 
   removeIfExists(tempRoot);

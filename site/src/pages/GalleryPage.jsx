@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
-import siteData from "@generated-manuscript";
+import { useSite } from "../lib/siteContext";
+import { LocalizedLink } from "../components/layout/LocalizedLink";
 import { displayLicenseLabel } from "../lib/siteUtils";
 const REFERENCE_LINKS = [
   {
-    section: "Core reporting & investigations",
+    key: "core",
     items: [
       { outlet: "BBC News Russian", title: "Армия на полставки", url: "https://www.bbc.com/russian/news-67454788" },
       { outlet: "Cherta Media", title: "Кто такие ЧВК «Эспаньола»? Фанаты на войне", url: "https://cherta.media/story/fans-of-war/" },
@@ -26,7 +26,7 @@ const REFERENCE_LINKS = [
     ],
   },
   {
-    section: "Analytical, registry & contextual sources",
+    key: "analysis",
     items: [
       { outlet: "amalantra.ru", title: "Бригада «Эспаньола»: участие в СВО, состав, численность и рекрутинг", url: "https://amalantra.ru/brigada-espanola/" },
       { outlet: "Daily Sabah", title: "Battle on pitch: Russian football ultras take arms in Mariupol", url: "https://www.dailysabah.com/sports/football/battle-on-pitch-russian-football-ultras-take-arms-in-mariupol" },
@@ -57,7 +57,7 @@ const REFERENCE_LINKS = [
     ],
   },
   {
-    section: "Telegram channels",
+    key: "telegram",
     items: [
       { outlet: "Española — primary channel", title: "spainrus", url: "https://t.me/spainrus" },
       { outlet: "Española — public archive", title: "t.me/s/spainrus", url: "https://t.me/s/spainrus" },
@@ -68,7 +68,7 @@ const REFERENCE_LINKS = [
     ],
   },
   {
-    section: "Other consulted sources",
+    key: "other",
     items: [
       { outlet: "UK Government", title: "Russia sanctions notice, 7 November 2024", url: "https://assets.publishing.service.gov.uk/media/672c6d07abb279b2de1e8cc0/Notice_Russia_071124.pdf" },
       { outlet: "UK Government", title: "Russia sanctions notice, 22 February 2024", url: "https://assets.publishing.service.gov.uk/media/65d729912ab2b300117596d9/Notice_Russia_220224.pdf" },
@@ -98,7 +98,63 @@ const REFERENCE_LINKS = [
   },
 ];
 
+const GALLERY_COPY = {
+  en: {
+    overview: "Overview",
+    sectionLabel: "Section III",
+    title: "Sources & Image References",
+    evidenceRoom: "The Evidence Room",
+    intro: "Every claim in this book is traced to a primary source, intercepted transmission, or open-source verification. Below: image references, source-handling protocol, and appendix documents.",
+    imageReferences: "Image references",
+    referenceLinks: "Reference links",
+    sources: "Sources",
+    moreReferences: "more references",
+    sectionNames: {
+      core: "Core reporting & investigations",
+      analysis: "Analytical, registry & contextual sources",
+      telegram: "Telegram channels",
+      other: "Other consulted sources",
+    },
+  },
+  es: {
+    overview: "Inicio",
+    sectionLabel: "Sección III",
+    title: "Fuentes y referencias de imágenes",
+    evidenceRoom: "La sala de pruebas",
+    intro: "Cada afirmación de este libro se remite a una fuente primaria, una transmisión interceptada o una verificación en fuentes abiertas. Abajo: referencias de imágenes, protocolo de tratamiento de fuentes y documentos anexos.",
+    imageReferences: "Referencias de imágenes",
+    referenceLinks: "Enlaces de referencia",
+    sources: "Fuentes",
+    moreReferences: "referencias más",
+    sectionNames: {
+      core: "Reportajes e investigaciones centrales",
+      analysis: "Fuentes analíticas, registrales y de contexto",
+      telegram: "Canales de Telegram",
+      other: "Otras fuentes consultadas",
+    },
+  },
+  fr: {
+    overview: "Accueil",
+    sectionLabel: "Section III",
+    title: "Sources et références d'images",
+    evidenceRoom: "La salle des preuves",
+    intro: "Chaque affirmation de ce livre renvoie à une source primaire, à une transmission interceptée ou à une vérification en sources ouvertes. Ci-dessous : références d'images, protocole de traitement des sources et documents annexes.",
+    imageReferences: "Références d'images",
+    referenceLinks: "Liens de référence",
+    sources: "Sources",
+    moreReferences: "références supplémentaires",
+    sectionNames: {
+      core: "Reportages et enquêtes de référence",
+      analysis: "Sources analytiques, de registre et de contexte",
+      telegram: "Canaux Telegram",
+      other: "Autres sources consultées",
+    },
+  },
+};
+
 export function GalleryPage() {
+  const { siteData, locale } = useSite();
+  const copy = GALLERY_COPY[locale];
   const allImages = siteData.documents.flatMap((doc) =>
     doc.images.map((img) => ({ ...img, docTitle: doc.title, docSlug: doc.slug }))
   );
@@ -110,11 +166,11 @@ export function GalleryPage() {
       {/* breadcrumb */}
       <div className="page-crumb" style={{ paddingTop: 12, paddingBottom: 12, background: "var(--paper-0)" }}>
         <div className="page-crumb__inner">
-          <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>Overview</Link>
+          <LocalizedLink to="/" style={{ color: "inherit", textDecoration: "none" }}>{copy.overview}</LocalizedLink>
           <span>›</span>
-          <span>Section III</span>
+          <span>{copy.sectionLabel}</span>
           <span>›</span>
-          <span style={{ color: "var(--ink-0)" }}>Sources & Image References</span>
+          <span style={{ color: "var(--ink-0)" }}>{copy.title}</span>
           <span className="page-crumb__spacer" />
           <span style={{ color: "var(--classified)" }}>● {siteData.stats.imageCount} image refs · 44 sources · 75 links</span>
         </div>
@@ -126,27 +182,27 @@ export function GalleryPage() {
         <span className="tick" style={{ top: 18, right: 18 }} aria-hidden="true" />
         <div className="page-section__inner">
           <div className="page-eyebrow-row">
-            <div className="eyebrow">Section · 03 · Appendices</div>
+            <div className="eyebrow">{copy.sectionLabel} · Appendices</div>
             <div style={{ height: 1, background: "var(--ink-1)" }} />
-            <div className="mono" style={{ color: "var(--ink-3)" }}>The Evidence Room</div>
+            <div className="mono" style={{ color: "var(--ink-3)" }}>{copy.evidenceRoom}</div>
           </div>
 
           <div className="page-intro__grid page-intro__grid--auto">
             <div>
               <div className="page-intro__title" style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(48px, 8vw, 180px)", lineHeight: 0.82, color: "var(--ink-0)", letterSpacing: "-0.02em", marginBottom: 18 }}>
-                SOURCES.
+                {copy.sources.toUpperCase()}.
               </div>
               <h2 style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontWeight: 400, fontSize: 22, lineHeight: 1.4, color: "var(--ink-2)", margin: 0, maxWidth: 800 }}>
-                Every claim in this book is traced to a primary source, intercepted transmission, or open-source verification. Below: image references, source-handling protocol, and appendix documents.
+                {copy.intro}
               </h2>
             </div>
 
             <div style={{ paddingBottom: 12 }}>
               <div style={{ borderTop: "3px double var(--ink-1)", borderBottom: "3px double var(--ink-1)" }}>
                 {[
-                  ["Image references", String(siteData.stats.imageCount)],
-                  ["Sources", "44"],
-                  ["Reference links", "75"],
+                  [copy.imageReferences, String(siteData.stats.imageCount)],
+                  [copy.sources, "44"],
+                  [copy.referenceLinks, "75"],
                 ].map(([label, value], i, arr) => (
                   <div key={label} style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 12, padding: "12px 4px", borderBottom: i === arr.length - 1 ? "none" : "1px solid var(--paper-edge)", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase" }}>
                     <span style={{ color: "var(--ink-3)" }}>{label}</span>
@@ -163,15 +219,15 @@ export function GalleryPage() {
       <section className="page-section" style={{ paddingTop: 72, paddingBottom: 88, borderBottom: "1px solid var(--paper-edge)" }}>
         <div className="page-section__inner">
           <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 48 }}>
-            <span style={{ fontFamily: "var(--font-display)", fontSize: 14, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Reference Links ✦</span>
+            <span style={{ fontFamily: "var(--font-display)", fontSize: 14, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ {copy.referenceLinks} ✦</span>
             <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
             <span className="mono" style={{ color: "var(--ink-3)" }}>75 links · 44 sources</span>
           </div>
           <div style={{ display: "grid", gap: 48 }}>
             {REFERENCE_LINKS.map((group) => (
-              <div key={group.section}>
+              <div key={group.key}>
                 <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", alignItems: "center", gap: 18, marginBottom: 20 }}>
-                  <span className="eyebrow">{group.section}</span>
+                  <span className="eyebrow">{copy.sectionNames[group.key]}</span>
                   <span style={{ height: 1, background: "var(--paper-edge)" }} />
                 </div>
                 <div style={{ border: "1px solid var(--paper-edge)", background: "var(--paper-1)" }}>
@@ -195,7 +251,7 @@ export function GalleryPage() {
         <section className="page-section" style={{ paddingTop: 56, paddingBottom: 72 }}>
           <div className="page-section__inner">
             <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 32 }}>
-              <span style={{ fontFamily: "var(--font-display)", fontSize: 14, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ Image References ✦</span>
+            <span style={{ fontFamily: "var(--font-display)", fontSize: 14, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ {copy.imageReferences} ✦</span>
               <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
               <span className="mono" style={{ color: "var(--ink-3)" }}>{allImages.length} items</span>
             </div>
@@ -210,7 +266,7 @@ export function GalleryPage() {
                   onClick={() => setShowAllImages(true)}
                   style={{ border: "1px solid var(--ink-1)", background: "transparent", color: "var(--ink-1)", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", padding: "0 18px", height: 44, cursor: "pointer" }}
                 >
-                  ▾ {allImages.length - 16} more references
+                  ▾ {allImages.length - 16} {copy.moreReferences}
                 </button>
               </div>
             )}

@@ -1,0 +1,890 @@
+[31m(!) Failed to run dependency scan. Skipping dependency pre-bundling. Error: The following dependencies are imported but could not be resolved:
+
+  [36m@generated-manuscript[31m [37m[2m(imported by C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/pages/ReaderPage.jsx)[22m[31m
+
+Are they installed?
+    at file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:31907:33
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:34115:15[39m
+[2m22:29:28[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+[2m22:29:29[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+[2m22:29:35[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 2)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:30:10[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+[2m22:30:12[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 2)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:30:22[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+[2m22:30:24[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 2)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:30:26[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+[2m22:30:28[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 2)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:30:57[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+[2m22:30:58[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:30:58[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+[2m22:30:58[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:30:58[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:30:59[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:30:59[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:30:59[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+[2m22:30:59[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:30:59[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:31:08[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+[2m22:31:08[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:31:08[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+[2m22:31:08[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:31:08[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:31:09[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:31:09[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:31:09[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+[2m22:31:09[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:31:09[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:31:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscript" from "src/components/layout/SiteFooter.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/components/layout/SiteFooter.jsx[39m:2:21
+[33m  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+  2  |  import { Link } from "react-router-dom";
+  3  |  import siteData from "@generated-manuscript";
+     |                        ^
+  4  |  export function SiteFooter() {
+  5  |    const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));[39m
+[2m22:32:01[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+[2m22:32:01[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:32:01[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:32:01[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:32:01[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:32:01[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:32:01[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:32:01[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:32:01[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:37:53[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+[2m22:37:53[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:37:53[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:37:53[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:37:53[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:37:53[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:37:53[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:37:53[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:13[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+[2m22:39:13[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:13[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:39:13[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:39:13[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:13[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:39:13[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:13[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:39:13[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:24[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+[2m22:39:24[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:24[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:39:24[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:24[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:39:24[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:24[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:39:24[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@generated-manuscripts" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/App.jsx[39m:5:29
+[33m  5  |  import { SkipLink, ScrollToTop, RouteAnalytics, Masthead } from "./components/layout/Masthead";
+  6  |  import { SiteFooter } from "./components/layout/SiteFooter";
+  7  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  8  |  import { detectPreferredLocale, buildLocalePath, normalizeLocale } from "./lib/i18n";
+  9  |  import { SiteProvider } from "./lib/siteContext";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29003:43)
+      at TransformPluginContext.error (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29000:14)
+      at normalizeUrl (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27123:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27181:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:27149:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/siteContext.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/siteContext.jsx[39m:3:29
+[33m  3  |  import { createContext, useContext, useMemo } from "react";
+  4  |  import { useLocation } from "react-router-dom";
+  5  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  6  |  import {
+  7  |    DEFAULT_LOCALE,[39m
+[2m22:39:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@generated-manuscripts" from "src/lib/i18n.js". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/lib/i18n.js[39m:1:30
+[33m  1  |  import siteDataByLocale from "@generated-manuscripts";
+     |                                ^
+  2  |  
+  3  |  export const SUPPORTED_LOCALES = ["en", "es", "fr"];[39m
+[2m22:39:54[22m [31m[1m[vite][22m[39m [31mInternal server error: [postcss] ENOENT: no such file or directory, open 'C:\design-system\colors_and_type.css'[39m
+  Plugin: [35mvite:css[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/styles.css[39m:undefined:NaN
+      at async open (node:internal/fs/promises:640:25)
+      at async Object.readFile (node:internal/fs/promises:1277:14)
+      at async Object.load (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:30095:19)
+      at async loadImportContent (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/postcss-import.js:401:19)
+      at async Promise.all (index 0)
+      at async resolveImportId (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/postcss-import.js:387:20)
+      at async parseStyles$1 (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/postcss-import.js:340:4)
+      at async Object.Once (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/postcss-import.js:465:20)
+      at async LazyResult.runAsync (C:\Users\Utilisateur\OneDrive\Documents\Hispaniola\site\node_modules\postcss\lib\lazy-result.js:293:11)
+      at async runPostCSS (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:30149:19)
+      at async compilePostCSS (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:30133:6)
+      at async compileCSS (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:30063:26)
+      at async TransformPluginContext.handler (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29596:54)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)
+[2m8:06:53[22m [31m[1m[vite][22m[39m [31mInternal server error: [postcss] ENOENT: no such file or directory, open 'C:\design-system\colors_and_type.css'[39m
+  Plugin: [35mvite:css[39m
+  File: [36mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/src/styles.css[39m:undefined:NaN
+      at async open (node:internal/fs/promises:640:25)
+      at async Object.readFile (node:internal/fs/promises:1277:14)
+      at async Object.load (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:30095:19)
+      at async loadImportContent (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/postcss-import.js:401:19)
+      at async Promise.all (index 0)
+      at async resolveImportId (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/postcss-import.js:387:20)
+      at async parseStyles$1 (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/postcss-import.js:340:4)
+      at async Object.Once (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/postcss-import.js:465:20)
+      at async LazyResult.runAsync (C:\Users\Utilisateur\OneDrive\Documents\Hispaniola\site\node_modules\postcss\lib\lazy-result.js:293:11)
+      at async runPostCSS (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:30149:19)
+      at async compilePostCSS (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:30133:6)
+      at async compileCSS (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:30063:26)
+      at async TransformPluginContext.handler (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:29596:54)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:28801:14)
+      at async loadAndTransform (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:22670:26)
+      at async viteTransformMiddleware (file:///C:/Users/Utilisateur/OneDrive/Documents/Hispaniola/site/node_modules/vite/dist/node/chunks/config.js:24546:20)

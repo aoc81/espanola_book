@@ -1,8 +1,84 @@
 import { useState } from "react";
-import { Link, Navigate, useParams } from "react-router-dom";
-import siteData from "@generated-manuscript";
+import { Navigate, useParams } from "react-router-dom";
 import { chapterTitle } from "../lib/siteUtils";
-import { getChapterProgress } from "../lib/readerProgress";
+import { getChapterProgress, getLastReadDocumentId } from "../lib/readerProgress";
+import { useSite } from "../lib/siteContext";
+import { LocalizedLink } from "../components/layout/LocalizedLink";
+
+const SECTION_COPY = {
+  en: {
+    overview: "Overview",
+    readingUnits: "reading units",
+    section: "Section",
+    revised: "Last revised",
+    totalReadingTime: "Total reading time",
+    imageReferences: "Image references",
+    all: "All",
+    searchPlaceholder: "search chapter, callsign, place…",
+    results: "results",
+    sort: "Sort",
+    manuscriptOrder: "Manuscript order",
+    noMatches: "No chapters match",
+    previousSection: "Previous Section",
+    nextSection: "Next Section",
+    chapter: "Chapter",
+    progress: "Progress",
+    read: "Read",
+    readAgain: "Read again",
+    continue: "Continue",
+    readNow: "Read",
+    fileRef: "File ref",
+    chapterSectionLabel: "Chapters",
+  },
+  es: {
+    overview: "Inicio",
+    readingUnits: "unidades de lectura",
+    section: "Sección",
+    revised: "Última revisión",
+    totalReadingTime: "Tiempo total de lectura",
+    imageReferences: "Referencias de imágenes",
+    all: "Todo",
+    searchPlaceholder: "buscar capítulo, alias, lugar…",
+    results: "resultados",
+    sort: "Orden",
+    manuscriptOrder: "Orden del manuscrito",
+    noMatches: "Ningún capítulo coincide con",
+    previousSection: "Sección anterior",
+    nextSection: "Sección siguiente",
+    chapter: "Capítulo",
+    progress: "Progreso",
+    read: "Leído",
+    readAgain: "Leer de nuevo",
+    continue: "Continuar",
+    readNow: "Leer",
+    fileRef: "Ref. archivo",
+    chapterSectionLabel: "Capítulos",
+  },
+  fr: {
+    overview: "Accueil",
+    readingUnits: "unités de lecture",
+    section: "Section",
+    revised: "Dernière révision",
+    totalReadingTime: "Temps de lecture total",
+    imageReferences: "Références d'images",
+    all: "Tout",
+    searchPlaceholder: "chercher chapitre, indicatif, lieu…",
+    results: "résultats",
+    sort: "Tri",
+    manuscriptOrder: "Ordre du manuscrit",
+    noMatches: "Aucun chapitre ne correspond à",
+    previousSection: "Section précédente",
+    nextSection: "Section suivante",
+    chapter: "Chapitre",
+    progress: "Progression",
+    read: "Lu",
+    readAgain: "Relire",
+    continue: "Continuer",
+    readNow: "Lire",
+    fileRef: "Réf. fichier",
+    chapterSectionLabel: "Chapitres",
+  },
+};
 
 function documentSearchText(document) {
   const blockText = (document.blocks ?? []).flatMap((block) => {
@@ -21,6 +97,8 @@ function documentSearchText(document) {
 }
 
 export function SectionPage() {
+  const { siteData, locale } = useSite();
+  const copy = SECTION_COPY[locale];
   const { sectionKey } = useParams();
   const group = siteData.groups.find((g) => g.key === sectionKey);
   if (!group) return <Navigate to="/" replace />;
@@ -35,7 +113,7 @@ export function SectionPage() {
   const romanNum = romanNumerals[groupIndex] ?? String(groupIndex + 1);
   const totalMinutes = group.documents.reduce((s, d) => s + d.readingMinutes, 0);
   const totalImages = group.documents.reduce((s, d) => s + d.images.length, 0);
-  const sectionLabel = group.title === "Narrative" ? "Chapters" : group.title;
+  const sectionLabel = group.key === "chapters" ? copy.chapterSectionLabel : group.title;
   const isChapters = sectionKey === "chapters";
 
   const q = query.trim().toLowerCase();
@@ -49,13 +127,13 @@ export function SectionPage() {
       {/* breadcrumb */}
       <div className="page-crumb" style={{ paddingTop: 12, paddingBottom: 12, background: "var(--paper-0)" }}>
         <div className="page-crumb__inner">
-          <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>Overview</Link>
+          <LocalizedLink to="/" style={{ color: "inherit", textDecoration: "none" }}>{copy.overview}</LocalizedLink>
           <span>›</span>
-          <span>Section {romanNum}</span>
+          <span>{copy.section} {romanNum}</span>
           <span>›</span>
           <span style={{ color: "var(--ink-0)" }}>{sectionLabel}</span>
           <span className="page-crumb__spacer" />
-          <span style={{ color: "var(--classified)" }}>● {group.documents.length} reading units</span>
+          <span style={{ color: "var(--classified)" }}>● {group.documents.length} {copy.readingUnits}</span>
         </div>
       </div>
 
@@ -65,7 +143,7 @@ export function SectionPage() {
         <span className="tick" style={{ top: 18, right: 18 }} aria-hidden="true" />
         <div className="page-section__inner">
           <div className="page-eyebrow-row">
-            <div className="eyebrow">Section · {String(groupIndex + 1).padStart(2, "0")}</div>
+            <div className="eyebrow">{copy.section} · {String(groupIndex + 1).padStart(2, "0")}</div>
             <div style={{ height: 1, background: "var(--ink-1)" }} />
             <div className="mono" style={{ color: "var(--ink-3)" }}>{siteData.titlePage.title}</div>
           </div>
@@ -76,17 +154,17 @@ export function SectionPage() {
                 {sectionLabel.toUpperCase()}.
               </div>
               <h2 style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontWeight: 400, fontSize: 22, lineHeight: 1.4, color: "var(--ink-2)", margin: 0, maxWidth: 720 }}>
-                {group.documents.length} reading units that follow Española from its supporter-culture roots through recruitment, combat, and the question of the formation's end.
+                {group.documents.length} {copy.readingUnits}.
               </h2>
             </div>
 
             <div style={{ paddingBottom: 12 }}>
               <div style={{ borderTop: "3px double var(--ink-1)", borderBottom: "3px double var(--ink-1)" }}>
                 {[
-                  ["Reading units", String(group.documents.length)],
-                  ["Total reading time", `${Math.floor(totalMinutes / 60)}h ${totalMinutes % 60}m`],
-                  ["Image references", String(totalImages)],
-                  ["Last revised", "27.04.2026"],
+                  [copy.readingUnits, String(group.documents.length)],
+                  [copy.totalReadingTime, `${Math.floor(totalMinutes / 60)}h ${totalMinutes % 60}m`],
+                  [copy.imageReferences, String(totalImages)],
+                  [copy.revised, "27.04.2026"],
                 ].map(([label, value], i, arr) => (
                   <div key={label} style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 12, padding: "12px 4px", borderBottom: i === arr.length - 1 ? "none" : "1px solid var(--paper-edge)", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase" }}>
                     <span style={{ color: "var(--ink-3)" }}>{label}</span>
@@ -106,7 +184,7 @@ export function SectionPage() {
             {/* all-count chip */}
             <div style={{ display: "flex", gap: 4 }}>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 8, border: "1px solid var(--ink-1)", background: "var(--ink-0)", color: "var(--paper-0)", padding: "8px 14px", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase" }}>
-                All
+                {copy.all}
                 <span style={{ opacity: 0.6, fontSize: 9 }}>{String(group.documents.length).padStart(2, "0")}</span>
               </span>
             </div>
@@ -118,24 +196,24 @@ export function SectionPage() {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="search chapter, callsign, place…"
+                placeholder={copy.searchPlaceholder}
                 style={{ border: "none", background: "transparent", outline: "none", height: 34, width: "100%", fontFamily: "var(--font-serif)", fontSize: 14, color: "var(--ink-1)" }}
               />
               {q && (
                 <span className="mono" style={{ color: "var(--ink-3)", fontSize: 9 }}>
-                  {visible.length} result{visible.length !== 1 ? "s" : ""}
+                  {visible.length} {copy.results}
                 </span>
               )}
             </div>
 
             {/* sort toggle */}
             <div style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-3)" }}>
-              <span>Sort</span>
+              <span>{copy.sort}</span>
               <button
                 onClick={() => setSortAlpha((v) => !v)}
                 style={{ background: "none", border: "none", cursor: "pointer", padding: 0, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-0)", borderBottom: "1px solid var(--ink-0)", paddingBottom: 1 }}
               >
-                {sortAlpha ? "A → Z ▾" : "Manuscript order ▾"}
+                {sortAlpha ? "A → Z ▾" : `${copy.manuscriptOrder} ▾`}
               </button>
             </div>
 
@@ -152,11 +230,11 @@ export function SectionPage() {
         <div className="page-section__inner">
           {visible.length === 0 && (
             <div style={{ padding: "64px 0", textAlign: "center", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ink-4)" }}>
-              No chapters match "{query}"
+              {copy.noMatches} "{query}"
             </div>
           )}
           {visible.map((doc, idx) => (
-            <SectionChapterCard key={doc.slug} doc={doc} globalIndex={group.documents.indexOf(doc)} displayIndex={idx} />
+            <SectionChapterCard key={doc.slug} doc={doc} globalIndex={group.documents.indexOf(doc)} displayIndex={idx} locale={locale} copy={copy} />
           ))}
         </div>
       </section>
@@ -166,26 +244,26 @@ export function SectionPage() {
         <section className="page-section" style={{ paddingTop: 64, paddingBottom: 64, borderTop: "1px solid var(--ink-1)", background: "var(--paper-1)" }}>
           <div className="page-section__inner section-nav-grid" style={{ gap: 32 }}>
             {previousGroup ? (
-              <Link to={`/section/${previousGroup.key}`} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "auto 1fr", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)" }}>
+              <LocalizedLink to={`/section/${previousGroup.key}`} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "auto 1fr", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)" }}>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: 64, lineHeight: 0.85, color: "var(--ink-0)", fontWeight: 700 }}>‹</div>
                 <div>
-                  <div className="eyebrow" style={{ marginBottom: 6, color: "var(--ink-3)" }}>Previous Section</div>
+                  <div className="eyebrow" style={{ marginBottom: 6, color: "var(--ink-3)" }}>{copy.previousSection}</div>
                   <div style={{ fontFamily: "var(--font-serif)", fontSize: 20, fontWeight: 700, color: "var(--ink-0)" }}>
-                    {romanNumerals[groupIndex - 1]} — {previousGroup.title === "Narrative" ? "Chapters" : previousGroup.title}
+                    {romanNumerals[groupIndex - 1]} — {previousGroup.key === "chapters" ? copy.chapterSectionLabel : previousGroup.title}
                   </div>
                 </div>
-              </Link>
+              </LocalizedLink>
             ) : <div />}
             {nextGroup ? (
-              <Link to={`/section/${nextGroup.key}`} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "1fr auto", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)", textAlign: "right" }}>
+              <LocalizedLink to={`/section/${nextGroup.key}`} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "1fr auto", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)", textAlign: "right" }}>
                 <div>
-                  <div className="eyebrow" style={{ marginBottom: 6 }}>Next Section</div>
+                  <div className="eyebrow" style={{ marginBottom: 6 }}>{copy.nextSection}</div>
                   <div style={{ fontFamily: "var(--font-serif)", fontSize: 20, fontWeight: 700, color: "var(--ink-0)" }}>
-                    {romanNumerals[groupIndex + 1]} — {nextGroup.title === "Narrative" ? "Chapters" : nextGroup.title}
+                    {romanNumerals[groupIndex + 1]} — {nextGroup.key === "chapters" ? copy.chapterSectionLabel : nextGroup.title}
                   </div>
                 </div>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: 64, lineHeight: 0.85, color: "var(--classified)", fontWeight: 700 }}>›</div>
-              </Link>
+              </LocalizedLink>
             ) : <div />}
           </div>
         </section>
@@ -194,14 +272,14 @@ export function SectionPage() {
   );
 }
 
-function SectionChapterCard({ doc, globalIndex }) {
+function SectionChapterCard({ doc, globalIndex, locale, copy }) {
   const num = String(globalIndex + 1).padStart(2, "0");
-  const [pct, setPct] = useState(() => getChapterProgress(doc.slug));
-  const lastRead = (() => { try { return localStorage.getItem("last-read-slug"); } catch { return null; } })();
+  const [pct, setPct] = useState(() => getChapterProgress(locale, doc.id));
+  const lastRead = getLastReadDocumentId(locale);
 
   const isCompleted = pct >= 100;
   const isInProgress = pct > 0 && !isCompleted;
-  const isCurrent = isInProgress && lastRead === doc.slug;
+  const isCurrent = isInProgress && lastRead === doc.id;
   const minsLeft = Math.max(1, Math.round(doc.readingMinutes * (1 - pct / 100)));
 
   return (
@@ -223,7 +301,7 @@ function SectionChapterCard({ doc, globalIndex }) {
         <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 88, lineHeight: 0.85, color: isInProgress ? "var(--classified)" : "var(--ink-0)", letterSpacing: "-0.02em" }}>
           {num}
         </div>
-        <div className="mono" style={{ color: "var(--ink-3)", marginTop: 10, fontSize: 10 }}>Chapter</div>
+        <div className="mono" style={{ color: "var(--ink-3)", marginTop: 10, fontSize: 10 }}>{copy.chapter}</div>
       </div>
 
       {/* title + dek + meta */}
@@ -245,9 +323,9 @@ function SectionChapterCard({ doc, globalIndex }) {
         {(isInProgress || isCompleted) && (
           <div>
             <div style={{ display: "flex", justifyContent: "space-between", fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--ink-3)", marginBottom: 6 }}>
-              <span>Progress</span>
+              <span>{copy.progress}</span>
               <span style={{ color: isCompleted ? "var(--field-green)" : "var(--classified)" }}>
-                {isCompleted ? "Read" : `${Math.round(pct)}%`}
+                {isCompleted ? copy.read : `${Math.round(pct)}%`}
               </span>
             </div>
             <div style={{ height: 4, background: "var(--paper-edge)" }}>
@@ -256,17 +334,17 @@ function SectionChapterCard({ doc, globalIndex }) {
           </div>
         )}
 
-        <Link
+        <LocalizedLink
           to={`/read/${doc.slug}`}
           className={isInProgress ? "button button--solid" : "button"}
           style={{ width: "100%", justifyContent: "center" }}
-          onClick={() => setPct(getChapterProgress(doc.slug))}
+          onClick={() => setPct(getChapterProgress(locale, doc.id))}
         >
-          {isCompleted ? "▸ Read again" : isInProgress ? `▸ Continue · ${minsLeft}m left` : "▸ Read"}
-        </Link>
+          {isCompleted ? `▸ ${copy.readAgain}` : isInProgress ? `▸ ${copy.continue} · ${minsLeft}m left` : `▸ ${copy.readNow}`}
+        </LocalizedLink>
 
         <div className="mono" style={{ color: "var(--ink-3)", fontSize: 10 }}>
-          File ref: ESP-CH-{num}
+          {copy.fileRef}: ESP-CH-{num}
         </div>
       </div>
     </article>

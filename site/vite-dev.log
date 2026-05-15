@@ -1,0 +1,55 @@
+
+> espanola-book-site@0.1.0 dev
+> npm run content && vite --host 127.0.0.1 --port 4173
+
+
+> espanola-book-site@0.1.0 content
+> node ../scripts/website/build_site_content.mjs
+
+Wrote site data to C:\Users\Utilisateur\OneDrive\Documents\Hispaniola\build\site\generated-manuscript.js
+
+  [32m[1mVITE[22m v7.3.2[39m  [2mready in [0m[1m287[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m4173[22m/[39m
+[2m22:29:27[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[2m22:29:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m Re-optimizing dependencies because vite config has changed
+[2m22:29:27[22m [36m[1m[vite][22m[39m server restarted.
+[2m22:29:28[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ new dependencies optimized: [33mreact-dom/client, react-router-dom[32m[39m
+[2m22:29:28[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m22:30:10[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+[2m22:30:22[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+[2m22:30:26[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+[2m22:30:57[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+[2m22:31:07[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/App.jsx[22m
+[2m22:31:34[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/layout/Masthead.jsx[22m
+[2m22:32:01[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/components/layout/SiteFooter.jsx[22m
+[2m22:39:12[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/layout/SiteFooter.jsx[22m
+[2m22:39:24[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m22:39:32[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m22:39:32[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/build/site/public/downloads/How_Russia_weaponized_its_football_hooligans.m4a[22m
+[2m22:39:32[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/layout/Masthead.jsx[22m
+[2m22:39:32[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mC:/Users/Utilisateur/OneDrive/Documents/Hispaniola/build/site/public/locales/en/pictures/chapter-02/01.png[22m
+[2m22:39:48[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/App.jsx[22m
+[2m22:39:49[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ new dependencies optimized: [33mlucide-react[32m[39m
+[2m22:39:49[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m22:39:54[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m22:39:54[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m22:39:55[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/components/layout/Masthead.jsx, /src/lib/siteContext.jsx[22m
+[2m22:39:55[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [33mhmr invalidate [39m[2m/src/lib/siteContext.jsx[22m Could not Fast Refresh ("useLocalePath" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m22:39:55[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/layout/Masthead.jsx, /src/components/layout/LocalizedLink.jsx, /src/components/layout/SiteFooter.jsx, /src/App.jsx, /src/pages/DownloadPage.jsx, /src/pages/HomePage.jsx[22m
+[2m8:04:28[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/ContactPage.jsx[22m
+[2m8:05:53[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DownloadPage.jsx[22m
+[2m8:06:48[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/CodexPages.jsx[22m
+[2m8:06:53[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m8:06:53[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m8:06:53[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/components/layout/Masthead.jsx, /src/lib/siteContext.jsx[22m
+[2m8:06:54[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [33mhmr invalidate [39m[2m/src/lib/siteContext.jsx[22m Could not Fast Refresh ("useLocalePath" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m8:06:54[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/layout/Masthead.jsx, /src/components/layout/LocalizedLink.jsx, /src/components/layout/SiteFooter.jsx, /src/App.jsx, /src/pages/DownloadPage.jsx, /src/pages/HomePage.jsx, /src/pages/ReaderPage.jsx, /src/pages/CodexPages.jsx, /src/pages/ContactPage.jsx, /src/pages/SectionPage.jsx, /src/pages/GalleryPage.jsx[22m
+[2m8:07:40[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DownloadPage.jsx[22m
+[2m8:09:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m8:09:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m8:09:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/components/layout/Masthead.jsx, /src/lib/siteContext.jsx[22m
+[2m8:22:08[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/DownloadPage.jsx[22m
+[2m8:22:12[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m8:22:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m8:22:16[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/components/layout/Masthead.jsx, /src/lib/siteContext.jsx[22m

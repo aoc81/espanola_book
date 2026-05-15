@@ -1,11 +1,19 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { Check, Copy, Pause, Play, Share2, Square } from "lucide-react";
-import siteData from "@generated-manuscript";
 import { chapterTitle, displayLicenseLabel, groupBySection } from "../lib/siteUtils";
-import { getChapterProgress, saveChapterProgress } from "../lib/readerProgress";
+import { getChapterProgress, getLastReadDocumentId, saveChapterProgress, saveLastReadDocumentId } from "../lib/readerProgress";
+import { useLocalePath, useSite } from "../lib/siteContext";
+import { LocalizedLink } from "../components/layout/LocalizedLink";
+
+const READER_COPY = {
+  en: { bookNavigation: "Book Navigation", currentDocument: "Current document", previous: "Previous", next: "Next", endOf: "End of", supportingImages: "Supporting Images", visualRefs: "Visual references attached to", viewOriginal: "View original" },
+  es: { bookNavigation: "Navegación del libro", currentDocument: "Documento actual", previous: "Anterior", next: "Siguiente", endOf: "Fin de", supportingImages: "Imágenes de apoyo", visualRefs: "Referencias visuales adjuntas a", viewOriginal: "Ver original" },
+  fr: { bookNavigation: "Navigation du livre", currentDocument: "Document actuel", previous: "Précédent", next: "Suivant", endOf: "Fin de", supportingImages: "Images d'appui", visualRefs: "Références visuelles jointes à", viewOriginal: "Voir l'original" },
+};
 
 function useDocumentNavigation(slug) {
+  const { siteData } = useSite();
   const index = siteData.documents.findIndex((d) => d.slug === slug);
   return {
     current: siteData.documents[index] ?? null,
@@ -14,6 +22,9 @@ function useDocumentNavigation(slug) {
   };
 }
 export function ReaderPage() {
+  const { siteData, locale } = useSite();
+  const localePath = useLocalePath();
+  const copy = READER_COPY[locale];
   const { slug } = useParams();
   const navigate = useNavigate();
   const { current, previous, next } = useDocumentNavigation(slug);
@@ -22,16 +33,16 @@ export function ReaderPage() {
   const progress = useReadingProgress();
 
   useEffect(() => {
-    if (current) window.localStorage.setItem("last-read-slug", current.slug);
-  }, [current]);
+    if (current) saveLastReadDocumentId(locale, current.id);
+  }, [current, locale]);
 
   useEffect(() => {
     if (!current) return;
     const rounded = Math.round(progress);
-    if (rounded > getChapterProgress(current.slug)) saveChapterProgress(current.slug, rounded);
-  }, [progress, current]);
+    if (rounded > getChapterProgress(locale, current.id)) saveChapterProgress(locale, current.id, rounded);
+  }, [progress, current, locale]);
 
-  if (!current) return <Navigate to="/" replace />;
+  if (!current) return <Navigate to={localePath("/")} replace />;
 
   const groupedDocuments = groupBySection(siteData.documents);
   const fnMap = useMemo(() => buildFootnoteMap(current.blocks), [current.slug]);
@@ -57,7 +68,7 @@ export function ReaderPage() {
       <div className="reader-content">
         <aside className="reader-sidebar">
           <div className="reader-sidebar__sticky">
-            <span className="esp-eyebrow reader-sidebar__eyebrow">Book Navigation</span>
+            <span className="esp-eyebrow reader-sidebar__eyebrow">{copy.bookNavigation}</span>
             <h2 className="reader-sidebar__title">{siteData.titlePage.title}</h2>
             <div className="reader-sidebar__edition">
               {siteData.edition?.version?.toUpperCase() ?? "V1"} · {siteData.stats.documentCount} units
@@ -87,8 +98,8 @@ export function ReaderPage() {
         <article className="reader-article">
           <div className="reader-mobile-nav">
             <label>
-              <span>Current document</span>
-              <select value={current.slug} onChange={(e) => navigate(`/read/${e.target.value}`)}>
+              <span>{copy.currentDocument}</span>
+              <select value={current.slug} onChange={(e) => navigate(localePath(`/read/${e.target.value}`))}>
                 {siteData.documents.map((d) => <option key={d.slug} value={d.slug}>{d.title}</option>)}
               </select>
             </label>
@@ -119,11 +130,11 @@ export function ReaderPage() {
             ))}
           </div>
 
-          {current.images.length ? <ImageGallery title={chapterTitle(current.title)} images={current.images} /> : null}
+          {current.images.length ? <ImageGallery title={chapterTitle(current.title)} images={current.images} copy={copy} /> : null}
         </article>
       </div>
 
-      <ReaderEnd current={current} previous={previous} next={next} />
+      <ReaderEnd current={current} previous={previous} next={next} copy={copy} />
     </main>
   );
 }
@@ -253,14 +264,14 @@ function SidebarGroup({ sectionTitle, documents, currentSlug }) {
       {isOpen && (
         <div style={{ paddingBottom: 8 }}>
           {documents.map((doc) => (
-            <Link
+            <LocalizedLink
               key={doc.slug}
               to={`/read/${doc.slug}`}
               className={doc.slug === currentSlug ? "reader-sidebar__link reader-sidebar__link--active" : "reader-sidebar__link"}
             >
               <span>{chapterTitle(doc.title)}</span>
               <span>{doc.readingMinutes}m</span>
-            </Link>
+            </LocalizedLink>
           ))}
         </div>
       )}
@@ -268,33 +279,33 @@ function SidebarGroup({ sectionTitle, documents, currentSlug }) {
   );
 }
 
-function ReaderEnd({ current, previous, next }) {
+function ReaderEnd({ current, previous, next, copy }) {
   return (
     <section className="reader-end">
       <div style={{ textAlign: "center", marginBottom: 36 }}>
-        <div className="eyebrow">End of · {current.sectionTitle}</div>
+        <div className="eyebrow">{copy.endOf} · {current.sectionTitle}</div>
         <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 18, letterSpacing: "0.32em", color: "var(--ink-1)", marginTop: 10 }}>
           ✦ &nbsp; ✦ &nbsp; ✦
         </div>
       </div>
       <div className="reader-end__grid" style={{ maxWidth: 1320, margin: "0 auto", padding: "0 32px" }}>
         {previous ? (
-          <Link to={`/read/${previous.slug}`} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "auto 1fr", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)" }}>
+          <LocalizedLink to={`/read/${previous.slug}`} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "auto 1fr", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)" }}>
             <div style={{ fontFamily: "var(--font-display)", fontSize: 64, lineHeight: 0.85, color: "var(--ink-0)", fontWeight: 700 }}>‹</div>
             <div>
-              <div className="eyebrow" style={{ color: "var(--ink-3)", marginBottom: 6 }}>Previous</div>
+              <div className="eyebrow" style={{ color: "var(--ink-3)", marginBottom: 6 }}>{copy.previous}</div>
               <div style={{ fontFamily: "var(--font-serif)", fontSize: 20, fontWeight: 700, color: "var(--ink-0)", lineHeight: 1.2 }}>{chapterTitle(previous.title)}</div>
             </div>
-          </Link>
+          </LocalizedLink>
         ) : <div />}
         {next ? (
-          <Link to={`/read/${next.slug}`} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "1fr auto", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)", textAlign: "right" }}>
+          <LocalizedLink to={`/read/${next.slug}`} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "1fr auto", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)", textAlign: "right" }}>
             <div>
-              <div className="eyebrow" style={{ marginBottom: 6 }}>Next</div>
+              <div className="eyebrow" style={{ marginBottom: 6 }}>{copy.next}</div>
               <div style={{ fontFamily: "var(--font-serif)", fontSize: 20, fontWeight: 700, color: "var(--ink-0)", lineHeight: 1.2 }}>{chapterTitle(next.title)}</div>
             </div>
             <div style={{ fontFamily: "var(--font-display)", fontSize: 64, lineHeight: 0.85, color: "var(--classified)", fontWeight: 700 }}>›</div>
-          </Link>
+          </LocalizedLink>
         ) : <div />}
       </div>
     </section>
@@ -463,13 +474,13 @@ function BlockRenderer({ block, isLead, fnMap }) {
   return null;
 }
 
-function ImageGallery({ title, images }) {
+function ImageGallery({ title, images, copy }) {
   const [selectedImage, setSelectedImage] = useState(null);
   return (
     <section className="image-gallery">
       <div className="image-gallery__header">
-        <span className="esp-eyebrow">Supporting Images</span>
-        <h2 className="esp-h2">Visual references attached to {title}</h2>
+        <span className="esp-eyebrow">{copy.supportingImages}</span>
+        <h2 className="esp-h2">{copy.visualRefs} {title}</h2>
       </div>
       <div className="image-gallery__grid">
         {images.map((image) => (
@@ -483,7 +494,7 @@ function ImageGallery({ title, images }) {
               <p className="image-card__credit"><strong>Author:</strong> {image.author}</p>
               <p className="image-card__credit"><strong>License:</strong> {displayLicenseLabel(image.license)}</p>
               {!image.freely_licensed ? <p className="image-card__credit"><strong>Rights:</strong> source-attributed only; not freely licensed.</p> : null}
-              {image.source_url ? <a href={image.source_url} target="_blank" rel="noreferrer" className="image-card__link">View original</a> : null}
+              {image.source_url ? <a href={image.source_url} target="_blank" rel="noreferrer" className="image-card__link">{copy.viewOriginal}</a> : null}
             </figcaption>
           </figure>
         ))}

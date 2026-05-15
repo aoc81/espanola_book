@@ -1,21 +1,64 @@
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const SITE_DIR = path.join(ROOT_DIR, "site");
 const BUILD_SITE_DIR = path.join(ROOT_DIR, "build", "site");
-const GENERATED_MODULE = path.join(BUILD_SITE_DIR, "generated-manuscript.js");
+const GENERATED_MODULE = path.join(BUILD_SITE_DIR, "generated-manuscripts.js");
 const GENERATED_PUBLIC_DIR = path.join(BUILD_SITE_DIR, "public");
-const GENERATED_PICTURES_DIR = path.join(GENERATED_PUBLIC_DIR, "pictures");
+const GENERATED_DOWNLOADS_DIR = path.join(GENERATED_PUBLIC_DIR, "downloads");
 const SITE_PUBLIC_DIR = path.join(SITE_DIR, "public");
 
 const version = process.env.BOOK_VERSION ?? "v4.1";
-const language = process.env.BOOK_LANGUAGE ?? "en";
-const CONTENT_DIR = path.join(ROOT_DIR, "manuscripts", version, language, "contents");
-const MANIFEST_PATH = path.join(ROOT_DIR, "assets", "manifests", version, language, "chapter_images.json");
-const IMAGE_ROOT = path.join(ROOT_DIR, "assets", "images", "manuscripts", version, language);
 const DESIGN_SYSTEM_DIR = path.join(ROOT_DIR, "design_system");
+const SUPPORTED_LANGUAGES = ["en", "es", "fr"];
+
+const LANGUAGE_CONFIG = {
+  en: {
+    sectionTitles: {
+      frontMatter: "Front Matter",
+      appendices: "Appendices",
+      prologue: "Prologue",
+      epilogue: "Epilogue",
+      chapters: "Chapters",
+    },
+    groupTitles: {
+      frontMatter: "Front Matter",
+      chapters: "Narrative",
+      appendices: "Appendices",
+    },
+  },
+  es: {
+    sectionTitles: {
+      frontMatter: "Textos preliminares",
+      appendices: "Apéndices",
+      prologue: "Prólogo",
+      epilogue: "Epílogo",
+      chapters: "Capítulos",
+    },
+    groupTitles: {
+      frontMatter: "Textos preliminares",
+      chapters: "Narrativa",
+      appendices: "Apéndices",
+    },
+  },
+  fr: {
+    sectionTitles: {
+      frontMatter: "Textes liminaires",
+      appendices: "Annexes",
+      prologue: "Prologue",
+      epilogue: "Épilogue",
+      chapters: "Chapitres",
+    },
+    groupTitles: {
+      frontMatter: "Textes liminaires",
+      chapters: "Récit",
+      appendices: "Annexes",
+    },
+  },
+};
 
 const TITLE_FILE = "Front Matter 00 Title and Edition.md";
 const BODY_FILES = [
@@ -222,14 +265,32 @@ function copyFile(source, destination) {
   fs.copyFileSync(source, destination);
 }
 
-function loadImages() {
-  const manifest = JSON.parse(readText(MANIFEST_PATH));
+function removeIfExists(filePath) {
+  if (fs.existsSync(filePath)) {
+    fs.rmSync(filePath, { recursive: true, force: true });
+  }
+}
+
+function contentDirFor(language) {
+  return path.join(ROOT_DIR, "manuscripts", version, language, "contents");
+}
+
+function manifestPathFor(language) {
+  return path.join(ROOT_DIR, "assets", "manifests", version, language, "chapter_images.json");
+}
+
+function imageRootFor(language) {
+  return path.join(ROOT_DIR, "assets", "images", "manuscripts", version, language);
+}
+
+function loadImages(language) {
+  const manifest = JSON.parse(readText(manifestPathFor(language)));
   const grouped = new Map();
 
   for (const entry of manifest) {
     const image = {
       ...entry,
-      publicPath: `/${entry.relative_path.replace(/\\/g, "/")}`,
+      publicPath: `/locales/${language}/${entry.relative_path.replace(/\\/g, "/")}`,
     };
     if (!grouped.has(entry.chapter_file)) {
       grouped.set(entry.chapter_file, []);
@@ -246,7 +307,6 @@ function loadImages() {
 
 function copyGeneratedPublicAssets() {
   resetDir(GENERATED_PUBLIC_DIR);
-  const manifest = JSON.parse(readText(MANIFEST_PATH));
   fs.cpSync(path.join(DESIGN_SYSTEM_DIR, "assets", "marks"), path.join(GENERATED_PUBLIC_DIR, "marks"), { recursive: true });
   copyFile(path.join(DESIGN_SYSTEM_DIR, "colors_and_type.css"), path.join(GENERATED_PUBLIC_DIR, "design-system", "colors_and_type.css"));
   copyFile(path.join(DESIGN_SYSTEM_DIR, "assets", "cover-hero.png"), path.join(GENERATED_PUBLIC_DIR, "design-system", "cover-hero.png"));
@@ -255,9 +315,51 @@ function copyGeneratedPublicAssets() {
   if (fs.existsSync(downloadsDir)) {
     fs.cpSync(downloadsDir, path.join(GENERATED_PUBLIC_DIR, "downloads"), { recursive: true });
   }
-  for (const entry of manifest) {
-    copyFile(path.join(IMAGE_ROOT, entry.relative_path), path.join(GENERATED_PUBLIC_DIR, entry.relative_path));
+  for (const language of SUPPORTED_LANGUAGES) {
+    const manifest = JSON.parse(readText(manifestPathFor(language)));
+    const imageRoot = imageRootFor(language);
+    for (const entry of manifest) {
+      copyFile(
+        path.join(imageRoot, entry.relative_path),
+        path.join(GENERATED_PUBLIC_DIR, "locales", language, entry.relative_path),
+      );
+    }
   }
+}
+
+function createMarkdownArchives() {
+  ensureDir(GENERATED_DOWNLOADS_DIR);
+  const tempRoot = path.join(BUILD_SITE_DIR, ".zip-staging");
+  resetDir(tempRoot);
+
+  for (const language of SUPPORTED_LANGUAGES) {
+    const sourceDir = contentDirFor(language);
+    const stageDir = path.join(tempRoot, `espanola-v4.1-markdown-${language}`);
+    fs.cpSync(sourceDir, stageDir, { recursive: true });
+
+    const zipName = language === "en"
+      ? "espanola-v4.1-markdown.zip"
+      : `espanola-v4.1-markdown-${language}.zip`;
+    const zipPath = path.join(GENERATED_DOWNLOADS_DIR, zipName);
+    removeIfExists(zipPath);
+
+    execFileSync(
+      "powershell",
+      [
+        "-NoProfile",
+        "-Command",
+        "Compress-Archive",
+        "-LiteralPath",
+        stageDir,
+        "-DestinationPath",
+        zipPath,
+        "-Force",
+      ],
+      { stdio: "pipe" },
+    );
+  }
+
+  removeIfExists(tempRoot);
 }
 
 function inferKind(fileName) {
@@ -270,20 +372,21 @@ function inferKind(fileName) {
   return "chapter";
 }
 
-function inferSectionTitle(fileName) {
+function inferSectionTitle(fileName, language) {
+  const labels = LANGUAGE_CONFIG[language].sectionTitles;
   if (fileName.startsWith("Front Matter")) {
-    return "Front Matter";
+    return labels.frontMatter;
   }
   if (fileName.startsWith("Appendix")) {
-    return "Appendices";
+    return labels.appendices;
   }
   if (fileName.includes("Prologue")) {
-    return "Prologue";
+    return labels.prologue;
   }
   if (fileName.includes("Epilogue")) {
-    return "Epilogue";
+    return labels.epilogue;
   }
-  return "Chapters";
+  return labels.chapters;
 }
 
 function readingMinutes(blocks) {
@@ -306,11 +409,12 @@ function firstParagraph(blocks) {
   return found ? found.lines.join(" ") : "";
 }
 
-function buildDocuments() {
-  const imagesByFile = loadImages();
+function buildDocuments(language) {
+  const contentDir = contentDirFor(language);
+  const imagesByFile = loadImages(language);
 
   return BODY_FILES.map((fileName, index) => {
-    const filePath = path.join(CONTENT_DIR, fileName);
+    const filePath = path.join(contentDir, fileName);
     const { title, blocks: rawBlocks } = splitTitleAndBlocks(readText(filePath));
     const blocks = parseBlocks(rawBlocks);
 
@@ -318,8 +422,9 @@ function buildDocuments() {
       id: fileName,
       fileName,
       order: index + 1,
+      locale: language,
       kind: inferKind(fileName),
-      sectionTitle: inferSectionTitle(fileName),
+      sectionTitle: inferSectionTitle(fileName, language),
       title,
       slug: slugify(title),
       excerpt: firstParagraph(blocks).slice(0, 220),
@@ -330,20 +435,22 @@ function buildDocuments() {
   });
 }
 
-function buildSiteData() {
-  const documents = buildDocuments();
-  const titlePage = titleLines(readText(path.join(CONTENT_DIR, TITLE_FILE)));
+function buildSiteData(language) {
+  const contentDir = contentDirFor(language);
+  const documents = buildDocuments(language);
+  const titlePage = titleLines(readText(path.join(contentDir, TITLE_FILE)));
+  const labels = LANGUAGE_CONFIG[language].groupTitles;
 
   const groups = [
-    { key: "front-matter", title: "Front Matter", documents: documents.filter((doc) => doc.kind === "front-matter") },
+    { key: "front-matter", title: labels.frontMatter, documents: documents.filter((doc) => doc.kind === "front-matter") },
     {
       key: "chapters",
-      title: "Narrative",
+      title: labels.chapters,
       documents: documents.filter((doc) => doc.kind === "chapter" && !doc.title.toLowerCase().startsWith("epilogue")),
     },
     {
       key: "appendices",
-      title: "Appendices",
+      title: labels.appendices,
       documents: documents.filter((doc) => doc.kind === "appendix"),
     },
   ];
@@ -370,10 +477,13 @@ function buildSiteData() {
 function main() {
   ensureDir(BUILD_SITE_DIR);
   copyGeneratedPublicAssets();
-  const siteData = buildSiteData();
+  createMarkdownArchives();
+  const siteDataByLocale = Object.fromEntries(
+    SUPPORTED_LANGUAGES.map((language) => [language, buildSiteData(language)]),
+  );
   fs.writeFileSync(
     GENERATED_MODULE,
-    `export const siteData = ${JSON.stringify(siteData, null, 2)};\n\nexport default siteData;\n`,
+    `export const siteDataByLocale = ${JSON.stringify(siteDataByLocale, null, 2)};\n\nexport default siteDataByLocale;\n`,
     "utf8",
   );
   console.log(`Wrote site data to ${GENERATED_MODULE}`);

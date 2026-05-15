@@ -12,14 +12,14 @@ export default defineConfig({
   publicDir: path.resolve(GENERATED_DIR, "public"),
   resolve: {
     alias: {
-      "@generated-manuscript": path.resolve(GENERATED_DIR, "generated-manuscript.js"),
+      "@generated-manuscripts": path.resolve(GENERATED_DIR, "generated-manuscripts.js"),
     },
   },
   build: {
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes("generated-manuscript.js")) {
+          if (id.includes("generated-manuscripts.js")) {
             return "manuscript-data";
           }
           if (id.includes("node_modules")) {

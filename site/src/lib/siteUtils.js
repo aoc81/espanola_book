@@ -1,5 +1,8 @@
 export function chapterTitle(title) {
-  return title.replace(/^(Chapter|Prologue|Epilogue)\s*\d*\s*[—–-]+\s*/i, "");
+  return title
+    .replace(/^(Chapter|Cap[ií]tulo|Chapitre)\s*\d+\s*[—–-]+\s*/i, "")
+    .replace(/^(Prologue|Pr[oó]logo)\s*[—–-]+\s*/i, "")
+    .replace(/^(Epilogue|Ep[ií]logo|[ÉE]pilogue)\s*[—–-]+\s*/i, "");
 }
 
 export function groupBySection(documents) {

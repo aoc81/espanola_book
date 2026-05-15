@@ -1,5 +1,8 @@
 import { useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { LocalizedNavLink } from "./LocalizedLink";
+import { localeLabels, setStoredPreferredLocale } from "../../lib/i18n";
+import { useLocaleSwitchLinks, useSite } from "../../lib/siteContext";
 export function SkipLink() {
   return <a className="skip-link" href="#main-content">Skip to content</a>;
 }
@@ -32,19 +35,35 @@ export function RouteAnalytics() {
 }
 
 export function Masthead() {
+  const { copy, locale } = useSite();
+  const switchLinks = useLocaleSwitchLinks();
+
   return (
     <header className="masthead">
       <div className="masthead__strip">
         <div className="masthead__strip-inner">
           <nav className="masthead__nav" aria-label="Primary">
-            <NavLink to="/" end>Overview</NavLink>
-            <NavLink to="/section/front-matter">Front Matter</NavLink>
-            <NavLink to="/chapters">Chapters</NavLink>
-            <NavLink to="/sources">Sources</NavLink>
-            <NavLink to="/codex">Codex</NavLink>
-            <NavLink to="/download">Download</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
+            <LocalizedNavLink to="/" end>{copy.nav.overview}</LocalizedNavLink>
+            <LocalizedNavLink to="/section/front-matter">{copy.nav.frontMatter}</LocalizedNavLink>
+            <LocalizedNavLink to="/chapters">{copy.nav.chapters}</LocalizedNavLink>
+            <LocalizedNavLink to="/sources">{copy.nav.sources}</LocalizedNavLink>
+            <LocalizedNavLink to="/codex">{copy.nav.codex}</LocalizedNavLink>
+            <LocalizedNavLink to="/download">{copy.nav.download}</LocalizedNavLink>
+            <LocalizedNavLink to="/contact">{copy.nav.contact}</LocalizedNavLink>
           </nav>
+          <div className="locale-switcher" aria-label={copy.language}>
+            {switchLinks.map(({ locale: targetLocale, href }) => (
+              <Link
+                key={targetLocale}
+                to={href}
+                className={targetLocale === locale ? "locale-switcher__link locale-switcher__link--active" : "locale-switcher__link"}
+                onClick={() => setStoredPreferredLocale(targetLocale)}
+                lang={targetLocale}
+              >
+                {localeLabels[targetLocale]}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </header>

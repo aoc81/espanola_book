@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
-import siteData from "@generated-manuscript";
+import { useSite } from "../../lib/siteContext";
+import { LocalizedLink } from "./LocalizedLink";
 export function SiteFooter() {
-  const prologue = siteData.documents.find((d) => d.title.includes("Prologue"));
-  const authorNote = siteData.documents.find((d) => d.title.includes("Author"));
-  const sourceNotes = siteData.documents.find((d) => d.title.includes("Source Notes"));
-  const referenceLinks = siteData.documents.find((d) => d.title.includes("Reference Links"));
+  const { siteData, copy } = useSite();
+  const prologue = siteData.documents.find((d) => d.id === "Prologue.md");
+  const authorNote = siteData.documents.find((d) => d.id === "Front Matter 01 Author Note.md");
+  const sourceNotes = siteData.documents.find((d) => d.id === "Appendix Source Notes.md");
+  const referenceLinks = siteData.documents.find((d) => d.id === "Appendix Reference Links Guide.md");
 
   return (
     <footer className="site-footer">
@@ -12,36 +13,36 @@ export function SiteFooter() {
         <div>
           <div className="site-footer__brand">ESPAÑOLA<span className="dot">.</span></div>
           <p className="site-footer__lede">
-            {siteData.titlePage.title} — an open-source investigative web edition built from the canonical manuscript, its source notes, and editorial protocols.
+            {siteData.titlePage.title} — {copy.footer.lede}
           </p>
           <div style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}>
-            <Link to="/#top" className="button" style={{ height: 36, fontSize: 10, padding: "0 12px" }}>Back to Top ↑</Link>
+            <LocalizedLink to="/#top" className="button" style={{ height: 36, fontSize: 10, padding: "0 12px" }}>{copy.footer.backToTop} ↑</LocalizedLink>
           </div>
         </div>
 
         <div className="site-footer__col">
-          <h4>Navigate</h4>
+          <h4>{copy.footer.navigate}</h4>
           <ul>
-            {prologue ? <li><Link to={`/read/${prologue.slug}`}>Start reading</Link></li> : null}
-            {authorNote ? <li><Link to={`/read/${authorNote.slug}`}>Author note</Link></li> : null}
-            <li><Link to="/#book-sections">Sections</Link></li>
-            <li><Link to="/chapters">Chapters</Link></li>
+            {prologue ? <li><LocalizedLink to={`/read/${prologue.slug}`}>{copy.footer.startReading}</LocalizedLink></li> : null}
+            {authorNote ? <li><LocalizedLink to={`/read/${authorNote.slug}`}>{copy.footer.authorNote}</LocalizedLink></li> : null}
+            <li><LocalizedLink to="/#book-sections">{copy.footer.sections}</LocalizedLink></li>
+            <li><LocalizedLink to="/chapters">{copy.nav.chapters}</LocalizedLink></li>
           </ul>
         </div>
 
         <div className="site-footer__col">
-          <h4>Sources & Codex</h4>
+          <h4>{copy.footer.sourcesCodex}</h4>
           <ul>
-            <li><Link to="/sources">Image references</Link></li>
-            {sourceNotes ? <li><Link to={`/read/${sourceNotes.slug}`}>Source notes</Link></li> : null}
-            {referenceLinks ? <li><Link to={`/read/${referenceLinks.slug}`}>Reference links</Link></li> : null}
-            <li><Link to="/codex">Editorial codex</Link></li>
-            <li><Link to="/download">Download</Link></li>
+            <li><LocalizedLink to="/sources">{copy.footer.imageReferences}</LocalizedLink></li>
+            {sourceNotes ? <li><LocalizedLink to={`/read/${sourceNotes.slug}`}>{copy.footer.sourceNotes}</LocalizedLink></li> : null}
+            {referenceLinks ? <li><LocalizedLink to={`/read/${referenceLinks.slug}`}>{copy.footer.referenceLinks}</LocalizedLink></li> : null}
+            <li><LocalizedLink to="/codex">{copy.footer.editorialCodex}</LocalizedLink></li>
+            <li><LocalizedLink to="/download">{copy.nav.download}</LocalizedLink></li>
           </ul>
         </div>
 
         <div className="site-footer__col">
-          <h4>Author</h4>
+          <h4>{copy.footer.author}</h4>
           <ul>
             <li><a href="https://www.linkedin.com/in/1231239i340/" target="_blank" rel="noreferrer">LinkedIn</a></li>
             <li><a href="https://x.com/angoritz" target="_blank" rel="noreferrer">X (Twitter)</a></li>
@@ -50,18 +51,18 @@ export function SiteFooter() {
         </div>
 
         <div className="site-footer__col">
-          <h4>Edition</h4>
+          <h4>{copy.footer.edition}</h4>
           <ul>
-            <li>V4.1 Manuscript</li>
-            <li>V1 Published Edition</li>
+            <li>{copy.footer.manuscriptEdition}</li>
+            <li>{copy.footer.publishedEdition}</li>
             <li>CC BY-NC 4.0</li>
-            <li>Updated 27.04.2026</li>
+            <li>{copy.footer.updated}</li>
           </ul>
         </div>
       </div>
       <div className="site-footer__rule">
-        <span>Human Researched. AI Assisted</span>
-        <span>Ángel Ortiz · Española: From hooligans to war machines</span>
+        <span>{copy.footer.creditA}</span>
+        <span>Ángel Ortiz · {siteData.titlePage.title}</span>
       </div>
     </footer>
   );

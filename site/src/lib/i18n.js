@@ -1,6 +1,6 @@
 import siteDataByLocale from "@generated-manuscripts";
 
-export const SUPPORTED_LOCALES = ["en", "es", "fr"];
+export const SUPPORTED_LOCALES = ["en", "es", "fr", "ru"];
 export const DEFAULT_LOCALE = "en";
 export const PREFERRED_LOCALE_STORAGE_KEY = "preferred-locale";
 
@@ -8,6 +8,7 @@ export const localeLabels = {
   en: "English",
   es: "Español",
   fr: "Français",
+  ru: "Русский",
 };
 
 export const globalCopy = {
@@ -144,6 +145,51 @@ export const globalCopy = {
       all: "Tout",
       sort: "Tri",
       manuscriptOrder: "Ordre du manuscrit",
+    },
+  },
+  ru: {
+    language: "Язык",
+    nav: {
+      overview: "Главная",
+      frontMatter: "Предварительные тексты",
+      chapters: "Главы",
+      sources: "Источники",
+      codex: "Кодекс",
+      download: "Скачать",
+      contact: "Контакт",
+    },
+    footer: {
+      lede: "веб-издание журналистского расследования на открытых источниках, построенное из канонической рукописи, её заметок об источниках и редакционных протоколов.",
+      backToTop: "Наверх",
+      navigate: "Навигация",
+      sourcesCodex: "Источники и Кодекс",
+      author: "Автор",
+      edition: "Издание",
+      startReading: "Начать чтение",
+      authorNote: "От автора",
+      sections: "Разделы",
+      imageReferences: "Ссылки на изображения",
+      sourceNotes: "Заметки об источниках",
+      referenceLinks: "Справочные ссылки",
+      editorialCodex: "Редакционный кодекс",
+      manuscriptEdition: "Рукопись V4.1",
+      publishedEdition: "Опубликованное издание V1",
+      updated: "Обновлено 27.04.2026",
+      creditA: "Человеческое исследование. Ассистирование ИИ",
+    },
+    common: {
+      readingUnits: "единицы чтения",
+      imageReferences: "ссылки на изображения",
+      sources: "источники",
+      links: "ссылки",
+      items: "элементы",
+      sections: "Раздел",
+      previous: "Назад",
+      next: "Далее",
+      open: "Открыть",
+      all: "Все",
+      sort: "Сортировка",
+      manuscriptOrder: "Порядок рукописи",
     },
   },
 };

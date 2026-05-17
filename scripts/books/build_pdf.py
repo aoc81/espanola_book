@@ -16,6 +16,7 @@ DEFAULT_OUTPUTS = {
     ("v4.1", "en"): "From Hooligans to War Machines - v4.1 Book.pdf",
     ("v4.1", "es"): "De hooligans a maquinas de guerra - v4.1-es.pdf",
     ("v4.1", "fr"): "Des hooligans aux machines de guerre - v4.1-fr.pdf",
+    ("v4.1", "ru"): "Espanola - ot huliganov do boevyh mashin - v4.1-ru.pdf",
 }
 WORD_PATHS = [
     Path(r"C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"),

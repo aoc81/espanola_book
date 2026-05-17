@@ -13,7 +13,7 @@ const SITE_PUBLIC_DIR = path.join(SITE_DIR, "public");
 
 const version = process.env.BOOK_VERSION ?? "v4.1";
 const DESIGN_SYSTEM_DIR = path.join(ROOT_DIR, "design_system");
-const SUPPORTED_LANGUAGES = ["en", "es", "fr"];
+const SUPPORTED_LANGUAGES = ["en", "es", "fr", "ru"];
 
 const LANGUAGE_CONFIG = {
   en: {
@@ -56,6 +56,20 @@ const LANGUAGE_CONFIG = {
       frontMatter: "Textes liminaires",
       chapters: "Récit",
       appendices: "Annexes",
+    },
+  },
+  ru: {
+    sectionTitles: {
+      frontMatter: "Предварительные тексты",
+      appendices: "Приложения",
+      prologue: "Пролог",
+      epilogue: "Эпилог",
+      chapters: "Главы",
+    },
+    groupTitles: {
+      frontMatter: "Предварительные тексты",
+      chapters: "Повествование",
+      appendices: "Приложения",
     },
   },
 };

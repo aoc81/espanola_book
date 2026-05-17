@@ -40,6 +40,18 @@ const CONTACT_COPY = {
     requiredReply: "* Obligatoire · Les réponses seront envoyées à votre adresse e-mail", send: "Envoyer",
     supportBody: "Cette enquête est libre et indépendante. Aucun soutien institutionnel, aucune publicité. Si ce travail vous est utile, rigoureux ou simplement digne d'intérêt, une contribution permet de maintenir le bureau ouvert et la prochaine enquête en chantier.",
   },
+  ru: {
+    overview: "Главная", openChannel: "Открытый канал", title: "КОНТАКТ.", intro: "По любому вопросу пишите на адрес ниже.",
+    channels: "Каналы связи", message: "Отправить сообщение", support: "Поддержать работу", coffee: "Угостите кофе",
+    contactEmail: "E-mail для связи", contactEmailText: "Редакционные вопросы, исходные материалы, исправления, разрешения, пресса, лицензирование и прочие обращения — на тот же адрес.",
+    channel: "Канал", type: "Тип", contact: "Контакт", email: "E-mail",
+    channelNote: "Для редакционных вопросов, исходных материалов, исправлений, разрешений, прессы, лицензирования и любых иных целей.",
+    intakeForm: "Форма", fullName: "Полное имя", yourName: "Ваше имя", emailAddress: "E-mail", subject: "Тема",
+    subjectPlaceholder: "Редакционный вопрос, наводка, поправка…", messageLabel: "Сообщение", yourMessage: "Ваше сообщение…",
+    sending: "Отправка...", unable: "Не удалось отправить сообщение.", sent: "Сообщение отправлено.", unreachable: "Сервис контактов недоступен локально.",
+    requiredReply: "* Обязательно · Ответ придёт на ваш e-mail", send: "Отправить",
+    supportBody: "Это расследование — свободное и независимое. Без институциональной поддержки и рекламы. Если работа полезна, точна или просто стоит вашего времени — вклад поддерживает стол открытым, а следующее расследование — в работе.",
+  },
 };
 
 export function ContactPage() {

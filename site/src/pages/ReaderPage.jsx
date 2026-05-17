@@ -10,6 +10,7 @@ const READER_COPY = {
   en: { bookNavigation: "Book Navigation", currentDocument: "Current document", previous: "Previous", next: "Next", endOf: "End of", supportingImages: "Supporting Images", visualRefs: "Visual references attached to", viewOriginal: "View original" },
   es: { bookNavigation: "Navegación del libro", currentDocument: "Documento actual", previous: "Anterior", next: "Siguiente", endOf: "Fin de", supportingImages: "Imágenes de apoyo", visualRefs: "Referencias visuales adjuntas a", viewOriginal: "Ver original" },
   fr: { bookNavigation: "Navigation du livre", currentDocument: "Document actuel", previous: "Précédent", next: "Suivant", endOf: "Fin de", supportingImages: "Images d'appui", visualRefs: "Références visuelles jointes à", viewOriginal: "Voir l'original" },
+  ru: { bookNavigation: "Навигация по книге", currentDocument: "Текущий документ", previous: "Назад", next: "Далее", endOf: "Конец раздела", supportingImages: "Сопроводительные изображения", visualRefs: "Визуальные ссылки, приложенные к", viewOriginal: "Открыть оригинал" },
 };
 
 function useDocumentNavigation(slug) {

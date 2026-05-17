@@ -51,6 +51,7 @@ DEFAULT_OUTPUTS = {
     ("v4.1", "en"): "From Hooligans to War Machines - v4.1 Book.docx",
     ("v4.1", "es"): "De hooligans a máquinas de guerra - v4.1-es.docx",
     ("v4.1", "fr"): "Des hooligans aux machines de guerre - v4.1-fr.docx",
+    ("v4.1", "ru"): "Espanola - ot huliganov do boevyh mashin - v4.1-ru.docx",
 }
 DEFAULT_FALLBACK = "book-output.updated.docx"
 DEFAULT_COVER = REPO_ROOT / "assets" / "images" / "covers" / "Espanola Book Cover-New.png"

@@ -36,6 +36,13 @@ const CODEX_COPY = {
     behavior: { title: "Contraintes de comportement rédactionnel", body: "Ne présumez pas la cohérence. Ne lissez pas les contradictions. Faites apparaître l'incertitude. Le récit doit émerger de la preuve, et non l'inverse. L'ambiguïté n'est pas un problème à corriger ; elle est souvent l'histoire même.", label: "Comportement rédactionnel LLM" },
     editor: { title: "Standard de revue de l'éditeur en chef", body: "Une grille de revue sous contrainte de publication pour juger le manuscrit comme une non-fiction d'enquête sérieuse. Elle définit le standard de verdict, le contrôle structurel, le risque probatoire, l'exposition juridique et le plan éditorial final.", label: "Note de l'éditeur en chef" },
   },
+  ru: {
+    overview: "Главная", codex: "Кодекс", protocols: "Редакционный кодекс · 04 протокола", intro: "Постоянные протоколы, регулировавшие написание этого расследования: голос, доказательство, интеграция источников и поведенческие ограничения.", englishOnly: "Исходные файлы протоколов в настоящий момент публикуются только на английском.", previous: "Назад", next: "Далее", editorialCodex: "Редакционный кодекс", open: "Открыть",
+    source: { title: "Интеграция источников и нарратива", body: "Намерение главы → дисциплина протокола → источниковая находка → построение нарратива. Источники должны менять аргумент, а не украшать его. В каждом разделе должен быть хотя бы один источник, углубляющий причинность, расширяющий охват или оспаривающий рамку.", label: "Протокол использования источников" },
+    protocol: { title: "Голос и доказательные правила", body: "Писать в человеческом, отшлифованном голосе главного редактора. Каждый материально значимый эпизод должен быть привязан к источниковой поддержке. Различать задокументированные факты, утверждения, зависящие от атрибуции, спорные выводы и самоописания подразделения.", label: "Протокол написания книги" },
+    behavior: { title: "Ограничения поведения при письме", body: "Не предполагать когерентности. Не сглаживать противоречия. Выводить неопределённость на поверхность. Нарратив должен возникать из доказательств, а не наоборот. Неоднозначность не проблема, которую нужно «починить», — часто это и есть история.", label: "Поведение LLM при письме" },
+    editor: { title: "Стандарт проверки главного редактора", body: "Бриф редакционной проверки под давлением публикации, оценивающий рукопись как серьёзную расследовательскую нон-фикшн. Определяет стандарт вердикта, структурный анализ, доказательный риск, правовую экспозицию, проверки преемственности и финальный план редакционных действий.", label: "Бриф главного редактора" },
+  },
 };
 
 function CodexBreadcrumb({ current }) {

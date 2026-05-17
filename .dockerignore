@@ -32,6 +32,10 @@ manuscripts/v4.1/es/*
 manuscripts/v4.1/fr/*
 !manuscripts/v4.1/fr/contents
 !manuscripts/v4.1/fr/contents/**
+!manuscripts/v4.1/ru
+manuscripts/v4.1/ru/*
+!manuscripts/v4.1/ru/contents
+!manuscripts/v4.1/ru/contents/**
 !assets/manifests/v4.1
 assets/manifests/v4.1/*
 !assets/manifests/v4.1/en
@@ -40,6 +44,8 @@ assets/manifests/v4.1/*
 !assets/manifests/v4.1/es/**
 !assets/manifests/v4.1/fr
 !assets/manifests/v4.1/fr/**
+!assets/manifests/v4.1/ru
+!assets/manifests/v4.1/ru/**
 !assets/images/manuscripts/v4.1
 assets/images/manuscripts/v4.1/*
 !assets/images/manuscripts/v4.1/en
@@ -48,9 +54,12 @@ assets/images/manuscripts/v4.1/*
 !assets/images/manuscripts/v4.1/es/**
 !assets/images/manuscripts/v4.1/fr
 !assets/images/manuscripts/v4.1/fr/**
+!assets/images/manuscripts/v4.1/ru
+!assets/images/manuscripts/v4.1/ru/**
 assets/images/manuscripts/v4.1/en/pictures/nonfree-candidates
 assets/images/manuscripts/v4.1/es/pictures/nonfree-candidates
 assets/images/manuscripts/v4.1/fr/pictures/nonfree-candidates
+assets/images/manuscripts/v4.1/ru/pictures/nonfree-candidates
 
 site/node_modules
 site/dist

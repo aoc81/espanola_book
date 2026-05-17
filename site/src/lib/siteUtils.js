@@ -1,8 +1,9 @@
 export function chapterTitle(title) {
+  if (!title) return "";
   return title
-    .replace(/^(Chapter|Cap[ií]tulo|Chapitre)\s*\d+\s*[—–-]+\s*/i, "")
-    .replace(/^(Prologue|Pr[oó]logo)\s*[—–-]+\s*/i, "")
-    .replace(/^(Epilogue|Ep[ií]logo|[ÉE]pilogue)\s*[—–-]+\s*/i, "");
+    .replace(/^(Chapter|Cap[ií]tulo|Chapitre|Глава)\s*\d+\s*[—–-]+\s*/i, "")
+    .replace(/^(Prologue|Pr[oó]logo|Пролог)\s*[—–-]+\s*/i, "")
+    .replace(/^(Epilogue|Ep[ií]logo|[ÉE]pilogue|Эпилог)\s*[—–-]+\s*/i, "");
 }
 
 export function groupBySection(documents) {

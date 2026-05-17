@@ -5,7 +5,6 @@ import codexProtocol from "../../../docs/codex/book_writing_protocol.md?raw";
 import codexBehavior from "../../../docs/codex/llm_writing_behavior.md?raw";
 import codexAgent from "../../../docs/codex/agent.md?raw";
 import editorInChief from "../../../docs/editorial/editor_in_chief.md?raw";
-import { chapterTitle } from "../lib/siteUtils";
 
 const CODEX_DOCS = [
   { n: "01", key: "source", link: "/codex/source-agent", filename: "agent.md", sourcePath: "docs/codex/agent.md" },
@@ -191,7 +190,7 @@ export function CodexPage({ title, filename, content }) {
               <div style={{ fontFamily: "var(--font-display)", fontSize: 64, lineHeight: 0.85, color: "var(--ink-0)", fontWeight: 700, letterSpacing: "-0.02em" }}>‹</div>
               <div>
                 <div className="eyebrow" style={{ marginBottom: 6 }}>{copy.previous}</div>
-                <div style={{ fontFamily: "var(--font-serif)", fontSize: 18, fontWeight: 700, color: "var(--ink-0)" }}>{chapterTitle(prev.title)}</div>
+                <div style={{ fontFamily: "var(--font-serif)", fontSize: 18, fontWeight: 700, color: "var(--ink-0)" }}>{copy[prev.key]?.label ?? prev.filename}</div>
                 <div style={{ fontFamily: "var(--font-data)", fontSize: 12, color: "var(--ink-3)", marginTop: 6 }}>{prev.filename}</div>
               </div>
             </LocalizedLink>
@@ -201,7 +200,7 @@ export function CodexPage({ title, filename, content }) {
             <LocalizedLink to={next.link} style={{ textDecoration: "none", color: "inherit", display: "grid", gridTemplateColumns: "1fr auto", gap: 24, padding: "28px 32px", border: "1px solid var(--ink-1)", background: "var(--paper-0)", textAlign: "right" }}>
               <div>
                 <div className="eyebrow" style={{ marginBottom: 6 }}>{copy.next}</div>
-                <div style={{ fontFamily: "var(--font-serif)", fontSize: 18, fontWeight: 700, color: "var(--ink-0)" }}>{chapterTitle(next.title)}</div>
+                <div style={{ fontFamily: "var(--font-serif)", fontSize: 18, fontWeight: 700, color: "var(--ink-0)" }}>{copy[next.key]?.label ?? next.filename}</div>
                 <div style={{ fontFamily: "var(--font-data)", fontSize: 12, color: "var(--ink-3)", marginTop: 6 }}>{next.filename}</div>
               </div>
               <div style={{ fontFamily: "var(--font-display)", fontSize: 64, lineHeight: 0.85, color: "var(--classified)", fontWeight: 700, letterSpacing: "-0.02em" }}>›</div>

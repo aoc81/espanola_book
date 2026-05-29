@@ -69,7 +69,7 @@ export const globalCopy = {
       contact: "Contacto",
     },
     footer: {
-      lede: "una edición web de investigación en fuentes abiertas construida a partir del manuscrito canónico, sus notas de fuentes y sus protocolos editoriales.",
+      lede: "una edición web en abierto basada en el manuscrito canónico, sus notas de fuentes y sus protocolos editoriales.",
       backToTop: "Volver arriba",
       navigate: "Navegación",
       sourcesCodex: "Fuentes y Codex",
@@ -85,7 +85,7 @@ export const globalCopy = {
       manuscriptEdition: "Manuscrito V4.1",
       publishedEdition: "Edición publicada V1",
       updated: "Actualizado el 27.04.2026",
-      creditA: "Investigación humana. Asistencia de IA",
+      creditA: "Investigación OSINT propia. Apoyo de IA",
     },
     common: {
       readingUnits: "unidades de lectura",
@@ -114,7 +114,7 @@ export const globalCopy = {
       contact: "Contact",
     },
     footer: {
-      lede: "une édition web d'enquête en sources ouvertes bâtie à partir du manuscrit canonique, de ses notes de sources et de ses protocoles éditoriaux.",
+      lede: "une édition web en accès ouvert fondée sur le manuscrit canonique, ses notes de sources et ses protocoles éditoriaux.",
       backToTop: "Haut de page",
       navigate: "Navigation",
       sourcesCodex: "Sources et Codex",
@@ -130,7 +130,7 @@ export const globalCopy = {
       manuscriptEdition: "Manuscrit V4.1",
       publishedEdition: "Édition publiée V1",
       updated: "Mis à jour le 27.04.2026",
-      creditA: "Recherche humaine. Assistance IA",
+      creditA: "Recherche OSINT personnelle. Appui IA",
     },
     common: {
       readingUnits: "unités de lecture",
@@ -159,7 +159,7 @@ export const globalCopy = {
       contact: "Контакт",
     },
     footer: {
-      lede: "веб-издание журналистского расследования на открытых источниках, построенное из канонической рукописи, её заметок об источниках и редакционных протоколов.",
+      lede: "открытое веб-издание расследования, основанное на канонической рукописи, заметках об источниках и редакционных протоколах.",
       backToTop: "Наверх",
       navigate: "Навигация",
       sourcesCodex: "Источники и Кодекс",
@@ -175,7 +175,7 @@ export const globalCopy = {
       manuscriptEdition: "Рукопись V4.1",
       publishedEdition: "Опубликованное издание V1",
       updated: "Обновлено 27.04.2026",
-      creditA: "Человеческое исследование. Ассистирование ИИ",
+      creditA: "Авторское OSINT-исследование. Поддержка ИИ",
     },
     common: {
       readingUnits: "единицы чтения",

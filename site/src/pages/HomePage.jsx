@@ -20,6 +20,18 @@ const HOME_COPY = {
     editorP1: "This book is based on human-led OSINT research, multilingual source review, and AI-assisted organisation, translation support, drafting, and editorial revision. Final judgments, source selection, interpretation, and responsibility for the text remain human.",
     editorP2: "This is the open-source web version of the book and the repository for its canonical manuscript, source notes, image credits, references, and generated outputs.",
     ledgerSources: "Sources",
+    metaReadingUnits: "reading units",
+    metaImageReferences: "image references",
+    totalMinutesLabel: "min total",
+    minutesLeftLabel: "m left",
+    ledger: "Ledger",
+    thisEdition: "This Edition",
+    ledgerEdition: "Edition",
+    ledgerReadingUnits: "Reading Units",
+    ledgerImageReferences: "Image References",
+    ledgerReferenceLinks: "Reference Links",
+    ledgerGeneratedOutputs: "Generated Outputs",
+    ledgerLastUpdated: "Last Updated",
     sectionsEyebrow: "Book Sections · 04 Folders",
     sectionsTitle: "Enter by section, then move through the reader.",
     sectionsAlt: "Or skip to the full Table of Contents",
@@ -31,6 +43,7 @@ const HOME_COPY = {
       codex: { label: "Codex", title: "Editorial protocols", description: "The standing protocols governing voice, evidence, source integration, writing behavior, and editor-in-chief review.", stamp: "INTERNAL" },
     },
     itemsInside: "items inside",
+    items: "items",
     editorialNotes: "Editorial Notes",
     notes: [
       ["†", "All Russian terms appear in italics with translation; Cyrillic only when the source uses it."],
@@ -41,19 +54,31 @@ const HOME_COPY = {
     downloadHere: "Download it here",
   },
   es: {
-    heroEyebrow: "Investigación de largo aliento · Edición de fuentes abiertas",
+    heroEyebrow: "Investigación de largo aliento · Edición en abierto",
     titleLines: ["ESPAÑOLA:", "De hooligans", "a máquinas de guerra"],
-    dek: "Un libro de investigación en fuentes abiertas sobre las CMP y la conversión bélica de la violencia subcultural.",
+    dek: "Un libro de investigación OSINT sobre las compañías militares privadas y la conversión bélica de la violencia subcultural.",
     beginReading: "Empezar a leer",
     resume: "Reanudar",
     viewSources: "Ver fuentes",
     sourcesPreserved: "fuentes y créditos de imágenes preservados.",
     by: "Por Ángel Ortiz",
-    editionLine: "Edición de fuentes abiertas · 2026",
-    fromEditor: "Del editor",
-    editorP1: "Este libro se basa en investigación OSINT dirigida por humanos, revisión multilingüe de fuentes y asistencia de IA para organización, apoyo de traducción, redacción y revisión editorial. Los juicios finales, la selección de fuentes, la interpretación y la responsabilidad del texto siguen siendo humanas.",
-    editorP2: "Esta es la versión web en fuentes abiertas del libro y el repositorio de su manuscrito canónico, notas de fuentes, créditos de imágenes, referencias y salidas generadas.",
+    editionLine: "Edición en abierto · 2026",
+    fromEditor: "Nota del autor",
+    editorP1: "Este libro parte de una investigación OSINT propia, con revisión multilingüe de fuentes y apoyo de IA en tareas de organización, traducción, borrador y revisión editorial. La selección de fuentes, la interpretación, las conclusiones y la responsabilidad del texto son mías.",
+    editorP2: "Esta edición web reúne el libro en abierto, su manuscrito canónico, notas de fuentes, créditos de imágenes, referencias y materiales generados durante el proyecto.",
     ledgerSources: "Fuentes",
+    metaReadingUnits: "unidades de lectura",
+    metaImageReferences: "referencias de imágenes",
+    totalMinutesLabel: "min en total",
+    minutesLeftLabel: "min restantes",
+    ledger: "Registro",
+    thisEdition: "Esta edición",
+    ledgerEdition: "Edición",
+    ledgerReadingUnits: "Unidades de lectura",
+    ledgerImageReferences: "Referencias de imágenes",
+    ledgerReferenceLinks: "Enlaces de referencia",
+    ledgerGeneratedOutputs: "Materiales generados",
+    ledgerLastUpdated: "Última actualización",
     sectionsEyebrow: "Secciones del libro · 04 carpetas",
     sectionsTitle: "Entra por secciones y luego avanza por el lector.",
     sectionsAlt: "O salta directamente al índice completo",
@@ -61,33 +86,46 @@ const HOME_COPY = {
     folders: {
       frontMatter: { label: "Preliminares", title: "Cómo leer el libro", description: "Nota del autor, metodología, nota sobre asistencia de IA y terminología.", stamp: "LEER PRIMERO" },
       chapters: { label: "Capítulos", title: "La investigación narrativa", description: "Del estadio y el Donbás al reclutamiento, la marca, la reputación de combate y la reabsorción estatal.", stamp: "ABRIR" },
-      appendices: { label: "Apéndices", title: "Fuentes y enlaces", description: "Notas de fuentes para el lector, enlaces de referencia y contexto de manejo de fuentes.", stamp: "REFERENCIA" },
-      codex: { label: "Codex", title: "Protocolos editoriales", description: "Los protocolos permanentes que rigen voz, evidencia, integración de fuentes, comportamiento de escritura y revisión editorial.", stamp: "INTERNO" },
+      appendices: { label: "Apéndices", title: "Fuentes y enlaces", description: "Notas de fuentes para el lector, enlaces de referencia y criterios de tratamiento de fuentes.", stamp: "REFERENCIA" },
+      codex: { label: "Codex", title: "Protocolos editoriales", description: "Los protocolos permanentes que rigen voz, evidencia, integración de fuentes, criterios de redacción y revisión editorial.", stamp: "INTERNO" },
     },
     itemsInside: "elementos dentro",
+    items: "elementos",
     editorialNotes: "Notas editoriales",
     notes: [
       ["†", "Todos los términos rusos aparecen en cursiva con traducción; el cirílico solo cuando la fuente lo usa."],
-      ["‡", "Los sujetos aparecen con nombre completo en la primera mención y luego con apellido; se redactan cuando es necesario."],
-      ["§", "Las afirmaciones en fuentes abiertas se marcan con atribución; las transmisiones interceptadas citan canal y hora."],
+      ["‡", "Las personas se mencionan con nombre completo la primera vez y después por apellido; se anonimizan u omiten datos cuando es necesario."],
+      ["§", "Las afirmaciones basadas en fuentes abiertas se atribuyen explícitamente; las transmisiones interceptadas citan canal y hora."],
     ],
     getCopyToday: "Consigue una copia hoy",
     downloadHere: "Descárgalo aquí",
   },
   fr: {
-    heroEyebrow: "Enquête au long cours · Édition en sources ouvertes",
+    heroEyebrow: "Enquête au long cours · Édition en accès ouvert",
     titleLines: ["ESPAÑOLA :", "Des hooligans", "aux machines de guerre"],
-    dek: "Une enquête en sources ouvertes sur les SMP et la conversion, en temps de guerre, de la violence subculturelle.",
+    dek: "Une enquête OSINT sur les sociétés militaires privées et la conversion, en temps de guerre, de la violence subculturelle.",
     beginReading: "Commencer la lecture",
     resume: "Reprendre",
     viewSources: "Voir les sources",
     sourcesPreserved: "sources et crédits d'images préservés.",
     by: "Par Ángel Ortiz",
-    editionLine: "Édition en sources ouvertes · 2026",
-    fromEditor: "Note de l'éditeur",
-    editorP1: "Ce livre repose sur une recherche OSINT dirigée par l'humain, une revue multilingue des sources et une assistance de l'IA pour l'organisation, l'appui à la traduction, la rédaction et la révision éditoriale. Les jugements finaux, la sélection des sources, l'interprétation et la responsabilité du texte restent humaines.",
-    editorP2: "Il s'agit de la version web en sources ouvertes du livre et du dépôt de son manuscrit canonique, de ses notes de sources, de ses crédits d'images, de ses références et de ses sorties générées.",
+    editionLine: "Édition en accès ouvert · 2026",
+    fromEditor: "Note de l'auteur",
+    editorP1: "Ce livre part d'une recherche OSINT personnelle, avec une revue multilingue des sources et un appui de l'IA pour l'organisation, la traduction, les brouillons et la révision éditoriale. La sélection des sources, l'interprétation, les conclusions et la responsabilité du texte m'appartiennent.",
+    editorP2: "Cette édition web réunit le livre en accès ouvert, son manuscrit canonique, les notes de sources, les crédits d'images, les références et les matériaux générés pendant le projet.",
     ledgerSources: "Sources",
+    metaReadingUnits: "unités de lecture",
+    metaImageReferences: "références d'images",
+    totalMinutesLabel: "min au total",
+    minutesLeftLabel: "min restantes",
+    ledger: "Registre",
+    thisEdition: "Cette édition",
+    ledgerEdition: "Édition",
+    ledgerReadingUnits: "Unités de lecture",
+    ledgerImageReferences: "Références d'images",
+    ledgerReferenceLinks: "Liens de référence",
+    ledgerGeneratedOutputs: "Sorties générées",
+    ledgerLastUpdated: "Dernière mise à jour",
     sectionsEyebrow: "Sections du livre · 04 dossiers",
     sectionsTitle: "Entrez par section, puis progressez dans le lecteur.",
     sectionsAlt: "Ou allez directement à la table des matières complète",
@@ -95,33 +133,46 @@ const HOME_COPY = {
     folders: {
       frontMatter: { label: "Préliminaires", title: "Comment lire ce livre", description: "Note de l'auteur, méthodologie, note sur l'assistance IA et terminologie.", stamp: "LIRE D'ABORD" },
       chapters: { label: "Chapitres", title: "L'enquête narrative", description: "Du stade et du Donbass au recrutement, à la marque, à la réputation de combat et à la réabsorption par l'État.", stamp: "OUVRIR" },
-      appendices: { label: "Annexes", title: "Sources et liens", description: "Notes de sources à destination du lecteur, liens de référence et contexte de traitement des sources.", stamp: "RÉFÉRENCE" },
-      codex: { label: "Codex", title: "Protocoles éditoriaux", description: "Les protocoles permanents qui régissent la voix, la preuve, l'intégration des sources, le comportement d'écriture et la revue éditoriale.", stamp: "INTERNE" },
+      appendices: { label: "Annexes", title: "Sources et liens", description: "Notes de sources pour les lecteurs, liens de référence et critères de traitement des sources.", stamp: "RÉFÉRENCE" },
+      codex: { label: "Codex", title: "Protocoles éditoriaux", description: "Les protocoles permanents qui régissent la voix, la preuve, l'intégration des sources, les critères de rédaction et la revue éditoriale.", stamp: "INTERNE" },
     },
     itemsInside: "éléments",
+    items: "éléments",
     editorialNotes: "Notes éditoriales",
     notes: [
       ["†", "Tous les termes russes apparaissent en italique avec traduction ; le cyrillique seulement lorsque la source l'emploie."],
-      ["‡", "Les personnes sont mentionnées avec leur nom complet à la première occurrence, puis par leur nom de famille ; elles sont masquées lorsque nécessaire."],
-      ["§", "Les affirmations en sources ouvertes sont signalées avec attribution ; les transmissions interceptées citent leur canal et leur heure."],
+      ["‡", "Les personnes sont mentionnées par leur nom complet à la première occurrence, puis par leur nom de famille ; certaines données sont anonymisées ou omises lorsque nécessaire."],
+      ["§", "Les affirmations fondées sur des sources ouvertes sont attribuées explicitement ; les transmissions interceptées citent leur canal et leur heure."],
     ],
     getCopyToday: "Obtenir un exemplaire",
     downloadHere: "Télécharger ici",
   },
   ru: {
-    heroEyebrow: "Длинноформатное расследование · Издание на открытых источниках",
+    heroEyebrow: "Большое расследование · Открытое издание",
     titleLines: ["ESPAÑOLA:", "От хулиганов", "до боевых машин"],
-    dek: "Книга-расследование на открытых источниках о ЧВК и военной конверсии субкультурного насилия.",
+    dek: "OSINT-расследование о частных военных компаниях и военной конверсии субкультурного насилия.",
     beginReading: "Начать чтение",
     resume: "Продолжить",
     viewSources: "Открыть источники",
     sourcesPreserved: "источники и атрибуции изображений сохранены.",
     by: "Автор: Анхель Ортис",
-    editionLine: "Издание на открытых источниках · 2026",
-    fromEditor: "От редактора",
-    editorP1: "Эта книга основана на OSINT-исследовании под руководством человека, многоязычной сверке источников и ИИ-поддержке организации, перевода, черновой работы и редакционной правки. Окончательные суждения, отбор источников, интерпретация и ответственность за текст остаются человеческими.",
-    editorP2: "Это веб-версия книги на открытых источниках и репозиторий её канонической рукописи, заметок об источниках, атрибуций изображений, ссылок и сгенерированных выводов.",
+    editionLine: "Открытое издание · 2026",
+    fromEditor: "От автора",
+    editorP1: "Эта книга основана на моем OSINT-исследовании, многоязычной сверке источников и использовании ИИ как поддержки для организации материалов, перевода, черновиков и редакционной правки. Отбор источников, интерпретация, выводы и ответственность за текст остаются за мной.",
+    editorP2: "Это веб-издание объединяет книгу в открытом доступе, ее каноническую рукопись, заметки об источниках, атрибуции изображений, ссылки и материалы, созданные в ходе проекта.",
     ledgerSources: "Источники",
+    metaReadingUnits: "единицы чтения",
+    metaImageReferences: "ссылки на изображения",
+    totalMinutesLabel: "мин всего",
+    minutesLeftLabel: "мин осталось",
+    ledger: "Реестр",
+    thisEdition: "Это издание",
+    ledgerEdition: "Издание",
+    ledgerReadingUnits: "Единицы чтения",
+    ledgerImageReferences: "Ссылки на изображения",
+    ledgerReferenceLinks: "Справочные ссылки",
+    ledgerGeneratedOutputs: "Сгенерированные материалы",
+    ledgerLastUpdated: "Последнее обновление",
     sectionsEyebrow: "Разделы книги · 04 папки",
     sectionsTitle: "Войдите по разделу и далее двигайтесь через ридер.",
     sectionsAlt: "Или сразу к полному оглавлению",
@@ -129,15 +180,16 @@ const HOME_COPY = {
     folders: {
       frontMatter: { label: "Предварительные тексты", title: "Как читать книгу", description: "От автора, методология, заметка об ИИ-помощи и терминологические заметки.", stamp: "ПРОЧЕСТЬ ПЕРВЫМ" },
       chapters: { label: "Главы", title: "Нарратив расследования", description: "От стадиона и Донбасса к набору, брендингу, боевой репутации и государственному возврату.", stamp: "ОТКРЫТЬ" },
-      appendices: { label: "Приложения", title: "Источники и ссылки", description: "Заметки об источниках для читателя, справочные ссылки и контекст обращения с источниками.", stamp: "СПРАВКА" },
-      codex: { label: "Кодекс", title: "Редакционные протоколы", description: "Постоянные протоколы, регулирующие голос, доказательство, интеграцию источников, поведение при письме и редакторскую проверку.", stamp: "ВНУТРЕННИЙ" },
+      appendices: { label: "Приложения", title: "Источники и ссылки", description: "Заметки об источниках для читателя, справочные ссылки и принципы работы с источниками.", stamp: "СПРАВКА" },
+      codex: { label: "Кодекс", title: "Редакционные протоколы", description: "Постоянные протоколы, регулирующие тон, доказательную базу, интеграцию источников, принципы письма и редакторскую проверку.", stamp: "ВНУТРЕННИЙ" },
     },
     itemsInside: "элементов внутри",
+    items: "элементов",
     editorialNotes: "Редакционные заметки",
     notes: [
       ["†", "Все русскоязычные термины в курсиве с переводом; кириллица — там, где её использует источник."],
-      ["‡", "Субъекты упоминаются по полному имени при первом упоминании, далее — по фамилии; редактируется при необходимости."],
-      ["§", "Утверждения на открытых источниках помечены атрибуцией; перехваченные сообщения сопровождаются каналом и временем."],
+      ["‡", "Люди упоминаются полным именем при первом появлении, затем по фамилии; при необходимости данные анонимизируются или опускаются."],
+      ["§", "Утверждения, основанные на открытых источниках, сопровождаются явной атрибуцией; перехваченные сообщения приводятся с указанием канала и времени."],
     ],
     getCopyToday: "Получите копию сегодня",
     downloadHere: "Скачать здесь",
@@ -207,7 +259,7 @@ function HomeHero({ lastRead, copy, siteData }) {
             <span style={{ background: "var(--ink-1)", height: 14 }} />
             <span>{copy.editionLine}</span>
             <span style={{ background: "var(--ink-1)", height: 14 }} />
-            <span style={{ color: "var(--classified)" }}>~ {totalMinutes} min total</span>
+            <span style={{ color: "var(--classified)" }}>~ {totalMinutes} {copy.totalMinutesLabel}</span>
           </div>
 
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
@@ -215,13 +267,13 @@ function HomeHero({ lastRead, copy, siteData }) {
               <LocalizedLink to={`/read/${feature.slug}`} className="button button--solid">▸ {copy.beginReading}</LocalizedLink>
             ) : null}
             {lastRead ? (
-              <LocalizedLink to={`/read/${lastRead.slug}`} className="button">{copy.resume} · {lastRead.readingMinutes}m left</LocalizedLink>
+              <LocalizedLink to={`/read/${lastRead.slug}`} className="button">{copy.resume} · {lastRead.readingMinutes} {copy.minutesLeftLabel}</LocalizedLink>
             ) : null}
             <LocalizedLink to="/sources" className="button">↡ {copy.viewSources}</LocalizedLink>
           </div>
 
           <div style={{ marginTop: 36, paddingTop: 18, borderTop: "1px solid var(--paper-edge)", fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--ink-3)", letterSpacing: "0.06em", lineHeight: 1.7 }}>
-            {siteData.stats.documentCount} reading units · {siteData.stats.imageCount} image references · {copy.sourcesPreserved}
+            {siteData.stats.documentCount} {copy.metaReadingUnits} · {siteData.stats.imageCount} {copy.metaImageReferences} · {copy.sourcesPreserved}
           </div>
         </div>
 
@@ -271,13 +323,13 @@ function BoundCover({ copy }) {
 
 function EditorsLetter({ copy, siteData }) {
   const ledgerRows = [
-    ["Edition", siteData.edition?.version?.toUpperCase() ?? "V1"],
-    ["Reading Units", String(siteData.stats.documentCount)],
-    ["Image References", String(siteData.stats.imageCount)],
+    [copy.ledgerEdition, siteData.edition?.version?.toUpperCase() ?? "V1"],
+    [copy.ledgerReadingUnits, String(siteData.stats.documentCount)],
+    [copy.ledgerImageReferences, String(siteData.stats.imageCount)],
     [copy.ledgerSources, "44"],
-    ["Reference Links", "75"],
-    ["Generated Outputs", "5"],
-    ["Last Updated", "04.05.2026"],
+    [copy.ledgerReferenceLinks, "75"],
+    [copy.ledgerGeneratedOutputs, "5"],
+    [copy.ledgerLastUpdated, "04.05.2026"],
   ];
 
   return (
@@ -295,8 +347,8 @@ function EditorsLetter({ copy, siteData }) {
         </div>
         <div className="ledger" role="table" aria-label="Edition details">
           <div className="ledger__header">
-            <span>Ledger</span>
-            <span>This Edition</span>
+            <span>{copy.ledger}</span>
+            <span>{copy.thisEdition}</span>
           </div>
           <table className="ledger__table">
             <tbody>
@@ -377,7 +429,8 @@ function buildTocSections(siteData) {
 }
 
 export function TocInline() {
-  const { siteData } = useSite();
+  const { siteData, locale } = useSite();
+  const copy = HOME_COPY[locale];
   const sections = buildTocSections(siteData);
   return (
     <div>
@@ -388,7 +441,7 @@ export function TocInline() {
               {group.title} ›
             </LocalizedLink>
             <span style={{ height: 1, background: "var(--ink-1)" }} />
-            <span className="mono" style={{ color: "var(--ink-3)" }}>{items.length} items</span>
+            <span className="mono" style={{ color: "var(--ink-3)" }}>{items.length} {copy.items}</span>
           </div>
           <ol style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {items.map(({ num, doc }) => (
@@ -429,4 +482,3 @@ function FootnotesStrip({ copy }) {
     </section>
   );
 }
-

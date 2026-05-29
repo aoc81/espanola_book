@@ -115,30 +115,38 @@ const GALLERY_COPY = {
       telegram: "Telegram channels",
       other: "Other consulted sources",
     },
+    imageRefsShort: "image refs",
+    links: "links",
+    appendices: "Appendices",
+    items: "items",
   },
   es: {
     overview: "Inicio",
     sectionLabel: "Sección III",
     title: "Fuentes y referencias de imágenes",
     evidenceRoom: "La sala de pruebas",
-    intro: "Cada afirmación de este libro se remite a una fuente primaria, una transmisión interceptada o una verificación en fuentes abiertas. Abajo: referencias de imágenes, protocolo de tratamiento de fuentes y documentos anexos.",
+    intro: "Cada afirmación de este libro remite a una fuente primaria, una transmisión interceptada o una verificación en fuentes abiertas. A continuación: referencias de imágenes, protocolo de tratamiento de fuentes y documentos anexos.",
     imageReferences: "Referencias de imágenes",
     referenceLinks: "Enlaces de referencia",
     sources: "Fuentes",
-    moreReferences: "referencias más",
+    moreReferences: "referencias adicionales",
     sectionNames: {
       core: "Reportajes e investigaciones centrales",
       analysis: "Fuentes analíticas, registrales y de contexto",
       telegram: "Canales de Telegram",
       other: "Otras fuentes consultadas",
     },
+    imageRefsShort: "refs. imágenes",
+    links: "enlaces",
+    appendices: "Apéndices",
+    items: "elementos",
   },
   fr: {
     overview: "Accueil",
     sectionLabel: "Section III",
     title: "Sources et références d'images",
     evidenceRoom: "La salle des preuves",
-    intro: "Chaque affirmation de ce livre renvoie à une source primaire, à une transmission interceptée ou à une vérification en sources ouvertes. Ci-dessous : références d'images, protocole de traitement des sources et documents annexes.",
+    intro: "Chaque affirmation de ce livre renvoie à une source primaire, à une transmission interceptée ou à une vérification en sources ouvertes. Ci-dessous : références d'images, critères de traitement des sources et documents annexes.",
     imageReferences: "Références d'images",
     referenceLinks: "Liens de référence",
     sources: "Sources",
@@ -149,23 +157,31 @@ const GALLERY_COPY = {
       telegram: "Canaux Telegram",
       other: "Autres sources consultées",
     },
+    imageRefsShort: "réfs. images",
+    links: "liens",
+    appendices: "Annexes",
+    items: "éléments",
   },
   ru: {
     overview: "Главная",
     sectionLabel: "Раздел III",
     title: "Источники и ссылки на изображения",
     evidenceRoom: "Комната улик",
-    intro: "Каждое утверждение в книге восходит к первичному источнику, перехваченному сообщению или проверке на открытых источниках. Ниже: ссылки на изображения, протокол обращения с источниками и приложения.",
+    intro: "Каждое утверждение в книге отсылает к первичному источнику, перехваченному сообщению или проверке по открытым источникам. Ниже: ссылки на изображения, принципы работы с источниками и приложения.",
     imageReferences: "Ссылки на изображения",
     referenceLinks: "Справочные ссылки",
     sources: "Источники",
-    moreReferences: "ссылок ещё",
+    moreReferences: "дополнительных ссылок",
     sectionNames: {
       core: "Ключевые репортажи и расследования",
       analysis: "Аналитические, реестровые и контекстные источники",
       telegram: "Telegram-каналы",
       other: "Прочие проконсультированные источники",
     },
+    imageRefsShort: "ссылок на изображения",
+    links: "ссылок",
+    appendices: "Приложения",
+    items: "элементов",
   },
 };
 
@@ -189,7 +205,7 @@ export function GalleryPage() {
           <span>›</span>
           <span style={{ color: "var(--ink-0)" }}>{copy.title}</span>
           <span className="page-crumb__spacer" />
-          <span style={{ color: "var(--classified)" }}>● {siteData.stats.imageCount} image refs · 44 sources · 75 links</span>
+          <span style={{ color: "var(--classified)" }}>● {siteData.stats.imageCount} {copy.imageRefsShort} · 44 {copy.sources.toLowerCase()} · 75 {copy.links}</span>
         </div>
       </div>
 
@@ -199,7 +215,7 @@ export function GalleryPage() {
         <span className="tick" style={{ top: 18, right: 18 }} aria-hidden="true" />
         <div className="page-section__inner">
           <div className="page-eyebrow-row">
-            <div className="eyebrow">{copy.sectionLabel} · Appendices</div>
+            <div className="eyebrow">{copy.sectionLabel} · {copy.appendices}</div>
             <div style={{ height: 1, background: "var(--ink-1)" }} />
             <div className="mono" style={{ color: "var(--ink-3)" }}>{copy.evidenceRoom}</div>
           </div>
@@ -238,7 +254,7 @@ export function GalleryPage() {
           <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 48 }}>
             <span style={{ fontFamily: "var(--font-display)", fontSize: 14, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ {copy.referenceLinks} ✦</span>
             <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
-            <span className="mono" style={{ color: "var(--ink-3)" }}>75 links · 44 sources</span>
+            <span className="mono" style={{ color: "var(--ink-3)" }}>75 {copy.links} · 44 {copy.sources.toLowerCase()}</span>
           </div>
           <div style={{ display: "grid", gap: 48 }}>
             {REFERENCE_LINKS.map((group) => (
@@ -270,7 +286,7 @@ export function GalleryPage() {
             <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginBottom: 32 }}>
             <span style={{ fontFamily: "var(--font-display)", fontSize: 14, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--classified)", fontWeight: 700 }}>✦ {copy.imageReferences} ✦</span>
               <span style={{ height: 1, background: "var(--ink-1)", flex: 1 }} />
-              <span className="mono" style={{ color: "var(--ink-3)" }}>{allImages.length} items</span>
+              <span className="mono" style={{ color: "var(--ink-3)" }}>{allImages.length} {copy.items}</span>
             </div>
             <div className="gallery-image-grid">
               {visibleImages.map((img, i) => (

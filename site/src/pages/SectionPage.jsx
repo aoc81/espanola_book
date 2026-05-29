@@ -29,6 +29,11 @@ const SECTION_COPY = {
     readNow: "Read",
     fileRef: "File ref",
     chapterSectionLabel: "Chapters",
+    youAreReading: "You're reading",
+    minRead: "min read",
+    images: "images",
+    minLeft: "m left",
+    minTotal: "min total",
   },
   es: {
     overview: "Inicio",
@@ -53,6 +58,11 @@ const SECTION_COPY = {
     readNow: "Leer",
     fileRef: "Ref. archivo",
     chapterSectionLabel: "Capítulos",
+    youAreReading: "Estás leyendo",
+    minRead: "min de lectura",
+    images: "imágenes",
+    minLeft: "min restantes",
+    minTotal: "min en total",
   },
   fr: {
     overview: "Accueil",
@@ -77,6 +87,11 @@ const SECTION_COPY = {
     readNow: "Lire",
     fileRef: "Réf. fichier",
     chapterSectionLabel: "Chapitres",
+    youAreReading: "Lecture en cours",
+    minRead: "min de lecture",
+    images: "images",
+    minLeft: "min restantes",
+    minTotal: "min au total",
   },
   ru: {
     overview: "Главная",
@@ -101,6 +116,11 @@ const SECTION_COPY = {
     readNow: "Читать",
     fileRef: "Ссылка на файл",
     chapterSectionLabel: "Главы",
+    youAreReading: "Вы читаете",
+    minRead: "мин чтения",
+    images: "изображения",
+    minLeft: "мин осталось",
+    minTotal: "мин всего",
   },
 };
 
@@ -243,7 +263,7 @@ export function SectionPage() {
 
             {/* reading time total */}
             <div className="mono" style={{ color: "var(--ink-3)", fontSize: 10 }}>
-              {visible.reduce((s, d) => s + d.readingMinutes, 0)} min total
+              {visible.reduce((s, d) => s + d.readingMinutes, 0)} {copy.minTotal}
             </div>
           </div>
         </div>
@@ -316,7 +336,7 @@ function SectionChapterCard({ doc, globalIndex, locale, copy }) {
     }} className="section-card">
       {isCurrent && (
         <div className="stamp stamp--rotated" style={{ position: "absolute", top: 18, right: 18, transform: "rotate(4deg)" }}>
-          You're reading
+          {copy.youAreReading}
         </div>
       )}
 
@@ -337,8 +357,8 @@ function SectionChapterCard({ doc, globalIndex, locale, copy }) {
           {doc.excerpt ? `${doc.excerpt} [...]` : ""}
         </p>
         <div className="section-card__meta">
-          <span>{doc.readingMinutes} min read</span>
-          <span>{doc.images.length} images</span>
+          <span>{doc.readingMinutes} {copy.minRead}</span>
+          <span>{doc.images.length} {copy.images}</span>
         </div>
       </div>
 
@@ -364,7 +384,7 @@ function SectionChapterCard({ doc, globalIndex, locale, copy }) {
           style={{ width: "100%", justifyContent: "center" }}
           onClick={() => setPct(getChapterProgress(locale, doc.id))}
         >
-          {isCompleted ? `▸ ${copy.readAgain}` : isInProgress ? `▸ ${copy.continue} · ${minsLeft}m left` : `▸ ${copy.readNow}`}
+          {isCompleted ? `▸ ${copy.readAgain}` : isInProgress ? `▸ ${copy.continue} · ${minsLeft} ${copy.minLeft}` : `▸ ${copy.readNow}`}
         </LocalizedLink>
 
         <div className="mono" style={{ color: "var(--ink-3)", fontSize: 10 }}>
@@ -374,4 +394,3 @@ function SectionChapterCard({ doc, globalIndex, locale, copy }) {
     </article>
   );
 }
-

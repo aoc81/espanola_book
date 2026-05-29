@@ -7,10 +7,22 @@ import { useLocalePath, useSite } from "../lib/siteContext";
 import { LocalizedLink } from "../components/layout/LocalizedLink";
 
 const READER_COPY = {
-  en: { bookNavigation: "Book Navigation", currentDocument: "Current document", previous: "Previous", next: "Next", endOf: "End of", supportingImages: "Supporting Images", visualRefs: "Visual references attached to", viewOriginal: "View original" },
-  es: { bookNavigation: "Navegación del libro", currentDocument: "Documento actual", previous: "Anterior", next: "Siguiente", endOf: "Fin de", supportingImages: "Imágenes de apoyo", visualRefs: "Referencias visuales adjuntas a", viewOriginal: "Ver original" },
-  fr: { bookNavigation: "Navigation du livre", currentDocument: "Document actuel", previous: "Précédent", next: "Suivant", endOf: "Fin de", supportingImages: "Images d'appui", visualRefs: "Références visuelles jointes à", viewOriginal: "Voir l'original" },
-  ru: { bookNavigation: "Навигация по книге", currentDocument: "Текущий документ", previous: "Назад", next: "Далее", endOf: "Конец раздела", supportingImages: "Сопроводительные изображения", visualRefs: "Визуальные ссылки, приложенные к", viewOriginal: "Открыть оригинал" },
+  en: {
+    bookNavigation: "Book Navigation", currentDocument: "Current document", previous: "Previous", next: "Next", endOf: "End of", supportingImages: "Supporting Images", visualRefs: "Visual references attached to", viewOriginal: "View original",
+    units: "units", thisDocument: "This Document", figures: "figures", minRead: "min read", section: "Section", paper: "Paper", dossier: "Dossier", pause: "Pause", resume: "Resume", listen: "Listen", stop: "Stop", share: "Share", copy: "Copy", voiceUnavailable: "Voice reading not available.", voiceStopped: "Voice reading stopped.", readingAloud: "Reading aloud", paused: "Paused", linkCopied: "Link copied", copyFailed: "Copy failed", shared: "Shared", readShare: "Read", notesSources: "Notes & Sources", source: "Source", author: "Author", license: "License", rights: "Rights", sourceAttributedOnly: "source-attributed only; not freely licensed.", close: "Close",
+  },
+  es: {
+    bookNavigation: "Navegación del libro", currentDocument: "Documento actual", previous: "Anterior", next: "Siguiente", endOf: "Fin de", supportingImages: "Imágenes de apoyo", visualRefs: "Referencias visuales adjuntas a", viewOriginal: "Ver original",
+    units: "unidades", thisDocument: "Este documento", figures: "figuras", minRead: "min de lectura", section: "Sección", paper: "Papel", dossier: "Dossier", pause: "Pausar", resume: "Reanudar", listen: "Escuchar", stop: "Detener", share: "Compartir", copy: "Copiar", voiceUnavailable: "Lectura en voz alta no disponible.", voiceStopped: "Lectura detenida.", readingAloud: "Leyendo en voz alta", paused: "Pausado", linkCopied: "Enlace copiado", copyFailed: "No se pudo copiar", shared: "Compartido", readShare: "Lee", notesSources: "Notas y fuentes", source: "Fuente", author: "Autor", license: "Licencia", rights: "Derechos", sourceAttributedOnly: "solo con atribución a la fuente; no tiene licencia libre.", close: "Cerrar",
+  },
+  fr: {
+    bookNavigation: "Navigation du livre", currentDocument: "Document actuel", previous: "Précédent", next: "Suivant", endOf: "Fin de", supportingImages: "Images d'appui", visualRefs: "Références visuelles jointes à", viewOriginal: "Voir l'original",
+    units: "unités", thisDocument: "Ce document", figures: "figures", minRead: "min de lecture", section: "Section", paper: "Papier", dossier: "Dossier", pause: "Pause", resume: "Reprendre", listen: "Écouter", stop: "Arrêter", share: "Partager", copy: "Copier", voiceUnavailable: "Lecture vocale indisponible.", voiceStopped: "Lecture vocale arrêtée.", readingAloud: "Lecture en cours", paused: "En pause", linkCopied: "Lien copié", copyFailed: "Échec de la copie", shared: "Partagé", readShare: "Lire", notesSources: "Notes et sources", source: "Source", author: "Auteur", license: "Licence", rights: "Droits", sourceAttributedOnly: "attribution à la source uniquement ; pas de licence libre.", close: "Fermer",
+  },
+  ru: {
+    bookNavigation: "Навигация по книге", currentDocument: "Текущий документ", previous: "Назад", next: "Далее", endOf: "Конец раздела", supportingImages: "Сопроводительные изображения", visualRefs: "Визуальные ссылки, приложенные к", viewOriginal: "Открыть оригинал",
+    units: "единиц", thisDocument: "Этот документ", figures: "иллюстраций", minRead: "мин чтения", section: "Раздел", paper: "Бумага", dossier: "Досье", pause: "Пауза", resume: "Продолжить", listen: "Слушать", stop: "Стоп", share: "Поделиться", copy: "Копировать", voiceUnavailable: "Озвучивание недоступно.", voiceStopped: "Озвучивание остановлено.", readingAloud: "Чтение вслух", paused: "Пауза", linkCopied: "Ссылка скопирована", copyFailed: "Не удалось скопировать", shared: "Отправлено", readShare: "Читать", notesSources: "Примечания и источники", source: "Источник", author: "Автор", license: "Лицензия", rights: "Права", sourceAttributedOnly: "только с указанием источника; свободной лицензии нет.", close: "Закрыть",
+  },
 };
 
 function useDocumentNavigation(slug) {
@@ -60,6 +72,7 @@ export function ReaderPage() {
 
       <ReaderRunningHead
         current={current}
+        copy={copy}
         fontScale={fontScale}
         setFontScale={setFontScale}
         readerMode={readerMode}
@@ -72,7 +85,7 @@ export function ReaderPage() {
             <span className="esp-eyebrow reader-sidebar__eyebrow">{copy.bookNavigation}</span>
             <h2 className="reader-sidebar__title">{siteData.titlePage.title}</h2>
             <div className="reader-sidebar__edition">
-              {siteData.edition?.version?.toUpperCase() ?? "V1"} · {siteData.stats.documentCount} units
+              {siteData.edition?.version?.toUpperCase() ?? "V1"} · {siteData.stats.documentCount} {copy.units}
             </div>
             <div className="reader-sidebar__index">
               {Object.entries(groupedDocuments).map(([sectionTitle, documents]) => (
@@ -85,12 +98,12 @@ export function ReaderPage() {
               ))}
             </div>
             <div style={{ margin: "24px 22px 22px", padding: "14px 16px", border: "1px solid var(--ink-1)", background: "var(--paper-1)" }}>
-              <div className="mono" style={{ color: "var(--ink-3)", fontSize: 9, marginBottom: 8 }}>This Document</div>
+              <div className="mono" style={{ color: "var(--ink-3)", fontSize: 9, marginBottom: 8 }}>{copy.thisDocument}</div>
               <div style={{ fontFamily: "var(--font-serif)", fontSize: 13, color: "var(--ink-1)", lineHeight: 1.5 }}>
-                {current.images.length} figures · {current.readingMinutes} min read
+                {current.images.length} {copy.figures} · {current.readingMinutes} {copy.minRead}
               </div>
               <div style={{ height: 1, background: "var(--paper-edge)", margin: "10px 0" }} />
-              <div className="mono" style={{ color: "var(--ink-3)", fontSize: 9 }}>Section</div>
+              <div className="mono" style={{ color: "var(--ink-3)", fontSize: 9 }}>{copy.section}</div>
               <div style={{ fontFamily: "var(--font-serif)", fontSize: 13, color: "var(--ink-1)", marginTop: 4 }}>{current.sectionTitle}</div>
             </div>
           </div>
@@ -117,9 +130,9 @@ export function ReaderPage() {
             </div>
             <h1 className="reader-chapter-title">{chapterTitle(current.title)}</h1>
             <div className="reader-article__meta">
-              <span>{current.readingMinutes} min read</span>
+              <span>{current.readingMinutes} {copy.minRead}</span>
               <span>·</span>
-              <span>{current.images.length} images</span>
+              <span>{current.images.length} {copy.figures}</span>
               <span>·</span>
               <span>{current.fileName}</span>
             </div>
@@ -127,7 +140,7 @@ export function ReaderPage() {
 
           <div className="reader-body">
             {current.blocks.map((block, index) => (
-              <BlockRenderer key={`${current.slug}-${index}`} block={block} isLead={index === 0} fnMap={fnMap} />
+              <BlockRenderer key={`${current.slug}-${index}`} block={block} isLead={index === 0} fnMap={fnMap} copy={copy} />
             ))}
           </div>
 
@@ -140,7 +153,7 @@ export function ReaderPage() {
   );
 }
 
-function ReaderRunningHead({ current, fontScale, setFontScale, readerMode, setReaderMode }) {
+function ReaderRunningHead({ current, copy, fontScale, setFontScale, readerMode, setReaderMode }) {
   const [speechState, setSpeechState] = useState("idle");
   const [speechMessage, setSpeechMessage] = useState("");
   const [shareMessage, setShareMessage] = useState("");
@@ -161,22 +174,22 @@ function ReaderRunningHead({ current, fontScale, setFontScale, readerMode, setRe
   }, [shareMessage]);
 
   const startReading = () => {
-    if (!speechSupported) { setSpeechMessage("Voice reading not available."); return; }
+    if (!speechSupported) { setSpeechMessage(copy.voiceUnavailable); return; }
     window.speechSynthesis.cancel();
     const utterance = new window.SpeechSynthesisUtterance(documentToSpeechText(current));
     utterance.rate = 0.92;
     utterance.pitch = 0.98;
     utterance.onend = () => { setSpeechState("idle"); setSpeechMessage(""); };
-    utterance.onerror = () => { setSpeechState("idle"); setSpeechMessage("Voice reading stopped."); };
+    utterance.onerror = () => { setSpeechState("idle"); setSpeechMessage(copy.voiceStopped); };
     setSpeechState("speaking");
-    setSpeechMessage("Reading aloud");
+    setSpeechMessage(copy.readingAloud);
     window.speechSynthesis.speak(utterance);
   };
 
   const pauseReading = () => {
     if (!speechSupported) return;
-    if (speechState === "speaking") { window.speechSynthesis.pause(); setSpeechState("paused"); setSpeechMessage("Paused"); return; }
-    window.speechSynthesis.resume(); setSpeechState("speaking"); setSpeechMessage("Reading aloud");
+    if (speechState === "speaking") { window.speechSynthesis.pause(); setSpeechState("paused"); setSpeechMessage(copy.paused); return; }
+    window.speechSynthesis.resume(); setSpeechState("speaking"); setSpeechMessage(copy.readingAloud);
   };
 
   const stopReading = () => {
@@ -185,13 +198,13 @@ function ReaderRunningHead({ current, fontScale, setFontScale, readerMode, setRe
   };
 
   const copyLink = async () => {
-    try { await navigator.clipboard.writeText(window.location.href); setShareMessage("Link copied"); }
-    catch { setShareMessage("Copy failed"); }
+    try { await navigator.clipboard.writeText(window.location.href); setShareMessage(copy.linkCopied); }
+    catch { setShareMessage(copy.copyFailed); }
   };
 
   const shareDocument = async () => {
-    const shareData = { title: chapterTitle(current.title), text: `Read "${chapterTitle(current.title)}"`, url: window.location.href };
-    if (navigator.share) { try { await navigator.share(shareData); setShareMessage("Shared"); return; } catch { return; } }
+    const shareData = { title: chapterTitle(current.title), text: `${copy.readShare} "${chapterTitle(current.title)}"`, url: window.location.href };
+    if (navigator.share) { try { await navigator.share(shareData); setShareMessage(copy.shared); return; } catch { return; } }
     await copyLink();
   };
 
@@ -220,24 +233,24 @@ function ReaderRunningHead({ current, fontScale, setFontScale, readerMode, setRe
           {/* mode toggle */}
           <div style={{ display: "flex", border: "1px solid var(--ink-1)", marginLeft: 6 }}>
             <button type="button" className="reader-tool-btn" style={{ background: readerMode === "paper" ? "var(--ink-0)" : "transparent", color: readerMode === "paper" ? "var(--paper-0)" : "var(--ink-1)" }} onClick={() => setReaderMode("paper")}>
-              ☼ Paper
+              ☼ {copy.paper}
             </button>
             <button type="button" className="reader-tool-btn" style={{ borderLeft: "1px solid var(--ink-1)", background: readerMode === "dossier" ? "var(--ink-0)" : "transparent", color: readerMode === "dossier" ? "var(--paper-0)" : "var(--ink-1)" }} onClick={() => setReaderMode("dossier")}>
-              ☾ Dossier
+              ☾ {copy.dossier}
             </button>
           </div>
           {/* listen */}
           <button type="button" className="reader-tool-btn" style={{ border: "1px solid var(--ink-1)", marginLeft: 6 }} onClick={speechState === "idle" ? startReading : pauseReading} disabled={!speechSupported}>
             {speechState === "speaking" ? <Pause size={11} /> : <Play size={11} />}
-            {speechState === "speaking" ? " Pause" : speechState === "paused" ? " Resume" : " Listen"}
+            {speechState === "speaking" ? ` ${copy.pause}` : speechState === "paused" ? ` ${copy.resume}` : ` ${copy.listen}`}
           </button>
           {speechState !== "idle" && (
-            <button type="button" className="reader-tool-btn" style={{ border: "1px solid var(--ink-1)" }} onClick={stopReading}><Square size={10} /> Stop</button>
+            <button type="button" className="reader-tool-btn" style={{ border: "1px solid var(--ink-1)" }} onClick={stopReading}><Square size={10} /> {copy.stop}</button>
           )}
           {/* share */}
-          <button type="button" className="reader-tool-btn" style={{ border: "1px solid var(--ink-1)", marginLeft: 6 }} onClick={shareDocument}><Share2 size={11} /> Share</button>
+          <button type="button" className="reader-tool-btn" style={{ border: "1px solid var(--ink-1)", marginLeft: 6 }} onClick={shareDocument}><Share2 size={11} /> {copy.share}</button>
           <button type="button" className="reader-tool-btn" style={{ border: "1px solid var(--ink-1)" }} onClick={copyLink}>
-            {shareMessage === "Link copied" ? <Check size={11} /> : <Copy size={11} />} Copy
+            {shareMessage === copy.linkCopied ? <Check size={11} /> : <Copy size={11} />} {copy.copy}
           </button>
           {(speechMessage || shareMessage) && (
             <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--classified)" }}>
@@ -393,7 +406,7 @@ function renderWithRefs(text, fnMap) {
   });
 }
 
-function FootnotesBlock({ block, fnMap }) {
+function FootnotesBlock({ block, fnMap, copy }) {
   const DEF = /^\[\^([^\]]+)\]:\s*(.+)/;
   const URL_RE = /https?:\/\/[^\s;,<>()[\]]+/g;
 
@@ -412,7 +425,7 @@ function FootnotesBlock({ block, fnMap }) {
 
   return (
     <section style={{ marginTop: 56, paddingTop: 24, borderTop: "3px double var(--ink-1)" }}>
-      <div className="eyebrow" style={{ marginBottom: 20 }}>Notes &amp; Sources</div>
+      <div className="eyebrow" style={{ marginBottom: 20 }}>{copy.notesSources}</div>
       <ol style={{ listStyle: "none", margin: 0, padding: 0 }}>
         {items.map(({ key, num, rawText }) => {
           const parts = rawText.split(URL_RE);
@@ -443,7 +456,7 @@ function FootnotesBlock({ block, fnMap }) {
   );
 }
 
-function BlockRenderer({ block, isLead, fnMap }) {
+function BlockRenderer({ block, isLead, fnMap, copy }) {
   if (block.type === "subheading") {
     return <h2 className="article-subheading">{block.text}</h2>;
   }
@@ -465,7 +478,7 @@ function BlockRenderer({ block, isLead, fnMap }) {
   }
   if (block.type === "paragraph") {
     if (isFootnoteDefsBlock(block)) {
-      return <FootnotesBlock block={block} fnMap={fnMap} />;
+      return <FootnotesBlock block={block} fnMap={fnMap} copy={copy} />;
     }
     const text = block.lines.join(" ");
     const content = fnMap ? renderWithRefs(text, fnMap) : text;
@@ -491,21 +504,21 @@ function ImageGallery({ title, images, copy }) {
             </button>
             <figcaption>
               <p className="image-card__caption">{image.caption}</p>
-              <p className="image-card__credit"><strong>Source:</strong> {image.source_name}</p>
-              <p className="image-card__credit"><strong>Author:</strong> {image.author}</p>
-              <p className="image-card__credit"><strong>License:</strong> {displayLicenseLabel(image.license)}</p>
-              {!image.freely_licensed ? <p className="image-card__credit"><strong>Rights:</strong> source-attributed only; not freely licensed.</p> : null}
+              <p className="image-card__credit"><strong>{copy.source}:</strong> {image.source_name}</p>
+              <p className="image-card__credit"><strong>{copy.author}:</strong> {image.author}</p>
+              <p className="image-card__credit"><strong>{copy.license}:</strong> {displayLicenseLabel(image.license)}</p>
+              {!image.freely_licensed ? <p className="image-card__credit"><strong>{copy.rights}:</strong> {copy.sourceAttributedOnly}</p> : null}
               {image.source_url ? <a href={image.source_url} target="_blank" rel="noreferrer" className="image-card__link">{copy.viewOriginal}</a> : null}
             </figcaption>
           </figure>
         ))}
       </div>
-      {selectedImage ? <ImageLightbox image={selectedImage} onClose={() => setSelectedImage(null)} /> : null}
+      {selectedImage ? <ImageLightbox image={selectedImage} onClose={() => setSelectedImage(null)} copy={copy} /> : null}
     </section>
   );
 }
 
-function ImageLightbox({ image, onClose }) {
+function ImageLightbox({ image, onClose, copy }) {
   useEffect(() => {
     const handleKeyDown = (e) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", handleKeyDown);
@@ -516,11 +529,10 @@ function ImageLightbox({ image, onClose }) {
     <div className="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
       <button type="button" className="lightbox__backdrop" onClick={onClose} aria-label="Close image preview" />
       <div className="lightbox__panel">
-        <button type="button" className="lightbox__close" onClick={onClose}>Close</button>
+        <button type="button" className="lightbox__close" onClick={onClose}>{copy.close}</button>
         <img src={image.publicPath} alt={image.caption} />
         <p>{image.caption}</p>
       </div>
     </div>
   );
 }
-

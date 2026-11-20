@@ -321,11 +321,19 @@ function createZipFromStageDir(stageDir, zipPath) {
     return;
   }
 
-  execFileSync(
-    "zip",
-    ["-r", zipPath, path.basename(stageDir)],
-    { cwd: path.dirname(stageDir), stdio: "pipe" },
-  );
+  const options = { cwd: path.dirname(stageDir), stdio: "pipe" };
+  try {
+    execFileSync("zip", ["-r", zipPath, path.basename(stageDir)], options);
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+    // No `zip` binary (e.g. the Cloudflare Pages build image): Python's
+    // zipfile module writes the same archive layout.
+    execFileSync(
+      "python3",
+      ["-m", "zipfile", "-c", zipPath, path.basename(stageDir)],
+      options,
+    );
+  }
 }
 
 function contentDirFor(language) {
